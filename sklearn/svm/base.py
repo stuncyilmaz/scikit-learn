@@ -10,6 +10,7 @@ from ..preprocessing import LabelEncoder
 from ..utils import atleast2d_or_csr, array2d, check_random_state
 from ..utils.extmath import safe_sparse_dot
 from ..utils import ConvergenceWarning
+from ..utils.fixes import unique
 
 
 LIBSVM_IMPL = ['c_svc', 'nu_svc', 'one_class', 'epsilon_svr', 'nu_svr']
@@ -147,7 +148,9 @@ class BaseLibSVM(BaseEstimator):
         If X is a dense array, then the other methods will not support sparse
         matrices as input.
         """
-
+        if self.impl in ['c_svc', 'nu_svc']:
+            # we are doing classification
+            self.classes_, y = unique(y, return_inverse=True)
         if self.sparse == "auto":
             self._sparse = sp.isspmatrix(X) and not self._pairwise
         else:
@@ -299,7 +302,11 @@ class BaseLibSVM(BaseEstimator):
         """
         X = self._validate_for_predict(X)
         predict = self._sparse_predict if self._sparse else self._dense_predict
-        return predict(X)
+        y_pred = predict(X)
+        if self.impl in ['c_svc', 'nu_svc']:
+            # we are doing classification
+            y_pred = self.classes_.take(y_pred.astype(np.int))
+        return y_pred
 
     def _dense_predict(self, X):
         n_samples, n_features = X.shape
