@@ -1,0 +1,194 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1.6. Partial Least Squares &mdash; scikit-learn 0.14-git documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.14-git',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link rel="stylesheet" href="../_static/css/bootstrap.min.css" media`="screen" />
+<link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
+
+<script src="../_static/js/jquery.js"></script>
+<script src="../_static/js/bootstrap.min.js"></script>
+
+
+  </head>
+  <body>
+
+<div class="header-wrapper">
+    <div class="header">
+        <p class="logo"><a href="../index.html">
+            <img src="../_static/scikit-learn-logo-small.png" alt="Logo"/>
+        </a>
+        </p><div class="navbar">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../install.html">Installation</a></li>
+                <li><a href="../documentation.html">Documentation</a></li>
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+            </ul>
+
+            <div class="search_form">
+
+                <div id="cse" style="width: 100%;"></div>
+                <script src="http://www.google.com/jsapi"
+                    type="text/javascript"></script>
+                <script type="text/javascript"> google.load('search', '1',
+                    {language : 'en'}); google.setOnLoadCallback(function() {
+                        var customSearchControl = new
+                        google.search.CustomSearchControl('016639176250731907682:tjtqbvtvij0');
+                        customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+                        var options = new google.search.DrawOptions();
+                        options.setAutoComplete(true);
+                        customSearchControl.draw('cse', options); }, true);
+                </script>
+
+            </div>
+        </div> <!-- end navbar --></div>
+</div>
+
+
+<!-- Github "fork me" ribbon -->
+<a href="https://github.com/scikit-learn/scikit-learn">
+  <img style="position: absolute; top: 0; right: 0; border: 0;"
+       src="../_static/img/forkme.png"
+       alt="Fork me on GitHub">
+</a>
+
+<div class="content-wrapper">
+    <div class="sphinxsidebar">
+    <div class="sphinxsidebarwrapper">
+        <div class="rel rellarge">
+    
+<!-- rellinks[1:] is an ugly hack to avoid link to module
+index -->
+<!-- Ad a link to the 'up' page -->
+    </div>
+    <p style="text-align: center; background-color: #FFE4E4">This documentation is
+    for scikit-learn <strong>version 0.14-git</strong>
+    &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
+
+    <h3>This page</h3>
+        <ul>
+<li><a class="reference internal" href="#">1.6. Partial Least Squares</a></li>
+</ul>
+
+    </div>
+</div>
+
+
+
+      <div class="content">
+            
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="partial-least-squares">
+<span id="pls"></span><h1>1.6. Partial Least Squares<a class="headerlink" href="#partial-least-squares" title="Permalink to this headline">¶</a></h1>
+<p>Partial least squares (PLS) models are useful to find linear relations
+between two multivariate datasets: in PLS the <cite>X</cite> and <cite>Y</cite> arguments of
+the <cite>fit</cite> method are 2D arrays.</p>
+<div class="figure align-center">
+<a class="reference external image-reference" href="../auto_examples/plot_pls.html"><img alt="modules/../auto_examples/images/plot_pls_1.png" src="modules/../auto_examples/images/plot_pls_1.png" /></a>
+</div>
+<p>PLS finds the fundamental relations between two matrices
+(X and Y): it is a latent variable approach to modeling the covariance
+structures in these two spaces. A PLS model will try to find the
+multidimensional direction in the X space that explains the maximum
+multidimensional variance direction in the Y space. PLS-regression is
+particularly suited when the matrix of predictors has more variables
+than observations, and when there is multicollinearity among X
+values. By contrast, standard regression will fail in these cases.</p>
+<p>Classes included in this module are <a class="reference internal" href="generated/sklearn.pls.PLSRegression.html#sklearn.pls.PLSRegression" title="sklearn.pls.PLSRegression"><tt class="xref py py-class docutils literal"><span class="pre">PLSRegression</span></tt></a>
+<a class="reference internal" href="generated/sklearn.pls.PLSCanonical.html#sklearn.pls.PLSCanonical" title="sklearn.pls.PLSCanonical"><tt class="xref py py-class docutils literal"><span class="pre">PLSCanonical</span></tt></a>, <a class="reference internal" href="generated/sklearn.pls.CCA.html#sklearn.pls.CCA" title="sklearn.pls.CCA"><tt class="xref py py-class docutils literal"><span class="pre">CCA</span></tt></a> and <a class="reference internal" href="generated/sklearn.pls.PLSSVD.html#sklearn.pls.PLSSVD" title="sklearn.pls.PLSSVD"><tt class="xref py py-class docutils literal"><span class="pre">PLSSVD</span></tt></a></p>
+<div class="topic">
+<p class="topic-title first">Reference:</p>
+<ul class="simple">
+<li>JA Wegelin
+<a class="reference external" href="https://www.stat.washington.edu/www/research/reports/2000/tr371.pdf">A survey of Partial Least Squares (PLS) methods, with emphasis on the two-block case</a></li>
+</ul>
+</div>
+<div class="topic">
+<p class="topic-title first">Examples:</p>
+<ul class="simple">
+<li><a class="reference internal" href="../auto_examples/plot_pls.html#example-plot-pls-py"><em>PLS Partial Least Squares</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+        <div class="clearer"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2010â2013, scikit-learn developers (BSD License).
+    </div>
+     <div class="rel rellarge">
+    
+    
+     </div>
+     <script type="text/javascript">
+       $("div.buttonNext, div.buttonPrevious").hover(
+           function () {
+               $(this).css('background-color', '#FF9C34');
+           },
+           function () {
+               $(this).css('background-color', '#A7D6E2');
+           }
+       );
+       var bodywrapper = $('.bodywrapper');
+    var sidebarbutton = $('#sidebarbutton');
+        sidebarbutton.css({
+'height': '900px'
+       });
+     </script>
+
+    
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22606712-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+    
+  </body>
+</html>

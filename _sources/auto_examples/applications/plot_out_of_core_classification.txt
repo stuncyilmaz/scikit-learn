@@ -1,0 +1,45 @@
+
+
+.. _example_applications_plot_out_of_core_classification.py:
+
+
+======================================================
+Out-of-core classification of text documents
+======================================================
+
+This is an example showing how scikit-learn can be used for classification
+using an out-of-core approach.
+
+Out-of-core learning means that we can learn from data that would not fit into
+the computer main memory. To achieve this goal we make use of an online
+classifier (i.e. that supports the `partial_fit` method) that will be fed with
+batches of examples. Moreover, to guarantee that the features space remains the
+same over time we leverage the `HashingVectorizer` class that will project each
+example into the same input space. This is especially useful in the case of
+text classification where new features (e.g. words) are discovered on the fly.
+
+The dataset used in this example is Reuters-21578 as provided by the UCI ML
+repository. It will be automatically downloaded and uncompressed in the current
+directory on first run.
+
+The plot represents is the learning curve of the classifier i.e. the evolution
+of classification accuracy with the number of mini-batches fed to the
+classifier.
+
+`ReutersParser` and `ReutersStreamReader` classes are utility classes to parse
+and stream examples to the main learning loop.
+
+To limit the amount of consumed memory at any time we enqueue examples up to a
+fixed amount before calling the features transformation and learning routines.
+We then clear the examples queue and proceed with enqueuing again and so on.
+
+To study the performance of the method we sample the first 1000 examples of the
+dataset and hold them out as separate testing data. We then use it to estimate
+accuracy after each mini-batch.
+
+
+**Python source code:** :download:`plot_out_of_core_classification.py <plot_out_of_core_classification.py>`
+
+.. literalinclude:: plot_out_of_core_classification.py
+    :lines: 36-
+    
