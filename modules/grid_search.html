@@ -30,7 +30,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
@@ -290,23 +289,23 @@ compute the <strong>regularization path</strong> of the estimator.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.RidgeCV.html#sklearn.linear_model.RidgeCV" title="sklearn.linear_model.RidgeCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.RidgeCV</span></tt></a></td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.RidgeCV.html#sklearn.linear_model.RidgeCV" title="sklearn.linear_model.RidgeCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.RidgeCV</span></tt></a>([alphas,&nbsp;...])</td>
+<td>Ridge regression with built-in cross-validation.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.linear_model.RidgeClassifierCV.html#sklearn.linear_model.RidgeClassifierCV" title="sklearn.linear_model.RidgeClassifierCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.RidgeClassifierCV</span></tt></a></td>
-<td></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.linear_model.RidgeClassifierCV.html#sklearn.linear_model.RidgeClassifierCV" title="sklearn.linear_model.RidgeClassifierCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.RidgeClassifierCV</span></tt></a>([alphas,&nbsp;...])</td>
+<td>Ridge classifier with built-in cross-validation.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.LarsCV.html#sklearn.linear_model.LarsCV" title="sklearn.linear_model.LarsCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LarsCV</span></tt></a></td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.LarsCV.html#sklearn.linear_model.LarsCV" title="sklearn.linear_model.LarsCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LarsCV</span></tt></a>([fit_intercept,&nbsp;...])</td>
+<td>Cross-validated Least Angle Regression model</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV" title="sklearn.linear_model.LassoLarsCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LassoLarsCV</span></tt></a></td>
-<td></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.linear_model.LassoLarsCV.html#sklearn.linear_model.LassoLarsCV" title="sklearn.linear_model.LassoLarsCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LassoLarsCV</span></tt></a>([fit_intercept,&nbsp;...])</td>
+<td>Cross-validated Lasso, using the LARS algorithm</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.LassoCV.html#sklearn.linear_model.LassoCV" title="sklearn.linear_model.LassoCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LassoCV</span></tt></a></td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.LassoCV.html#sklearn.linear_model.LassoCV" title="sklearn.linear_model.LassoCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LassoCV</span></tt></a>([eps,&nbsp;n_alphas,&nbsp;...])</td>
+<td>Lasso linear model with iterative fitting along a regularization path</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.linear_model.ElasticNetCV.html#sklearn.linear_model.ElasticNetCV" title="sklearn.linear_model.ElasticNetCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.ElasticNetCV</span></tt></a></td>
-<td></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.linear_model.ElasticNetCV.html#sklearn.linear_model.ElasticNetCV" title="sklearn.linear_model.ElasticNetCV"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.ElasticNetCV</span></tt></a>([l1_ratio,&nbsp;eps,&nbsp;...])</td>
+<td>Elastic Net model with iterative fitting along a regularization path</td>
 </tr>
 </tbody>
 </table>
@@ -325,8 +324,8 @@ model selection:</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.LassoLarsIC.html#sklearn.linear_model.LassoLarsIC" title="sklearn.linear_model.LassoLarsIC"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LassoLarsIC</span></tt></a></td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.linear_model.LassoLarsIC.html#sklearn.linear_model.LassoLarsIC" title="sklearn.linear_model.LassoLarsIC"><tt class="xref py py-obj docutils literal"><span class="pre">linear_model.LassoLarsIC</span></tt></a>([criterion,&nbsp;...])</td>
+<td>Lasso model fit with Lars using BIC or AIC for model selection</td>
 </tr>
 </tbody>
 </table>
@@ -348,23 +347,23 @@ model selection.</p>
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier" title="sklearn.ensemble.RandomForestClassifier"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.RandomForestClassifier</span></tt></a></td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier" title="sklearn.ensemble.RandomForestClassifier"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.RandomForestClassifier</span></tt></a>([...])</td>
+<td>A random forest classifier.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor" title="sklearn.ensemble.RandomForestRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.RandomForestRegressor</span></tt></a></td>
-<td></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor" title="sklearn.ensemble.RandomForestRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.RandomForestRegressor</span></tt></a>([...])</td>
+<td>A random forest regressor.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier" title="sklearn.ensemble.ExtraTreesClassifier"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.ExtraTreesClassifier</span></tt></a></td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier" title="sklearn.ensemble.ExtraTreesClassifier"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.ExtraTreesClassifier</span></tt></a>([...])</td>
+<td>An extra-trees classifier.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.ensemble.ExtraTreesRegressor.html#sklearn.ensemble.ExtraTreesRegressor" title="sklearn.ensemble.ExtraTreesRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.ExtraTreesRegressor</span></tt></a></td>
-<td></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.ensemble.ExtraTreesRegressor.html#sklearn.ensemble.ExtraTreesRegressor" title="sklearn.ensemble.ExtraTreesRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.ExtraTreesRegressor</span></tt></a>([n_estimators,&nbsp;...])</td>
+<td>An extra-trees regressor.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.GradientBoostingClassifier</span></tt></a></td>
-<td></td>
+<tr class="row-odd"><td><a class="reference internal" href="generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.GradientBoostingClassifier</span></tt></a>([loss,&nbsp;...])</td>
+<td>Gradient Boosting for classification.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.ensemble.GradientBoostingRegressor.html#sklearn.ensemble.GradientBoostingRegressor" title="sklearn.ensemble.GradientBoostingRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.GradientBoostingRegressor</span></tt></a></td>
-<td></td>
+<tr class="row-even"><td><a class="reference internal" href="generated/sklearn.ensemble.GradientBoostingRegressor.html#sklearn.ensemble.GradientBoostingRegressor" title="sklearn.ensemble.GradientBoostingRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">ensemble.GradientBoostingRegressor</span></tt></a>([loss,&nbsp;...])</td>
+<td>Gradient Boosting for regression.</td>
 </tr>
 </tbody>
 </table>
@@ -387,6 +386,9 @@ model selection.</p>
     
     
      </div>
+     
+         <script type="text/javascript" src="_static/sidebar.js"></script>
+     
      <script type="text/javascript">
        $("div.buttonNext, div.buttonPrevious").hover(
            function () {

@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>1. Contributing &mdash; scikit-learn 0.14-git documentation</title>
+    <title>Contributing &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
@@ -30,7 +30,6 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
@@ -96,45 +95,45 @@ index -->
 
     <h3>This page</h3>
         <ul>
-<li><a class="reference internal" href="#">1. Contributing</a><ul>
-<li><a class="reference internal" href="#submitting-a-bug-report">1.1. Submitting a bug report</a></li>
-<li><a class="reference internal" href="#retrieving-the-latest-code">1.2. Retrieving the latest code</a></li>
-<li><a class="reference internal" href="#contributing-code">1.3. Contributing code</a><ul>
-<li><a class="reference internal" href="#how-to-contribute">1.3.1. How to contribute</a></li>
-<li><a class="reference internal" href="#easy-issues">1.3.2. Easy Issues</a></li>
-<li><a class="reference internal" href="#documentation">1.3.3. Documentation</a></li>
-<li><a class="reference internal" href="#testing-and-improving-test-coverage">1.3.4. Testing and improving test coverage</a></li>
-<li><a class="reference internal" href="#developers-web-site">1.3.5. Developers web site</a></li>
-<li><a class="reference internal" href="#issue-tracker-tags">1.3.6. Issue Tracker Tags</a></li>
+<li><a class="reference internal" href="#">Contributing</a><ul>
+<li><a class="reference internal" href="#submitting-a-bug-report">Submitting a bug report</a></li>
+<li><a class="reference internal" href="#retrieving-the-latest-code">Retrieving the latest code</a></li>
+<li><a class="reference internal" href="#contributing-code">Contributing code</a><ul>
+<li><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
+<li><a class="reference internal" href="#easy-issues">Easy Issues</a></li>
+<li><a class="reference internal" href="#documentation">Documentation</a></li>
+<li><a class="reference internal" href="#testing-and-improving-test-coverage">Testing and improving test coverage</a></li>
+<li><a class="reference internal" href="#developers-web-site">Developers web site</a></li>
+<li><a class="reference internal" href="#issue-tracker-tags">Issue Tracker Tags</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#other-ways-to-contribute">1.4. Other ways to contribute</a></li>
-<li><a class="reference internal" href="#coding-guidelines">1.5. Coding guidelines</a><ul>
-<li><a class="reference internal" href="#input-validation">1.5.1. Input validation</a></li>
-<li><a class="reference internal" href="#random-numbers">1.5.2. Random Numbers</a></li>
-<li><a class="reference internal" href="#deprecation">1.5.3. Deprecation</a></li>
-<li><a class="reference internal" href="#python-3-x-support">1.5.4. Python 3.x support</a></li>
-<li><a class="reference internal" href="#id4">1.5.5. Python 3.x support</a></li>
+<li><a class="reference internal" href="#other-ways-to-contribute">Other ways to contribute</a></li>
+<li><a class="reference internal" href="#coding-guidelines">Coding guidelines</a><ul>
+<li><a class="reference internal" href="#input-validation">Input validation</a></li>
+<li><a class="reference internal" href="#random-numbers">Random Numbers</a></li>
+<li><a class="reference internal" href="#deprecation">Deprecation</a></li>
+<li><a class="reference internal" href="#python-3-x-support">Python 3.x support</a></li>
+<li><a class="reference internal" href="#id4">Python 3.x support</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#apis-of-scikit-learn-objects">1.6. APIs of scikit-learn objects</a><ul>
-<li><a class="reference internal" href="#different-objects">1.6.1. Different objects</a></li>
-<li><a class="reference internal" href="#estimators">1.6.2. Estimators</a><ul>
-<li><a class="reference internal" href="#instantiation">1.6.2.1. Instantiation</a></li>
-<li><a class="reference internal" href="#fitting">1.6.2.2. Fitting</a></li>
-<li><a class="reference internal" href="#estimated-attributes">1.6.2.3. Estimated Attributes</a></li>
-<li><a class="reference internal" href="#optional-arguments">1.6.2.4. Optional Arguments</a></li>
+<li><a class="reference internal" href="#apis-of-scikit-learn-objects">APIs of scikit-learn objects</a><ul>
+<li><a class="reference internal" href="#different-objects">Different objects</a></li>
+<li><a class="reference internal" href="#estimators">Estimators</a><ul>
+<li><a class="reference internal" href="#instantiation">Instantiation</a></li>
+<li><a class="reference internal" href="#fitting">Fitting</a></li>
+<li><a class="reference internal" href="#estimated-attributes">Estimated Attributes</a></li>
+<li><a class="reference internal" href="#optional-arguments">Optional Arguments</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#rolling-your-own-estimator">1.7. Rolling your own estimator</a><ul>
-<li><a class="reference internal" href="#get-params-and-set-params">1.7.1. get_params and set_params</a></li>
-<li><a class="reference internal" href="#parameters-and-init">1.7.2. Parameters and init</a></li>
-<li><a class="reference internal" href="#cloning">1.7.3. Cloning</a></li>
-<li><a class="reference internal" href="#pipeline-compatibility">1.7.4. Pipeline compatibility</a></li>
-<li><a class="reference internal" href="#working-notes">1.7.5. Working notes</a></li>
-<li><a class="reference internal" href="#specific-models">1.7.6. Specific models</a></li>
+<li><a class="reference internal" href="#rolling-your-own-estimator">Rolling your own estimator</a><ul>
+<li><a class="reference internal" href="#get-params-and-set-params">get_params and set_params</a></li>
+<li><a class="reference internal" href="#parameters-and-init">Parameters and init</a></li>
+<li><a class="reference internal" href="#cloning">Cloning</a></li>
+<li><a class="reference internal" href="#pipeline-compatibility">Pipeline compatibility</a></li>
+<li><a class="reference internal" href="#working-notes">Working notes</a></li>
+<li><a class="reference internal" href="#specific-models">Specific models</a></li>
 </ul>
 </li>
 </ul>
@@ -959,6 +958,9 @@ for working with multiclass and multilabel problems.</p>
     
     
      </div>
+     
+         <script type="text/javascript" src="_static/sidebar.js"></script>
+     
      <script type="text/javascript">
        $("div.buttonNext, div.buttonPrevious").hover(
            function () {
