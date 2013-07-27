@@ -11,6 +11,7 @@
 
     <title>sklearn.preprocessing.KernelCenterer &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.KernelCenterer.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -115,11 +135,11 @@ index -->
 <dt id="sklearn.preprocessing.KernelCenterer">
 <em class="property">class </em><tt class="descclassname">sklearn.preprocessing.</tt><tt class="descname">KernelCenterer</tt><a class="headerlink" href="#sklearn.preprocessing.KernelCenterer" title="Permalink to this definition">¶</a></dt>
 <dd><p>Center a kernel matrix</p>
-<p>Let K(x_i, x_j) be a kernel defined by K(x_i, x_j) = phi(x_i)^T phi(x_j),
-where phi(x) is a function mapping x to a hilbert space. KernelCenterer is
-a class to center (i.e., normalize to have zero-mean) the data without
-explicitly computing phi(x). It is equivalent equivalent to centering
-phi(x) with sklearn.preprocessing.StandardScaler(with_std=False).</p>
+<p>Let K(x, z) be a kernel defined by phi(x)^T phi(z), where phi is a
+function mapping x to a Hilbert space. KernelCenterer centers (i.e.,
+normalize to have zero mean) the data without explicitly computing phi(x).
+It is equivalent to centering phi(x) with
+sklearn.preprocessing.StandardScaler(with_std=False).</p>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -131,16 +151,16 @@ phi(x) with sklearn.preprocessing.StandardScaler(with_std=False).</p>
 <td>Fit KernelCenterer</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.preprocessing.KernelCenterer.fit_transform" title="sklearn.preprocessing.KernelCenterer.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it</td>
+<td>Fit to data, then transform it.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.preprocessing.KernelCenterer.get_params" title="sklearn.preprocessing.KernelCenterer.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.preprocessing.KernelCenterer.set_params" title="sklearn.preprocessing.KernelCenterer.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.preprocessing.KernelCenterer.transform" title="sklearn.preprocessing.KernelCenterer.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(K[,&nbsp;y,&nbsp;copy])</td>
-<td>Center kernel</td>
+<td>Center kernel matrix.</td>
 </tr>
 </tbody>
 </table>
@@ -174,7 +194,7 @@ phi(x) with sklearn.preprocessing.StandardScaler(with_std=False).</p>
 <dl class="method">
 <dt id="sklearn.preprocessing.KernelCenterer.fit_transform">
 <tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.preprocessing.KernelCenterer.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it</p>
+<dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -204,7 +224,7 @@ and returns a transformed version of X.</p>
 <dl class="method">
 <dt id="sklearn.preprocessing.KernelCenterer.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.preprocessing.KernelCenterer.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -229,7 +249,7 @@ contained subobjects that are estimators.</p>
 <dl class="method">
 <dt id="sklearn.preprocessing.KernelCenterer.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.preprocessing.KernelCenterer.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
@@ -247,7 +267,7 @@ component of a nested object.</p>
 <dl class="method">
 <dt id="sklearn.preprocessing.KernelCenterer.transform">
 <tt class="descname">transform</tt><big>(</big><em>K</em>, <em>y=None</em>, <em>copy=True</em><big>)</big><a class="headerlink" href="#sklearn.preprocessing.KernelCenterer.transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Center kernel</p>
+<dd><p>Center kernel matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

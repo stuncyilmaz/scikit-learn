@@ -11,6 +11,7 @@
 
     <title>sklearn.linear_model.orthogonal_mp_gram &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.orthogonal_mp_gram.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -113,7 +133,7 @@ index -->
 <h1>sklearn.linear_model.orthogonal_mp_gram<a class="headerlink" href="#sklearn-linear-model-orthogonal-mp-gram" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="sklearn.linear_model.orthogonal_mp_gram">
-<tt class="descclassname">sklearn.linear_model.</tt><tt class="descname">orthogonal_mp_gram</tt><big>(</big><em>Gram</em>, <em>Xy</em>, <em>n_nonzero_coefs=None</em>, <em>tol=None</em>, <em>norms_squared=None</em>, <em>copy_Gram=True</em>, <em>copy_Xy=True</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.orthogonal_mp_gram" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">sklearn.linear_model.</tt><tt class="descname">orthogonal_mp_gram</tt><big>(</big><em>Gram</em>, <em>Xy</em>, <em>n_nonzero_coefs=None</em>, <em>tol=None</em>, <em>norms_squared=None</em>, <em>copy_Gram=True</em>, <em>copy_Xy=True</em>, <em>return_path=False</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.orthogonal_mp_gram" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gram Orthogonal Matching Pursuit (OMP)</p>
 <p>Solves n_targets Orthogonal Matching Pursuit problems using only
 the Gram matrix X.T * X and the product X.T * y.</p>
@@ -121,11 +141,11 @@ the Gram matrix X.T * X and the product X.T * y.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Gram: array, shape = (n_features, n_features)</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>Gram: array, shape (n_features, n_features)</strong> :</p>
 <blockquote>
 <div><p>Gram matrix of the input data: X.T * X</p>
 </div></blockquote>
-<p><strong>Xy: array, shape = (n_features,) or (n_features, n_targets)</strong> :</p>
+<p><strong>Xy: array, shape (n_features,) or (n_features, n_targets)</strong> :</p>
 <blockquote>
 <div><p>Input targets multiplied by X: X.T * y</p>
 </div></blockquote>
@@ -138,7 +158,7 @@ default) this value is set to 10% of n_features.</p>
 <blockquote>
 <div><p>Maximum norm of the residual. If not None, overrides n_nonzero_coefs.</p>
 </div></blockquote>
-<p><strong>norms_squared: array-like, shape = (n_targets,)</strong> :</p>
+<p><strong>norms_squared: array-like, shape (n_targets,)</strong> :</p>
 <blockquote>
 <div><p>Squared L2 norms of the lines of y. Required if tol is not None.</p>
 </div></blockquote>
@@ -153,11 +173,20 @@ copy is made anyway.</p>
 <div><p>Whether the covariance vector Xy must be copied by the algorithm.
 If False, it may be overwritten.</p>
 </div></blockquote>
+<p><strong>return_path: bool, optional. Default: False</strong> :</p>
+<blockquote>
+<div><p>Whether to return every value of the nonzero coefficients along the
+forward path. Useful for cross-validation.</p>
+</div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>coef: array, shape = (n_features,) or (n_features, n_targets)</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>coef: array, shape (n_features,) or (n_features, n_targets)</strong> :</p>
 <blockquote class="last">
-<div><p>Coefficients of the OMP solution</p>
+<div><p>Coefficients of the OMP solution. If <cite>return_path=True</cite>, this contains
+the whole coefficient path. In this case its shape is
+(n_features, n_features) or (n_features, n_targets, n_features) and
+iterating over the last axis yields coefficients in increasing order
+of active features.</p>
 </div></blockquote>
 </td>
 </tr>

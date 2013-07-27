@@ -11,6 +11,7 @@
 
     <title>2.3. Clustering &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+    <link rel="up" title="2. Unsupervised learning" href="../unsupervised_learning.html" />
+    <link rel="next" title="2.4. Biclustering" href="biclustering.html" />
+    <link rel="prev" title="2.2. Manifold learning" href="manifold.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/clustering.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="manifold.html" title="2.2. Manifold learning"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        2.2. Manifold le...
+        </span>
+            <span class="hiddenrellink">
+            2.2. Manifold learning
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="biclustering.html" title="2.4. Biclustering"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        2.4. Biclusterin...
+        </span>
+            <span class="hiddenrellink">
+            2.4. Biclustering
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../unsupervised_learning.html" title="2. Unsupervised learning" >
+        Up
+        <br>
+        <span class="smallrellink">
+        2. Unsupervised ...
+        </span>
+            <span class="hiddenrellink">
+            2. Unsupervised learning
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -268,7 +334,7 @@ model with equal covariance per component.</p>
 <span id="id2"></span><h2>2.3.2. K-means<a class="headerlink" href="#k-means" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="generated/sklearn.cluster.KMeans.html#sklearn.cluster.KMeans" title="sklearn.cluster.KMeans"><tt class="xref py py-class docutils literal"><span class="pre">KMeans</span></tt></a> algorithm clusters data by trying to separate samples
 in n groups of equal variance, minimizing a criterion known as the
-&#8216;inertia&#8217; of the groups. This algorithm requires the number of cluster to
+&#8216;inertia&#8217; of the groups. This algorithm requires the number of clusters to
 be specified. It scales well to large number of samples and has been used
 across a large range of application areas in many different fields. It is
 also equivalent to the expectation-maximization algorithm when setting the
@@ -280,39 +346,41 @@ squares objective function with a dataset <img class="math" src="../_images/math
 </div><p>K-means is often referred to as Lloyd&#8217;s algorithm. In basic terms, the
 algorithm has three steps. The first step chooses the initial centroids, with
 the most basic method being to choose <img class="math" src="../_images/math/8c325612684d41304b9751c175df7bcc0f61f64f.png" alt="k"/> samples from the dataset
-<img class="math" src="../_images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X"/>. After initialization, k-means consists of looping between the other
-two major steps. The first steps assigns each sample to its nearest centroid.
+<img class="math" src="../_images/math/6a47ca0fe7cb276abc022af6ac88ddae1a9d6894.png" alt="X"/>. After initialization, K-means consists of looping between the
+two other steps. The first step assigns each sample to its nearest centroid.
 The second step creates new centroids by taking the mean value of all of the
 samples assigned to each previous centroid. The difference between the old
-and the new centroids is the inertia and the algorithm repeats these last two
+and the new centroids are computed and the algorithm repeats these last two
 steps until this value is less than a threshold. In other words, it repeats
 until the centroids do not move significantly.</p>
 <a class="reference external image-reference" href="../auto_examples/cluster/plot_kmeans_digits.html"><img alt="modules/../auto_examples/cluster/images/plot_kmeans_digits_1.png" class="align-right" src="modules/../auto_examples/cluster/images/plot_kmeans_digits_1.png" /></a>
-<p>The algorithm can be identified through the concept of <a class="reference external" href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagrams</a>. First the Voronoi diagram
-of the points is calculated using the current centroids. Each segment in the
+<p>The algorithm can be understood through the concept of <a class="reference external" href="https://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagrams</a>. First the Voronoi diagram of
+the points is calculated using the current centroids. Each segment in the
 Voronoi diagram becomes a separate cluster. Secondly, the centroids are updated
 to the mean of each segment. The algorithm then repeats this until a stopping
-criterion is fulfilled. Usually, as in this implementation, the algorithm stops
-when the relative decrease in the objective function between iterations is less
-than the given tolerance value.</p>
+criterion is fulfilled. Usually, the algorithm stops when the relative decrease
+in the objective function between iterations is less than the given tolerance
+value. This is not the case in this implementation: iteration stops when
+centroids move less than the tolerance.</p>
 <p>Given enough time, K-means will always converge, however this may be to a local
-minimum. This is highly dependent on the the initialisation of the centroids.
+minimum. This is highly dependent on the the initialization of the centroids.
 As a result, the computation is often done several times, with different
-initialisation of the centroids. One method to help address this issue is the
-k-means++ initialisation algorithm, which has been implemented in
-scikit-learn (use the <tt class="docutils literal"><span class="pre">init='kmeans++'</span></tt> parameter). This initialises the
-centroids to be (generally) distant from each other, leading to provably better
-results than random initialisation.</p>
+initializations of the centroids. One method to help address this issue is the
+k-means++ initialization scheme, which has been implemented in scikit-learn
+(use the <tt class="docutils literal"><span class="pre">init='kmeans++'</span></tt> parameter). This initializes the centroids to be
+(generally) distant from each other, leading to provably better results than
+random initialization.</p>
 <p>A parameter can be given to allow K-means to be run in parallel, called
 <cite>n_jobs</cite>. Giving this parameter a positive value uses that many processors
-(default=1). A value of -1 uses all processors, with -2 using one less, and so
-on. Parallelization generally speeds up computation at the cost of memory (in
-this case, multiple copies of centroids need to be stored, one for each job).</p>
+(default: 1). A value of -1 uses all available processors, with -2 using one
+less, and so on. Parallelization generally speeds up computation at the cost of
+memory (in this case, multiple copies of centroids need to be stored, one for
+each job).</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
 <p class="last">The parallel version of K-Means is broken on OS X when numpy uses the
 Accelerate Framework. This is expected behavior: Accelerate can be called
-after a fork but you need to execv the subprocess with the python binary
+after a fork but you need to execv the subprocess with the Python binary
 (which multiprocessing does not do under posix).</p>
 </div>
 <p>K-means can be used for vector quantization. This is achieved using the
@@ -1174,8 +1242,16 @@ through DBSCAN.</li>
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="manifold.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="biclustering.html">Next
+      </a>
+    </div>
     
      </div>
      

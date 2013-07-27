@@ -11,6 +11,7 @@
 
     <title>4.2. Preprocessing data &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+    <link rel="up" title="4. Dataset transformations" href="../data_transforms.html" />
+    <link rel="next" title="4.3. Kernel Approximation" href="kernel_approximation.html" />
+    <link rel="prev" title="4.1. Feature extraction" href="feature_extraction.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/preprocessing.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="feature_extraction.html" title="4.1. Feature extraction"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        4.1. Feature ext...
+        </span>
+            <span class="hiddenrellink">
+            4.1. Feature extraction
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="kernel_approximation.html" title="4.3. Kernel Approximation"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        4.3. Kernel Appr...
+        </span>
+            <span class="hiddenrellink">
+            4.3. Kernel Approximation
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../data_transforms.html" title="4. Dataset transformations" >
+        Up
+        <br>
+        <span class="smallrellink">
+        4. Dataset trans...
+        </span>
+            <span class="hiddenrellink">
+            4. Dataset transformations
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -96,8 +162,9 @@ index -->
     <h3>This page</h3>
         <ul>
 <li><a class="reference internal" href="#">4.2. Preprocessing data</a><ul>
-<li><a class="reference internal" href="#standardization-or-mean-removal-and-variance-scaling">4.2.1. Standardization or Mean Removal and Variance Scaling</a><ul>
-<li><a class="reference internal" href="#scaling-features-to-a-range">4.2.1.1. Scaling Features to a Range</a></li>
+<li><a class="reference internal" href="#standardization-or-mean-removal-and-variance-scaling">4.2.1. Standardization, or mean removal and variance scaling</a><ul>
+<li><a class="reference internal" href="#scaling-features-to-a-range">4.2.1.1. Scaling features to a range</a></li>
+<li><a class="reference internal" href="#centering-kernel-matrices">4.2.1.2. Centering kernel matrices</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#normalization">4.2.2. Normalization</a></li>
@@ -111,6 +178,7 @@ index -->
 <li><a class="reference internal" href="#label-encoding">4.2.5.2. Label encoding</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#imputation-of-missing-values">4.2.6. Imputation of missing values</a></li>
 </ul>
 </li>
 </ul>
@@ -132,7 +200,7 @@ index -->
 utility functions and transformer classes to change raw feature vectors
 into a representation that is more suitable for the downstream estimators.</p>
 <div class="section" id="standardization-or-mean-removal-and-variance-scaling">
-<span id="preprocessing-scaler"></span><h2>4.2.1. Standardization or Mean Removal and Variance Scaling<a class="headerlink" href="#standardization-or-mean-removal-and-variance-scaling" title="Permalink to this headline">¶</a></h2>
+<span id="preprocessing-scaler"></span><h2>4.2.1. Standardization, or mean removal and variance scaling<a class="headerlink" href="#standardization-or-mean-removal-and-variance-scaling" title="Permalink to this headline">¶</a></h2>
 <p><strong>Standardization</strong> of datasets is a <strong>common requirement for many
 machine learning estimators</strong> implemented in the scikit: they might behave
 badly if the individual feature do not more or less look like standard
@@ -203,7 +271,7 @@ same way it did on the training set:</p>
 passing <tt class="docutils literal"><span class="pre">with_mean=False</span></tt> or <tt class="docutils literal"><span class="pre">with_std=False</span></tt> to the constructor
 of <a class="reference internal" href="generated/sklearn.preprocessing.StandardScaler.html#sklearn.preprocessing.StandardScaler" title="sklearn.preprocessing.StandardScaler"><tt class="xref py py-class docutils literal"><span class="pre">StandardScaler</span></tt></a>.</p>
 <div class="section" id="scaling-features-to-a-range">
-<h3>4.2.1.1. Scaling Features to a Range<a class="headerlink" href="#scaling-features-to-a-range" title="Permalink to this headline">¶</a></h3>
+<h3>4.2.1.1. Scaling features to a range<a class="headerlink" href="#scaling-features-to-a-range" title="Permalink to this headline">¶</a></h3>
 <p>An alternative standardization is scaling features to
 lie between a given minimum and maximum value, often between zero and one.
 This can be achieved using <a class="reference internal" href="generated/sklearn.preprocessing.MinMaxScaler.html#sklearn.preprocessing.MinMaxScaler" title="sklearn.preprocessing.MinMaxScaler"><tt class="xref py py-class docutils literal"><span class="pre">MinMaxScaler</span></tt></a>.</p>
@@ -282,6 +350,14 @@ representation upstream.</p>
 This is very useful for scaling the target / response variables used
 for regression.</p>
 </div>
+</div>
+<div class="section" id="centering-kernel-matrices">
+<h3>4.2.1.2. Centering kernel matrices<a class="headerlink" href="#centering-kernel-matrices" title="Permalink to this headline">¶</a></h3>
+<p>If you have a kernel matrix of a kernel <img class="math" src="../_images/math/dfb064112b6c94470339f6571f69d07afc1c024c.png" alt="K"/> that computes a dot product
+in a feature space defined by function <img class="math" src="../_images/math/675fbf8048772f0df562fe66fd23bc1a18b90b56.png" alt="phi"/>,
+a <a class="reference internal" href="generated/sklearn.preprocessing.KernelCenterer.html#sklearn.preprocessing.KernelCenterer" title="sklearn.preprocessing.KernelCenterer"><tt class="xref py py-class docutils literal"><span class="pre">KernelCenterer</span></tt></a> can transform the kernel matrix
+so that it contains inner products in the feature space
+defined by <img class="math" src="../_images/math/675fbf8048772f0df562fe66fd23bc1a18b90b56.png" alt="phi"/> followed by removal of the mean in that space.</p>
 </div>
 </div>
 <div class="section" id="normalization">
@@ -487,6 +563,54 @@ hashable and comparable) to numerical labels:</p>
 </div>
 </div>
 </div>
+<div class="section" id="imputation-of-missing-values">
+<h2>4.2.6. Imputation of missing values<a class="headerlink" href="#imputation-of-missing-values" title="Permalink to this headline">¶</a></h2>
+<p>For various reasons, many real world datasets contain missing values, often
+encoded as blanks, NaNs or other placeholders. Such datasets however are
+incompatible with scikit-learn estimators which assume that all values in an
+array are numerical, and that all have and hold meaning. A basic strategy to use
+incomplete datasets is to discard entire rows and/or columns containing missing
+values. However, this comes at the price of losing data which may be valuable
+(even though incomplete). A better strategy is to impute the missing values,
+i.e., to infer them from the known part of the data.</p>
+<p>The <a class="reference internal" href="generated/sklearn.preprocessing.Imputer.html#sklearn.preprocessing.Imputer" title="sklearn.preprocessing.Imputer"><tt class="xref py py-class docutils literal"><span class="pre">Imputer</span></tt></a> class provides basic strategies for imputing missing
+values, either using the mean, the median or the most frequent value of
+the row or column in which the missing values are located. This class
+also allows for different missing values encodings.</p>
+<p>The following snippet demonstrates how to replace missing values,
+encoded as <tt class="docutils literal"><span class="pre">np.nan</span></tt>, using the mean value of the columns (axis 0)
+that contain the missing values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Imputer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="s">&#39;NaN&#39;</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span><span class="o">.</span><span class="n">fit</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="go">Imputer(axis=0, copy=True, missing_values=&#39;NaN&#39;, strategy=&#39;mean&#39;, verbose=0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">imp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="go">[[ 4.          2.        ]</span>
+<span class="go"> [ 6.          3.66666667]</span>
+<span class="go"> [ 7.          6.        ]]</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="generated/sklearn.preprocessing.Imputer.html#sklearn.preprocessing.Imputer" title="sklearn.preprocessing.Imputer"><tt class="xref py py-class docutils literal"><span class="pre">Imputer</span></tt></a> class also supports sparse matrices:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">scipy.sparse</span> <span class="kn">as</span> <span class="nn">sp</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s">&#39;mean&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imp</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="go">Imputer(axis=0, copy=True, missing_values=0, strategy=&#39;mean&#39;, verbose=0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X_test</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csc_matrix</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">imp</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">))</span>
+<span class="go">[[ 4.          2.        ]</span>
+<span class="go"> [ 6.          3.66666667]</span>
+<span class="go"> [ 7.          6.        ]]</span>
+</pre></div>
+</div>
+<p>Note that, here, missing values are encoded by 0 and are thus implicitly stored
+in the matrix. This format is thus suitable when there are many more missing
+values than observed values.</p>
+<p><a class="reference internal" href="generated/sklearn.preprocessing.Imputer.html#sklearn.preprocessing.Imputer" title="sklearn.preprocessing.Imputer"><tt class="xref py py-class docutils literal"><span class="pre">Imputer</span></tt></a> can be used in a Pipeline as a way to build a composite
+estimator that supports imputation. See <a class="reference internal" href="../auto_examples/imputation.html#example-imputation-py"><em>Imputing missing values before building an estimator</em></a></p>
+</div>
 </div>
 
 
@@ -500,8 +624,16 @@ hashable and comparable) to numerical labels:</p>
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="feature_extraction.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="kernel_approximation.html">Next
+      </a>
+    </div>
     
      </div>
      

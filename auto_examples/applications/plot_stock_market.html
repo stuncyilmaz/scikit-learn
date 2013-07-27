@@ -11,6 +11,7 @@
 
     <title>Visualizing the stock market structure &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
+    <link rel="up" title="Examples" href="../index.html" />
+    <link rel="next" title="Wikipedia principal eigenvector" href="wikipedia_principal_eigenvector.html" />
+    <link rel="prev" title="Species distribution modeling" href="plot_species_distribution_modeling.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/auto_examples/applications/plot_stock_market.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="plot_species_distribution_modeling.html" title="Species distribution modeling"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        Species distribu...
+        </span>
+            <span class="hiddenrellink">
+            Species distribution modeling
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="wikipedia_principal_eigenvector.html" title="Wikipedia principal eigenvector"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        Wikipedia princi...
+        </span>
+            <span class="hiddenrellink">
+            Wikipedia principal eigenvector
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../index.html" title="Examples" >
+        Up
+        <br>
+        <span class="smallrellink">
+        Examples
+        </span>
+            <span class="hiddenrellink">
+            Examples
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -116,13 +182,13 @@ index -->
           <div class="body">
             
   <div class="section" id="visualizing-the-stock-market-structure">
-<span id="stock-market"></span><span id="example-applications-plot-stock-market-py"></span><h1>Visualizing the stock market structure<a class="headerlink" href="#visualizing-the-stock-market-structure" title="Permalink to this headline">¶</a></h1>
+<span id="example-applications-plot-stock-market-py"></span><h1>Visualizing the stock market structure<a class="headerlink" href="#visualizing-the-stock-market-structure" title="Permalink to this headline">¶</a></h1>
 <p>This example employs several unsupervised learning techniques to extract
 the stock market structure from variations in historical quotes.</p>
 <p>The quantity that we use is the daily variation in quote price: quotes
 that are linked tend to cofluctuate during a day.</p>
 <div class="section" id="learning-a-graph-structure">
-<h2>Learning a graph structure<a class="headerlink" href="#learning-a-graph-structure" title="Permalink to this headline">¶</a></h2>
+<span id="stock-market"></span><h2>Learning a graph structure<a class="headerlink" href="#learning-a-graph-structure" title="Permalink to this headline">¶</a></h2>
 <p>We use sparse inverse covariance estimation to find which quotes are
 correlated conditionally on the others. Specifically, sparse inverse
 covariance gives us a graph, that is a list of connection. For each
@@ -375,8 +441,16 @@ axis.</p>
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="plot_species_distribution_modeling.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="wikipedia_principal_eigenvector.html">Next
+      </a>
+    </div>
     
      </div>
      

@@ -125,6 +125,7 @@ div.content-wrapper {
     margin-right: auto;
     border-radius: 15px;
     -moz-border-radius: 15px;
+    position: relative;
 }
 
 div.content {
@@ -398,8 +399,9 @@ div.note {
 }
 
 div.seealso {
-    background-color: #ffc;
-    border: 1px solid #ff6;
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    color: #c09853;
 }
 
 div.topic {
@@ -420,13 +422,15 @@ div.admonition {
 }
 
 div.warning {
-    background-color: #ffe4e4;
-    border: 1px solid #f66;
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid #eed3d7;
 }
 
 div.green {
-    background-color: #e4ffe4;
-    border: 1px solid #6f6;
+    color: #468847;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
 }
 
 p.admonition-title {
@@ -516,6 +520,11 @@ div.rellarge div.spacer {
     height: 45px;
 }
 
+
+div.rel {
+    margin-bottom: 15px;
+}
+
 div.rel a,
 div.rel a:link,
 div.rel a:visited,
@@ -524,7 +533,7 @@ div.rel a:hover {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 div.rel a:hover {
@@ -634,11 +643,10 @@ div#examples.section .figure img {
 }
 
 div#examples.section .thumbnailContainer {
-    position: relative;
     float: left;
-    width: 160px;
-    height: 145px;
-    margin: 20px 20px 78px 0px
+    width: 182px;
+    height: 242px;
+    overflow: auto;
 }
 
 /* Standard browsers hover */
@@ -689,7 +697,6 @@ div#examples.section .figure:active img{
 
 /*------------------------------------------------------------------------*/
 
-
 /* ------- Zoom plots to make them fit in layout -------------------------- */
 div.body img.align-center {
     max-width:805px;
@@ -697,10 +704,13 @@ div.body img.align-center {
 
 /* ------- alternating colors in table rows -------------------------- */
 table.docutils tr:nth-child(even) {
-    background-color: #F3F3FF;
+    //background-color: #F3F3FF;
+    background-color: #FDFDFD;
+
 }
 table.docutils tr:nth-child(odd) {
-    background-color: #FFFFEE;
+    //background-color: #FFFFEE;
+    background-color: #E7F7FC;
 }
 
 table.docutils tr {
@@ -735,7 +745,7 @@ span.example-links {
 
 div.banner-container {
   width:100%;
-  background-color: rgb(78, 172, 197);
+  background-color: #3499CD;
 }
 
 div.banner-inner {
@@ -773,7 +783,6 @@ div.container.index-lower {
     border: 1px solid #DDD;
     padding: 10px;
     border-radius: 4px;
-    font-size: 88%;
 }
 
 div.container.index-lower .span4 {
@@ -804,7 +813,7 @@ div.container.index-lower ul li {
 
 div.container.index-lower ul li em {
     font-style: normal;
-    color: #888;
+    font-weight: bold;
 }
 
 div.box h2 {
@@ -881,4 +890,8 @@ div.testimonial-website {
     width: 100%;
     text-align: right;
     font-size: 0.8em;
+}
+
+.no-display {
+  display: none;
 }

@@ -11,6 +11,7 @@
 
     <title>4.1. Feature extraction &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+    <link rel="up" title="4. Dataset transformations" href="../data_transforms.html" />
+    <link rel="next" title="4.2. Preprocessing data" href="preprocessing.html" />
+    <link rel="prev" title="4. Dataset transformations" href="../data_transforms.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/feature_extraction.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="../data_transforms.html" title="4. Dataset transformations"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        4. Dataset trans...
+        </span>
+            <span class="hiddenrellink">
+            4. Dataset transformations
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="preprocessing.html" title="4.2. Preprocessing data"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        4.2. Preprocessi...
+        </span>
+            <span class="hiddenrellink">
+            4.2. Preprocessing data
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../data_transforms.html" title="4. Dataset transformations" >
+        Up
+        <br>
+        <span class="smallrellink">
+        4. Dataset trans...
+        </span>
+            <span class="hiddenrellink">
+            4. Dataset transformations
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -375,12 +441,13 @@ counting in a single class:</p>
 reasonable (please see  the <a class="reference internal" href="classes.html#text-feature-extraction-ref"><em>reference documentation</em></a> for the details):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vectorizer</span>                     
-<span class="go">CountVectorizer(analyzer=...&#39;word&#39;, binary=False, charset=...&#39;utf-8&#39;,</span>
-<span class="go">        charset_error=...&#39;strict&#39;, dtype=&lt;... &#39;numpy.int64&#39;&gt;,</span>
-<span class="go">        input=...&#39;content&#39;, lowercase=True, max_df=1.0, max_features=None,</span>
-<span class="go">        min_df=1, ngram_range=(1, 1), preprocessor=None,</span>
-<span class="go">        stop_words=None, strip_accents=None,</span>
-<span class="go">        token_pattern=...&#39;(?u)\\b\\w\\w+\\b&#39;, tokenizer=None, vocabulary=None)</span>
+<span class="go">CountVectorizer(analyzer=...&#39;word&#39;, binary=False, charset=None,</span>
+<span class="go">        charset_error=None, decode_error=...&#39;strict&#39;,</span>
+<span class="go">        dtype=&lt;... &#39;numpy.int64&#39;&gt;, encoding=...&#39;utf-8&#39;, input=...&#39;content&#39;,</span>
+<span class="go">        lowercase=True, max_df=1.0, max_features=None, min_df=1,</span>
+<span class="go">        ngram_range=(1, 1), preprocessor=None, stop_words=None,</span>
+<span class="go">        strip_accents=None, token_pattern=...&#39;(?u)\\b\\w\\w+\\b&#39;,</span>
+<span class="go">        tokenizer=None, vocabulary=None)</span>
 </pre></div>
 </div>
 <p>Let&#8217;s use it to tokenize and count the word occurrences of a minimalistic
@@ -561,9 +628,9 @@ to correctly load text from a file (or from the network), you need to
 decode it with the correct encoding.</p>
 <p>An encoding can also be called a &#8216;charset&#8217; or &#8216;character set&#8217;, though
 this terminology is less accurate. The <a class="reference internal" href="generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer"><tt class="xref py py-class docutils literal"><span class="pre">CountVectorizer</span></tt></a> takes
-a <tt class="docutils literal"><span class="pre">charset</span></tt> parameter to tell it what encoding to decode text from.</p>
+a <tt class="docutils literal"><span class="pre">encoding</span></tt> parameter to tell it what encoding to decode text from.</p>
 <p>For modern text files, the correct encoding is probably UTF-8. The
-<a class="reference internal" href="generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer"><tt class="xref py py-class docutils literal"><span class="pre">CountVectorizer</span></tt></a> has <tt class="docutils literal"><span class="pre">charset='utf-8'</span></tt> as the default. If the
+<a class="reference internal" href="generated/sklearn.feature_extraction.text.CountVectorizer.html#sklearn.feature_extraction.text.CountVectorizer" title="sklearn.feature_extraction.text.CountVectorizer"><tt class="xref py py-class docutils literal"><span class="pre">CountVectorizer</span></tt></a> has <tt class="docutils literal"><span class="pre">encoding='utf-8'</span></tt> as the default. If the
 text you are loading is not actually encoded with UTF-8, however, you
 will get a <tt class="docutils literal"><span class="pre">UnicodeDecodeError</span></tt>.</p>
 <p>If you are having trouble decoding text, here are some things to try:</p>
@@ -578,7 +645,7 @@ though you cannot rely on its guess being correct.</li>
 <li>You could try UTF-8 and disregard the errors. You can decode byte
 strings with <tt class="docutils literal"><span class="pre">bytes.decode(errors='replace')</span></tt> to replace all
 decoding errors with a meaningless character, or set
-<tt class="docutils literal"><span class="pre">charset_error='replace'</span></tt> in the vectorizer. This may damage the
+<tt class="docutils literal"><span class="pre">decode_error='replace'</span></tt> in the vectorizer. This may damage the
 usefulness of your features.</li>
 <li>Real text may come from a variety of sources that may have used different
 encodings, or even be sloppily decoded in a different encoding than the
@@ -940,8 +1007,16 @@ or similarity matrices.</p>
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="../data_transforms.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="preprocessing.html">Next
+      </a>
+    </div>
     
      </div>
      

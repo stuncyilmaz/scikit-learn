@@ -11,6 +11,7 @@
 
     <title>User guide: contents &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,30 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/sidebar.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="index.html" />
+    <link rel="next" title="1. Supervised learning" href="supervised_learning.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/user_guide.html">
 
 
   </head>
@@ -85,9 +105,38 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="index.html" title="&lt;no title&gt;"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        <no title>
+        </span>
+            <span class="hiddenrellink">
+            <no title>
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="supervised_learning.html" title="1. Supervised learning"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        1. Supervised le...
+        </span>
+            <span class="hiddenrellink">
+            1. Supervised learning
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -304,92 +353,93 @@ index -->
 <li class="toctree-l3"><a class="reference internal" href="modules/gaussian_process.html#implementation-details">1.5.5. Implementation details</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/pls.html">1.6. Partial Least Squares</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modules/naive_bayes.html">1.7. Naive Bayes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/naive_bayes.html#gaussian-naive-bayes">1.7.1. Gaussian Naive Bayes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/naive_bayes.html#multinomial-naive-bayes">1.7.2. Multinomial Naive Bayes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/naive_bayes.html#bernoulli-naive-bayes">1.7.3. Bernoulli Naive Bayes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/naive_bayes.html">1.6. Naive Bayes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/naive_bayes.html#gaussian-naive-bayes">1.6.1. Gaussian Naive Bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/naive_bayes.html#multinomial-naive-bayes">1.6.2. Multinomial Naive Bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/naive_bayes.html#bernoulli-naive-bayes">1.6.3. Bernoulli Naive Bayes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/naive_bayes.html#out-of-core-naive-bayes-model-fitting">1.6.4. Out-of-core naive Bayes model fitting</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/tree.html">1.8. Decision Trees</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#classification">1.8.1. Classification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#regression">1.8.2. Regression</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#multi-output-problems">1.8.3. Multi-output problems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#complexity">1.8.4. Complexity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#tips-on-practical-use">1.8.5. Tips on practical use</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#tree-algorithms-id3-c4-5-c5-0-and-cart">1.8.6. Tree algorithms: ID3, C4.5, C5.0 and CART</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#mathematical-formulation">1.8.7. Mathematical formulation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/tree.html#classification-criteria">1.8.7.1. Classification criteria</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/tree.html#regression-criteria">1.8.7.2. Regression criteria</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="modules/ensemble.html">1.9. Ensemble methods</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/ensemble.html#forests-of-randomized-trees">1.9.1. Forests of randomized trees</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#random-forests">1.9.1.1. Random Forests</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#extremely-randomized-trees">1.9.1.2. Extremely Randomized Trees</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#parameters">1.9.1.3. Parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#parallelization">1.9.1.4. Parallelization</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#feature-importance-evaluation">1.9.1.5. Feature importance evaluation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#totally-random-trees-embedding">1.9.1.6. Totally Random Trees Embedding</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="modules/ensemble.html#adaboost">1.9.2. AdaBoost</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#usage">1.9.2.1. Usage</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="modules/ensemble.html#gradient-tree-boosting">1.9.3. Gradient Tree Boosting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#classification">1.9.3.1. Classification</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#regression">1.9.3.2. Regression</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#mathematical-formulation">1.9.3.3. Mathematical formulation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#loss-functions">1.9.3.3.1. Loss Functions</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#regularization">1.9.3.4. Regularization</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#shrinkage">1.9.3.4.1. Shrinkage</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#subsampling">1.9.3.4.2. Subsampling</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#interpretation">1.9.3.5. Interpretation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#feature-importance">1.9.3.5.1. Feature importance</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#partial-dependence">1.9.3.5.2. Partial dependence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/tree.html">1.7. Decision Trees</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#classification">1.7.1. Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#regression">1.7.2. Regression</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#multi-output-problems">1.7.3. Multi-output problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#complexity">1.7.4. Complexity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#tips-on-practical-use">1.7.5. Tips on practical use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#tree-algorithms-id3-c4-5-c5-0-and-cart">1.7.6. Tree algorithms: ID3, C4.5, C5.0 and CART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/tree.html#mathematical-formulation">1.7.7. Mathematical formulation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/tree.html#classification-criteria">1.7.7.1. Classification criteria</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/tree.html#regression-criteria">1.7.7.2. Regression criteria</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="modules/ensemble.html">1.8. Ensemble methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/ensemble.html#forests-of-randomized-trees">1.8.1. Forests of randomized trees</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#random-forests">1.8.1.1. Random Forests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#extremely-randomized-trees">1.8.1.2. Extremely Randomized Trees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#parameters">1.8.1.3. Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#parallelization">1.8.1.4. Parallelization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#feature-importance-evaluation">1.8.1.5. Feature importance evaluation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#totally-random-trees-embedding">1.8.1.6. Totally Random Trees Embedding</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/multiclass.html">1.10. Multiclass and multilabel algorithms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/multiclass.html#one-vs-the-rest">1.10.1. One-Vs-The-Rest</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/multiclass.html#multilabel-learning-with-ovr">1.10.1.1. Multilabel learning with OvR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/ensemble.html#adaboost">1.8.2. AdaBoost</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#usage">1.8.2.1. Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modules/multiclass.html#one-vs-one">1.10.2. One-Vs-One</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/multiclass.html#error-correcting-output-codes">1.10.3. Error-Correcting Output-Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/ensemble.html#gradient-tree-boosting">1.8.3. Gradient Tree Boosting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#classification">1.8.3.1. Classification</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#regression">1.8.3.2. Regression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#mathematical-formulation">1.8.3.3. Mathematical formulation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#loss-functions">1.8.3.3.1. Loss Functions</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/feature_selection.html">1.11. Feature selection</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#univariate-feature-selection">1.11.1. Univariate feature selection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#recursive-feature-elimination">1.11.2. Recursive feature elimination</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#l1-based-feature-selection">1.11.3. L1-based feature selection</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/feature_selection.html#selecting-non-zero-coefficients">1.11.3.1. Selecting non-zero coefficients</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/feature_selection.html#randomized-sparse-models">1.11.3.2. Randomized sparse models</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#regularization">1.8.3.4. Regularization</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#shrinkage">1.8.3.4.1. Shrinkage</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#subsampling">1.8.3.4.2. Subsampling</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#tree-based-feature-selection">1.11.4. Tree-based feature selection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/ensemble.html#interpretation">1.8.3.5. Interpretation</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#feature-importance">1.8.3.5.1. Feature importance</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/ensemble.html#partial-dependence">1.8.3.5.2. Partial dependence</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/label_propagation.html">1.12. Semi-Supervised</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/label_propagation.html#label-propagation">1.12.1. Label Propagation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/lda_qda.html">1.13. Linear and Quadratic Discriminant Analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/lda_qda.html#dimensionality-reduction-using-lda">1.13.1. Dimensionality Reduction using LDA</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/lda_qda.html#mathematical-idea">1.13.2. Mathematical Idea</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/isotonic.html">1.14. Isotonic regression</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/multiclass.html">1.9. Multiclass and multilabel algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/multiclass.html#one-vs-the-rest">1.9.1. One-Vs-The-Rest</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/multiclass.html#multilabel-learning-with-ovr">1.9.1.1. Multilabel learning with OvR</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/multiclass.html#one-vs-one">1.9.2. One-Vs-One</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/multiclass.html#error-correcting-output-codes">1.9.3. Error-Correcting Output-Codes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/feature_selection.html">1.10. Feature selection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#univariate-feature-selection">1.10.1. Univariate feature selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#recursive-feature-elimination">1.10.2. Recursive feature elimination</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#l1-based-feature-selection">1.10.3. L1-based feature selection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/feature_selection.html#selecting-non-zero-coefficients">1.10.3.1. Selecting non-zero coefficients</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/feature_selection.html#randomized-sparse-models">1.10.3.2. Randomized sparse models</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#tree-based-feature-selection">1.10.4. Tree-based feature selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/feature_selection.html#feature-selection-as-part-of-a-pipeline">1.10.5. Feature selection as part of a pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/label_propagation.html">1.11. Semi-Supervised</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/label_propagation.html#label-propagation">1.11.1. Label Propagation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/lda_qda.html">1.12. Linear and Quadratic Discriminant Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/lda_qda.html#dimensionality-reduction-using-lda">1.12.1. Dimensionality Reduction using LDA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/lda_qda.html#mathematical-idea">1.12.2. Mathematical Idea</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/isotonic.html">1.13. Isotonic regression</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="unsupervised_learning.html">2. Unsupervised learning</a><ul>
@@ -515,62 +565,74 @@ index -->
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/decomposition.html">2.4. Decomposing signals in components (matrix factorization problems)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#principal-component-analysis-pca">2.4.1. Principal component analysis (PCA)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#exact-pca-and-probabilistic-interpretation">2.4.1.1. Exact PCA and probabilistic interpretation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#approximate-pca">2.4.1.2. Approximate PCA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#kernel-pca">2.4.1.3. Kernel PCA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#sparse-principal-components-analysis-sparsepca-and-minibatchsparsepca">2.4.1.4. Sparse Principal Components Analysis (SparsePCA and MiniBatchSparsePCA)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/biclustering.html">2.4. Biclustering</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/biclustering.html#spectral-co-clustering">2.4.1. Spectral Co-Clustering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/biclustering.html#mathematical-formulation">2.4.1.1. Mathematical formulation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#truncated-singular-value-decomposition-and-latent-semantic-analysis">2.4.2. Truncated singular value decomposition and latent semantic analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#dictionary-learning">2.4.3. Dictionary Learning</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#sparse-coding-with-a-precomputed-dictionary">2.4.3.1. Sparse coding with a precomputed dictionary</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#generic-dictionary-learning">2.4.3.2. Generic dictionary learning</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#mini-batch-dictionary-learning">2.4.3.3. Mini-batch dictionary learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/biclustering.html#spectral-biclustering">2.4.2. Spectral Biclustering</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/biclustering.html#id3">2.4.2.1. Mathematical formulation</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#factor-analysis">2.4.4. Factor Analysis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#independent-component-analysis-ica">2.4.5. Independent component analysis (ICA)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#non-negative-matrix-factorization-nmf-or-nnmf">2.4.6. Non-negative matrix factorization (NMF or NNMF)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/biclustering.html#biclustering-evaluation">2.4.3. Biclustering evaluation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/covariance.html">2.5. Covariance estimation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#empirical-covariance">2.5.1. Empirical covariance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#shrunk-covariance">2.5.2. Shrunk Covariance</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#basic-shrinkage">2.5.2.1. Basic shrinkage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#ledoit-wolf-shrinkage">2.5.2.2. Ledoit-Wolf shrinkage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#oracle-approximating-shrinkage">2.5.2.3. Oracle Approximating Shrinkage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/decomposition.html">2.5. Decomposing signals in components (matrix factorization problems)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#principal-component-analysis-pca">2.5.1. Principal component analysis (PCA)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#exact-pca-and-probabilistic-interpretation">2.5.1.1. Exact PCA and probabilistic interpretation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#approximate-pca">2.5.1.2. Approximate PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#kernel-pca">2.5.1.3. Kernel PCA</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#sparse-principal-components-analysis-sparsepca-and-minibatchsparsepca">2.5.1.4. Sparse Principal Components Analysis (SparsePCA and MiniBatchSparsePCA)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#sparse-inverse-covariance">2.5.3. Sparse inverse covariance</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#robust-covariance-estimation">2.5.4. Robust Covariance Estimation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#minimum-covariance-determinant">2.5.4.1. Minimum Covariance Determinant</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#truncated-singular-value-decomposition-and-latent-semantic-analysis">2.5.2. Truncated singular value decomposition and latent semantic analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#dictionary-learning">2.5.3. Dictionary Learning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#sparse-coding-with-a-precomputed-dictionary">2.5.3.1. Sparse coding with a precomputed dictionary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#generic-dictionary-learning">2.5.3.2. Generic dictionary learning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/decomposition.html#mini-batch-dictionary-learning">2.5.3.3. Mini-batch dictionary learning</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#factor-analysis">2.5.4. Factor Analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#independent-component-analysis-ica">2.5.5. Independent component analysis (ICA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/decomposition.html#non-negative-matrix-factorization-nmf-or-nnmf">2.5.6. Non-negative matrix factorization (NMF or NNMF)</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/outlier_detection.html">2.6. Novelty and Outlier Detection</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/outlier_detection.html#novelty-detection">2.6.1. Novelty Detection</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/outlier_detection.html#id1">2.6.2. Outlier Detection</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/outlier_detection.html#fitting-an-elliptic-envelop">2.6.2.1. Fitting an elliptic envelop</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/outlier_detection.html#one-class-svm-versus-elliptic-envelop">2.6.2.2. One-class SVM versus elliptic envelop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/covariance.html">2.6. Covariance estimation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#empirical-covariance">2.6.1. Empirical covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#shrunk-covariance">2.6.2. Shrunk Covariance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#basic-shrinkage">2.6.2.1. Basic shrinkage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#ledoit-wolf-shrinkage">2.6.2.2. Ledoit-Wolf shrinkage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#oracle-approximating-shrinkage">2.6.2.3. Oracle Approximating Shrinkage</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="modules/hmm.html">2.7. Hidden Markov Models</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/hmm.html#using-hmm">2.7.1. Using HMM</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/hmm.html#building-hmm-and-generating-samples">2.7.1.1. Building HMM and generating samples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/hmm.html#training-hmm-parameters-and-inferring-the-hidden-states">2.7.1.2. Training HMM parameters and inferring the hidden states</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/hmm.html#implementing-hmms-with-custom-emission-probabilities">2.7.1.3. Implementing HMMs with custom emission probabilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#sparse-inverse-covariance">2.6.3. Sparse inverse covariance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/covariance.html#robust-covariance-estimation">2.6.4. Robust Covariance Estimation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/covariance.html#minimum-covariance-determinant">2.6.4.1. Minimum Covariance Determinant</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/density.html">2.8. Density Estimation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/density.html#density-estimation-histograms">2.8.1. Density Estimation: Histograms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/density.html#kernel-density-estimation">2.8.2. Kernel Density Estimation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/outlier_detection.html">2.7. Novelty and Outlier Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/outlier_detection.html#novelty-detection">2.7.1. Novelty Detection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/outlier_detection.html#id1">2.7.2. Outlier Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/outlier_detection.html#fitting-an-elliptic-envelop">2.7.2.1. Fitting an elliptic envelop</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/outlier_detection.html#one-class-svm-versus-elliptic-envelop">2.7.2.2. One-class SVM versus elliptic envelop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/hmm.html">2.8. Hidden Markov Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/hmm.html#using-hmm">2.8.1. Using HMM</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/hmm.html#building-hmm-and-generating-samples">2.8.1.1. Building HMM and generating samples</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/hmm.html#training-hmm-parameters-and-inferring-the-hidden-states">2.8.1.2. Training HMM parameters and inferring the hidden states</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/hmm.html#implementing-hmms-with-custom-emission-probabilities">2.8.1.3. Implementing HMMs with custom emission probabilities</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="modules/density.html">2.9. Density Estimation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/density.html#density-estimation-histograms">2.9.1. Density Estimation: Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/density.html#kernel-density-estimation">2.9.2. Kernel Density Estimation</a></li>
 </ul>
 </li>
 </ul>
@@ -635,40 +697,52 @@ index -->
 <li class="toctree-l3"><a class="reference internal" href="modules/pipeline.html#id1">3.4.1. Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="modules/model_evaluation.html">3.5. Model evaluation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#classification-metrics">3.5.1. Classification metrics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#accuracy-score">3.5.1.1. Accuracy score</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#area-under-the-curve-auc">3.5.1.2. Area under the curve (AUC)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#average-precision-score">3.5.1.3. Average precision score</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#confusion-matrix">3.5.1.4. Confusion matrix</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#classification-report">3.5.1.5. Classification report</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#hamming-loss">3.5.1.6. Hamming loss</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#jaccard-similarity-coefficient-score">3.5.1.7. Jaccard similarity coefficient score</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#precision-recall-and-f-measures">3.5.1.8. Precision, recall and F-measures</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#binary-classification">3.5.1.8.1. Binary classification</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#multiclass-and-multilabel-classification">3.5.1.8.2. Multiclass and multilabel classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/model_evaluation.html">3.5. Model evaluation: quantifying the quality of predictions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#the-scoring-parameter-defining-model-evaluation-rules">3.5.1. The <cite>scoring</cite> parameter: defining model evaluation rules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#common-cases-predefined-values">3.5.1.1. Common cases: predefined values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#defining-your-scoring-strategy-from-score-functions">3.5.1.2. Defining your scoring strategy from score functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#implementing-your-own-scoring-object">3.5.1.3. Implementing your own scoring object</a></li>
 </ul>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#hinge-loss">3.5.1.9. Hinge loss</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#matthews-correlation-coefficient">3.5.1.10. Matthews correlation coefficient</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#receiver-operating-characteristic-roc">3.5.1.11. Receiver operating characteristic (ROC)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#zero-one-loss">3.5.1.12. Zero one loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#function-for-prediction-error-metrics">3.5.2. Function for prediction-error metrics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#classification-metrics">3.5.2.1. Classification metrics</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#accuracy-score">3.5.2.1.1. Accuracy score</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#area-under-the-curve-auc">3.5.2.1.2. Area under the curve (AUC)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#average-precision-score">3.5.2.1.3. Average precision score</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#confusion-matrix">3.5.2.1.4. Confusion matrix</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#classification-report">3.5.2.1.5. Classification report</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#hamming-loss">3.5.2.1.6. Hamming loss</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#jaccard-similarity-coefficient-score">3.5.2.1.7. Jaccard similarity coefficient score</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#precision-recall-and-f-measures">3.5.2.1.8. Precision, recall and F-measures</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="modules/model_evaluation.html#binary-classification">3.5.2.1.8.1. Binary classification</a></li>
+<li class="toctree-l6"><a class="reference internal" href="modules/model_evaluation.html#multiclass-and-multilabel-classification">3.5.2.1.8.2. Multiclass and multilabel classification</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#regression-metrics">3.5.2. Regression metrics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#explained-variance-score">3.5.2.1. Explained variance score</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#mean-absolute-error">3.5.2.2. Mean absolute error</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#mean-squared-error">3.5.2.3. Mean squared error</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#r2-score-the-coefficient-of-determination">3.5.2.4. R² score, the coefficient of determination</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#hinge-loss">3.5.2.1.9. Hinge loss</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#log-likelihood-and-log-loss">3.5.2.2. Log-likelihood and log loss</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#matthews-correlation-coefficient">3.5.2.2.1. Matthews correlation coefficient</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#receiver-operating-characteristic-roc">3.5.2.2.2. Receiver operating characteristic (ROC)</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#zero-one-loss">3.5.2.2.3. Zero one loss</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#regression-metrics">3.5.2.3. Regression metrics</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#explained-variance-score">3.5.2.3.1. Explained variance score</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#mean-absolute-error">3.5.2.3.2. Mean absolute error</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#mean-squared-error">3.5.2.3.3. Mean squared error</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/model_evaluation.html#r2-score-the-coefficient-of-determination">3.5.2.3.4. R² score, the coefficient of determination</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#clustering-metrics">3.5.3. Clustering metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#scoring-objects-defining-your-scoring-rules">3.5.4. <cite>Scoring</cite> objects: defining your scoring rules</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#creating-scoring-objects-from-score-functions">3.5.4.1. Creating scoring objects from score functions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#implementing-your-own-scoring-object">3.5.4.2. Implementing your own scoring object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#biclustering-metrics">3.5.4. Biclustering metrics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#scoring-objects-defining-your-scoring-rules">3.5.5. <cite>Scoring</cite> objects: defining your scoring rules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/model_evaluation.html#id9">3.5.5.1. Clustering metrics</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#dummy-estimators">3.5.5. Dummy estimators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/model_evaluation.html#dummy-estimators">3.5.6. Dummy estimators</a></li>
 </ul>
 </li>
 </ul>
@@ -701,8 +775,9 @@ index -->
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/preprocessing.html">4.2. Preprocessing data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/preprocessing.html#standardization-or-mean-removal-and-variance-scaling">4.2.1. Standardization or Mean Removal and Variance Scaling</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/preprocessing.html#scaling-features-to-a-range">4.2.1.1. Scaling Features to a Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/preprocessing.html#standardization-or-mean-removal-and-variance-scaling">4.2.1. Standardization, or mean removal and variance scaling</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/preprocessing.html#scaling-features-to-a-range">4.2.1.1. Scaling features to a range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/preprocessing.html#centering-kernel-matrices">4.2.1.2. Centering kernel matrices</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="modules/preprocessing.html#normalization">4.2.2. Normalization</a></li>
@@ -716,6 +791,7 @@ index -->
 <li class="toctree-l4"><a class="reference internal" href="modules/preprocessing.html#label-encoding">4.2.5.2. Label encoding</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="modules/preprocessing.html#imputation-of-missing-values">4.2.6. Imputation of missing values</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="modules/kernel_approximation.html">4.3. Kernel Approximation</a><ul>
@@ -777,6 +853,14 @@ index -->
     </div>
      <div class="rel rellarge">
     
+    <div class="buttonPrevious">
+      <a href="index.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="supervised_learning.html">Next
+      </a>
+    </div>
     
      </div>
      

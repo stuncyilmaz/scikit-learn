@@ -11,6 +11,7 @@
 
     <title>Robust covariance estimation and Mahalanobis distances relevance &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
+    <link rel="up" title="Examples" href="../index.html" />
+    <link rel="next" title="Robust vs Empirical covariance estimate" href="plot_robust_vs_empirical_covariance.html" />
+    <link rel="prev" title="Shrinkage covariance estimation: LedoitWolf vs OAS and max-likelihood" href="plot_covariance_estimation.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/auto_examples/covariance/plot_mahalanobis_distances.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="plot_covariance_estimation.html" title="Shrinkage covariance estimation: LedoitWolf vs OAS and max-likelihood"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        Shrinkage covari...
+        </span>
+            <span class="hiddenrellink">
+            Shrinkage covariance estimation: LedoitWolf vs OAS and max-likelihood
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="plot_robust_vs_empirical_covariance.html" title="Robust vs Empirical covariance estimate"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        Robust vs Empiri...
+        </span>
+            <span class="hiddenrellink">
+            Robust vs Empirical covariance estimate
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../index.html" title="Examples" >
+        Up
+        <br>
+        <span class="smallrellink">
+        Examples
+        </span>
+            <span class="hiddenrellink">
+            Examples
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -111,6 +177,8 @@ index -->
             
   <div class="section" id="robust-covariance-estimation-and-mahalanobis-distances-relevance">
 <span id="example-covariance-plot-mahalanobis-distances-py"></span><h1>Robust covariance estimation and Mahalanobis distances relevance<a class="headerlink" href="#robust-covariance-estimation-and-mahalanobis-distances-relevance" title="Permalink to this headline">¶</a></h1>
+<p>An example to show covariance estimation with the Mahalanobis
+distances on Gaussian distributed data.</p>
 <p>For Gaussian distributed data, the distance of an observation
 <img class="math" src="../../_images/math/67bc6daa9d6b964201d6cef60cbeb1ac5fd26ead.png" alt="x_i"/> to the mode of the distribution can be computed using its
 Mahalanobis distance: <img class="math" src="../../_images/math/8b1579a08bfd21b418d230e75daca2ae1ed0d073.png" alt="d_{(\mu,\Sigma)}(x_i)^2 = (x_i -
@@ -257,8 +325,16 @@ of America, 17, 684-688.</dd>
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="plot_covariance_estimation.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="plot_robust_vs_empirical_covariance.html">Next
+      </a>
+    </div>
     
      </div>
      

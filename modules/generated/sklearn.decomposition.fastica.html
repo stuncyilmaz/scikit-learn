@@ -11,6 +11,7 @@
 
     <title>sklearn.decomposition.fastica &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.fastica.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -113,13 +133,13 @@ index -->
 <h1>sklearn.decomposition.fastica<a class="headerlink" href="#sklearn-decomposition-fastica" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="sklearn.decomposition.fastica">
-<tt class="descclassname">sklearn.decomposition.</tt><tt class="descname">fastica</tt><big>(</big><em>X</em>, <em>n_components=None</em>, <em>algorithm='parallel'</em>, <em>whiten=True</em>, <em>fun='logcosh'</em>, <em>fun_args={}</em>, <em>max_iter=200</em>, <em>tol=0.0001</em>, <em>w_init=None</em>, <em>random_state=None</em>, <em>return_X_mean=False</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.fastica" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">sklearn.decomposition.</tt><tt class="descname">fastica</tt><big>(</big><em>X</em>, <em>n_components=None</em>, <em>algorithm='parallel'</em>, <em>whiten=True</em>, <em>fun='logcosh'</em>, <em>fun_args=None</em>, <em>max_iter=200</em>, <em>tol=0.0001</em>, <em>w_init=None</em>, <em>random_state=None</em>, <em>return_X_mean=False</em>, <em>compute_sources=True</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.fastica" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform Fast Independent Component Analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape = [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape (n_samples, n_features)</p>
 <blockquote>
 <div><p>Training vector, where n_samples is the number of samples and
 n_features is the number of features.</p>
@@ -158,7 +178,7 @@ point. Example:</p>
 <p><strong>fun_args</strong> : dictionary, optional</p>
 <blockquote>
 <div><p>Arguments to send to the functional form.
-If empty and if fun=&#8217;logcosh&#8217;, fun_args will take value
+If empty or None and if fun=&#8217;logcosh&#8217;, fun_args will take value
 {&#8216;alpha&#8217; : 1.0}</p>
 </div></blockquote>
 <p><strong>max_iter</strong> : int, optional</p>
@@ -183,19 +203,24 @@ If None (default) then an array of normal r.v.&#8217;s is used</p>
 <blockquote>
 <div><p>Pseudo number generator state used for random sampling.</p>
 </div></blockquote>
-<p><strong>return_X_mean</strong> : bool</p>
+<p><strong>return_X_mean</strong> : bool, optional</p>
 <blockquote>
 <div><p>If True, X_mean is returned too.</p>
 </div></blockquote>
+<p><strong>compute_sources</strong> : bool, optional</p>
+<blockquote>
+<div><p>If False, sources are not computes but only the rotation matrix. This
+can save memory when working with big data. Defaults to True.</p>
+</div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>K</strong> : (n_components, p) array or None.</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>K</strong> : array, shape (n_components, n_features) | None.</p>
 <blockquote>
 <div><p>If whiten is &#8216;True&#8217;, K is the pre-whitening matrix that projects data
-onto the first n.comp principal components. If whiten is &#8216;False&#8217;, K is
-&#8216;None&#8217;.</p>
+onto the first n_components principal components. If whiten is &#8216;False&#8217;,
+K is &#8216;None&#8217;.</p>
 </div></blockquote>
-<p><strong>W</strong> : (n_components, n_components) array</p>
+<p><strong>W</strong> : array, shape (n_components, n_components)</p>
 <blockquote>
 <div><p>Estimated un-mixing matrix.
 The mixing matrix can be obtained by:</p>
@@ -204,11 +229,11 @@ The mixing matrix can be obtained by:</p>
 </pre></div>
 </div>
 </div></blockquote>
-<p><strong>S</strong> : (n_components, n) array</p>
+<p><strong>S</strong> : array, shape (n_components, n_samples) | None</p>
 <blockquote>
-<div><p>estimated source matrix</p>
+<div><p>Estimated source matrix</p>
 </div></blockquote>
-<p><strong>X_mean</strong> : array, shape=(n_features,)</p>
+<p><strong>X_mean</strong> : array, shape (n_features, )</p>
 <blockquote class="last">
 <div><p>The mean over features. Returned only if return_X_mean is True.</p>
 </div></blockquote>

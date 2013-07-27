@@ -11,6 +11,7 @@
 
     <title>sklearn.covariance.LedoitWolf &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.covariance.LedoitWolf.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -126,16 +146,16 @@ Analysis, Volume 88, Issue 2, February 2004, pages 365-411.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>store_precision</strong> : bool</p>
 <blockquote>
-<div><p>Specify if the estimated precision is stored</p>
+<div><p>Specify if the estimated precision is stored.</p>
 </div></blockquote>
-<p><strong>assume_centered: bool</strong> :</p>
+<p><strong>assume_centered</strong> : bool</p>
 <blockquote>
 <div><p>If True, data are not centered before computation.
 Useful when working with data whose mean is almost, but not exactly
 zero.
 If False (default), data are centered before computation.</p>
 </div></blockquote>
-<p><strong>block_size: int,</strong> :</p>
+<p><strong>block_size</strong> : int,</p>
 <blockquote class="last">
 <div><p>Size of the blocks into which the covariance matrix will be split
 during its Ledoit-Wolf estimation.
@@ -161,9 +181,9 @@ February 2004, pages 365-411.</p>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="28%" />
-<col width="29%" />
-<col width="43%" />
+<col width="11%" />
+<col width="36%" />
+<col width="53%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><cite>covariance_</cite></td>
@@ -175,9 +195,9 @@ February 2004, pages 365-411.</p>
 <td>Estimated pseudo inverse matrix.
 (stored only if store_precision is True)</td>
 </tr>
-<tr class="row-odd"><td><cite>shrinkage_</cite>: float, 0 &lt;= shrinkage &lt;= 1</td>
-<td>&nbsp;</td>
-<td>coefficient in the convex combination used for the computation
+<tr class="row-odd"><td><cite>shrinkage_</cite></td>
+<td>float, 0 &lt;= shrinkage &lt;= 1</td>
+<td>Coefficient in the convex combination used for the computation
 of the shrunk estimate.</td>
 </tr>
 </tbody>
@@ -196,19 +216,19 @@ of the shrunk estimate.</td>
 <td>Fits the Ledoit-Wolf shrunk covariance model</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.covariance.LedoitWolf.get_params" title="sklearn.covariance.LedoitWolf.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.covariance.LedoitWolf.get_precision" title="sklearn.covariance.LedoitWolf.get_precision"><tt class="xref py py-obj docutils literal"><span class="pre">get_precision</span></tt></a>()</td>
 <td>Getter for the precision matrix.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.covariance.LedoitWolf.mahalanobis" title="sklearn.covariance.LedoitWolf.mahalanobis"><tt class="xref py py-obj docutils literal"><span class="pre">mahalanobis</span></tt></a>(observations)</td>
-<td>Computes the mahalanobis distances of given observations.</td>
+<td>Computes the Mahalanobis distances of given observations.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.covariance.LedoitWolf.score" title="sklearn.covariance.LedoitWolf.score"><tt class="xref py py-obj docutils literal"><span class="pre">score</span></tt></a>(X_test[,&nbsp;y])</td>
-<td>Computes the log-likelihood of a gaussian data set with <cite>self.covariance_</cite> as an estimator of its covariance matrix.</td>
+<td>Computes the log-likelihood of a Gaussian data set with</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.covariance.LedoitWolf.set_params" title="sklearn.covariance.LedoitWolf.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 </tbody>
 </table>
@@ -221,28 +241,28 @@ of the shrunk estimate.</td>
 <dt id="sklearn.covariance.LedoitWolf.error_norm">
 <tt class="descname">error_norm</tt><big>(</big><em>comp_cov</em>, <em>norm='frobenius'</em>, <em>scaling=True</em>, <em>squared=True</em><big>)</big><a class="headerlink" href="#sklearn.covariance.LedoitWolf.error_norm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the Mean Squared Error between two covariance estimators.
-(In the sense of the Frobenius norm)</p>
+(In the sense of the Frobenius norm).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>comp_cov: array-like, shape = [n_features, n_features]</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>comp_cov</strong> : array-like, shape = [n_features, n_features]</p>
 <blockquote>
 <div><p>The covariance to compare with.</p>
 </div></blockquote>
-<p><strong>norm: str</strong> :</p>
+<p><strong>norm</strong> : str</p>
 <blockquote>
 <div><p>The type of norm used to compute the error. Available error types:
 - &#8216;frobenius&#8217; (default): sqrt(tr(A^t.A))
 - &#8216;spectral&#8217;: sqrt(max(eigenvalues(A^t.A))
 where A is the error <tt class="docutils literal"><span class="pre">(comp_cov</span> <span class="pre">-</span> <span class="pre">self.covariance_)</span></tt>.</p>
 </div></blockquote>
-<p><strong>scaling: bool</strong> :</p>
+<p><strong>scaling</strong> : bool</p>
 <blockquote>
 <div><p>If True (default), the squared error norm is divided by n_features.
 If False, the squared error norm is not rescaled.</p>
 </div></blockquote>
-<p><strong>squared: bool</strong> :</p>
+<p><strong>squared</strong> : bool</p>
 <blockquote>
 <div><p>Whether to compute the squared error norm or the error norm.
 If True (default), the squared error norm is returned.
@@ -267,15 +287,15 @@ according to the given training data and parameters.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X: array-like, shape = [n_samples, n_features]</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape = [n_samples, n_features]</p>
 <blockquote>
 <div><p>Training data, where n_samples is the number of samples
 and n_features is the number of features.</p>
 </div></blockquote>
-<p><strong>y: not used, present for API consistence purpose.</strong> :</p>
+<p><strong>y</strong> : not used, present for API consistence purpose.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>self: object</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>self</strong> : object</p>
 <blockquote class="last">
 <div><p>Returns self.</p>
 </div></blockquote>
@@ -288,7 +308,7 @@ and n_features is the number of features.</p>
 <dl class="method">
 <dt id="sklearn.covariance.LedoitWolf.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.covariance.LedoitWolf.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -318,7 +338,7 @@ contained subobjects that are estimators.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>precision_: array-like,</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>`precision_`</strong> : array-like,</p>
 <blockquote class="last">
 <div><p>The precision matrix associated to the current covariance object.</p>
 </div></blockquote>
@@ -331,22 +351,22 @@ contained subobjects that are estimators.</p>
 <dl class="method">
 <dt id="sklearn.covariance.LedoitWolf.mahalanobis">
 <tt class="descname">mahalanobis</tt><big>(</big><em>observations</em><big>)</big><a class="headerlink" href="#sklearn.covariance.LedoitWolf.mahalanobis" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the mahalanobis distances of given observations.</p>
+<dd><p>Computes the Mahalanobis distances of given observations.</p>
 <p>The provided observations are assumed to be centered. One may want to
 center them using a location estimate first.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>observations: array-like, shape = [n_observations, n_features]</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>observations</strong> : array-like, shape = [n_observations, n_features]</p>
 <blockquote>
-<div><p>The observations, the Mahalanobis distances of the which we compute.
-Observations are assumed to be drawn from the same distribution than
-tha data used in fit (including centering).</p>
+<div><p>The observations, the Mahalanobis distances of the which we
+compute. Observations are assumed to be drawn from the same
+distribution than the data used in fit (including centering).</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>mahalanobis_distance: array, shape = [n_observations,]</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>mahalanobis_distance</strong> : array, shape = [n_observations,]</p>
 <blockquote class="last">
 <div><p>Mahalanobis distances of the observations.</p>
 </div></blockquote>
@@ -359,20 +379,20 @@ tha data used in fit (including centering).</p>
 <dl class="method">
 <dt id="sklearn.covariance.LedoitWolf.score">
 <tt class="descname">score</tt><big>(</big><em>X_test</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#sklearn.covariance.LedoitWolf.score" title="Permalink to this definition">¶</a></dt>
-<dd><p>Computes the log-likelihood of a gaussian data set with
+<dd><p>Computes the log-likelihood of a Gaussian data set with
 <cite>self.covariance_</cite> as an estimator of its covariance matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X_test: array-like, shape = [n_samples, n_features]</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X_test</strong> : array-like, shape = [n_samples, n_features]</p>
 <blockquote>
 <div><p>Test data of which we compute the likelihood, where n_samples is
 the number of samples and n_features is the number of features.
 X_test is assumed to be drawn from the same distribution than
-tha data used in fit (including centering).</p>
+the data used in fit (including centering).</p>
 </div></blockquote>
-<p><strong>y: not used, present for API consistence purpose.</strong> :</p>
+<p><strong>y</strong> : not used, present for API consistence purpose.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>res</strong> : float</p>
@@ -389,7 +409,7 @@ estimator of its covariance matrix.</p>
 <dl class="method">
 <dt id="sklearn.covariance.LedoitWolf.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.covariance.LedoitWolf.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each

@@ -11,6 +11,7 @@
 
     <title>Parameter estimation using grid search with a nested cross-validation &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+    <link rel="up" title="Examples" href="index.html" />
+    <link rel="next" title="Train error vs Test error" href="plot_train_error_vs_test_error.html" />
+    <link rel="prev" title="Receiver operating characteristic (ROC) with cross validation" href="plot_roc_crossval.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/auto_examples/grid_search_digits.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="plot_roc_crossval.html" title="Receiver operating characteristic (ROC) with cross validation"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        Receiver operati...
+        </span>
+            <span class="hiddenrellink">
+            Receiver operating characteristic (ROC) with cross validation
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="plot_train_error_vs_test_error.html" title="Train error vs Test error"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        Train error vs T...
+        </span>
+            <span class="hiddenrellink">
+            Train error vs Test error
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="index.html" title="Examples" >
+        Up
+        <br>
+        <span class="smallrellink">
+        Examples
+        </span>
+            <span class="hiddenrellink">
+            Examples
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -111,7 +177,8 @@ index -->
             
   <div class="section" id="parameter-estimation-using-grid-search-with-a-nested-cross-validation">
 <span id="example-grid-search-digits-py"></span><h1>Parameter estimation using grid search with a nested cross-validation<a class="headerlink" href="#parameter-estimation-using-grid-search-with-a-nested-cross-validation" title="Permalink to this headline">¶</a></h1>
-<p>The classifier is optimized by &#8220;nested&#8221; cross-validation using the
+<p>This examples shows how a classifier is optimized by &#8220;nested&#8221;
+cross-validation, which is done using the
 <a class="reference internal" href="../modules/generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV" title="sklearn.grid_search.GridSearchCV"><tt class="xref py py-class docutils literal"><span class="pre">sklearn.grid_search.GridSearchCV</span></tt></a> object on a development set
 that comprises only half of the available labeled data.</p>
 <p>The performance of the selected hyper-parameters and trained model is
@@ -194,8 +261,16 @@ sections on <a class="reference internal" href="../modules/cross_validation.html
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="plot_roc_crossval.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="plot_train_error_vs_test_error.html">Next
+      </a>
+    </div>
     
      </div>
      

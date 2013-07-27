@@ -11,6 +11,7 @@
 
     <title>sklearn.linear_model.OrthogonalMatchingPursuit &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.OrthogonalMatchingPursuit.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -113,7 +133,7 @@ index -->
 <h1>sklearn.linear_model.OrthogonalMatchingPursuit<a class="headerlink" href="#sklearn-linear-model-orthogonalmatchingpursuit" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.linear_model.OrthogonalMatchingPursuit">
-<em class="property">class </em><tt class="descclassname">sklearn.linear_model.</tt><tt class="descname">OrthogonalMatchingPursuit</tt><big>(</big><em>copy_X=True</em>, <em>copy_Gram=True</em>, <em>copy_Xy=True</em>, <em>n_nonzero_coefs=None</em>, <em>tol=None</em>, <em>fit_intercept=True</em>, <em>normalize=True</em>, <em>precompute_gram=False</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.OrthogonalMatchingPursuit" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.linear_model.</tt><tt class="descname">OrthogonalMatchingPursuit</tt><big>(</big><em>copy_X=None</em>, <em>copy_Gram=None</em>, <em>copy_Xy=None</em>, <em>n_nonzero_coefs=None</em>, <em>tol=None</em>, <em>fit_intercept=True</em>, <em>normalize=True</em>, <em>precompute='auto'</em>, <em>precompute_gram=None</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.OrthogonalMatchingPursuit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Orthogonal Mathching Pursuit model (OMP)</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -138,7 +158,7 @@ to false, no intercept will be used in calculations
 <blockquote>
 <div><p>If False, the regressors X are assumed to be already normalized.</p>
 </div></blockquote>
-<p><strong>precompute_gram</strong> : {True, False, &#8216;auto&#8217;},</p>
+<p><strong>precompute</strong> : {True, False, &#8216;auto&#8217;}, default &#8216;auto&#8217;</p>
 <blockquote>
 <div><p>Whether to use a precomputed Gram and Xy matrix to speed up
 calculations. Improves performance when <cite>n_targets</cite> or <cite>n_samples</cite> is
@@ -149,18 +169,21 @@ them directly to the fit method.</p>
 <blockquote>
 <div><p>Whether the design matrix X must be copied by the algorithm. A false
 value is only helpful if X is already Fortran-ordered, otherwise a
-copy is made anyway.</p>
+copy is made anyway.
+WARNING : will be deprecated in 0.15</p>
 </div></blockquote>
 <p><strong>copy_Gram</strong> : bool, optional</p>
 <blockquote>
 <div><p>Whether the gram matrix must be copied by the algorithm. A false
 value is only helpful if X is already Fortran-ordered, otherwise a
-copy is made anyway.</p>
+copy is made anyway.
+WARNING : will be deprecated in 0.15</p>
 </div></blockquote>
 <p><strong>copy_Xy</strong> : bool, optional</p>
 <blockquote class="last">
 <div><p>Whether the covariance vector Xy must be copied by the algorithm.
-If False, it may be overwritten.</p>
+If False, it may be overwritten.
+WARNING : will be deprecated in 0.15</p>
 </div></blockquote>
 </td>
 </tr>
@@ -183,16 +206,16 @@ Matching Pursuit Technical Report - CS Technion, April 2008.
 <table border="1" class="docutils">
 <colgroup>
 <col width="11%" />
-<col width="49%" />
+<col width="48%" />
 <col width="41%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><cite>coef_</cite></td>
-<td>array, shape = (n_features,) or (n_features, n_targets)</td>
+<td>array, shape (n_features,) or (n_features, n_targets)</td>
 <td>parameter vector (w in the fomulation formula)</td>
 </tr>
 <tr class="row-even"><td><cite>intercept_</cite></td>
-<td>float or array, shape =(n_targets,)</td>
+<td>float or array, shape (n_targets,)</td>
 <td>independent term in decision function.</td>
 </tr>
 </tbody>
@@ -205,13 +228,13 @@ Matching Pursuit Technical Report - CS Technion, April 2008.
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.linear_model.OrthogonalMatchingPursuit.decision_function" title="sklearn.linear_model.OrthogonalMatchingPursuit.decision_function"><tt class="xref py py-obj docutils literal"><span class="pre">decision_function</span></tt></a>(X)</td>
-<td>Decision function of the linear model</td>
+<td>Decision function of the linear model.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.linear_model.OrthogonalMatchingPursuit.fit" title="sklearn.linear_model.OrthogonalMatchingPursuit.fit"><tt class="xref py py-obj docutils literal"><span class="pre">fit</span></tt></a>(X,&nbsp;y[,&nbsp;Gram,&nbsp;Xy])</td>
 <td>Fit the model using X, y as training data.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.linear_model.OrthogonalMatchingPursuit.get_params" title="sklearn.linear_model.OrthogonalMatchingPursuit.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.linear_model.OrthogonalMatchingPursuit.predict" title="sklearn.linear_model.OrthogonalMatchingPursuit.predict"><tt class="xref py py-obj docutils literal"><span class="pre">predict</span></tt></a>(X)</td>
 <td>Predict using the linear model</td>
@@ -220,27 +243,30 @@ Matching Pursuit Technical Report - CS Technion, April 2008.
 <td>Returns the coefficient of determination R^2 of the prediction.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.linear_model.OrthogonalMatchingPursuit.set_params" title="sklearn.linear_model.OrthogonalMatchingPursuit.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
 <dt id="sklearn.linear_model.OrthogonalMatchingPursuit.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>copy_X=True</em>, <em>copy_Gram=True</em>, <em>copy_Xy=True</em>, <em>n_nonzero_coefs=None</em>, <em>tol=None</em>, <em>fit_intercept=True</em>, <em>normalize=True</em>, <em>precompute_gram=False</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.OrthogonalMatchingPursuit.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>copy_X=None</em>, <em>copy_Gram=None</em>, <em>copy_Xy=None</em>, <em>n_nonzero_coefs=None</em>, <em>tol=None</em>, <em>fit_intercept=True</em>, <em>normalize=True</em>, <em>precompute='auto'</em>, <em>precompute_gram=None</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.OrthogonalMatchingPursuit.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
 <dt id="sklearn.linear_model.OrthogonalMatchingPursuit.decision_function">
 <tt class="descname">decision_function</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.OrthogonalMatchingPursuit.decision_function" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decision function of the linear model</p>
+<dd><p>Decision function of the linear model.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array of shape [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix}, shape = (n_samples, n_features)</p>
+<blockquote>
+<div><p>Samples.</p>
+</div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>C</strong> : array, shape = [n_samples]</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>C</strong> : array, shape = (n_samples,)</p>
 <blockquote class="last">
 <div><p>Returns predicted values.</p>
 </div></blockquote>
@@ -258,22 +284,24 @@ Matching Pursuit Technical Report - CS Technion, April 2008.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X: array-like, shape = (n_samples, n_features)</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape (n_samples, n_features)</p>
 <blockquote>
 <div><p>Training data.</p>
 </div></blockquote>
-<p><strong>y: array-like, shape = (n_samples,) or (n_samples, n_targets)</strong> :</p>
+<p><strong>y</strong> : array-like, shape (n_samples,) or (n_samples, n_targets)</p>
 <blockquote>
 <div><p>Target values.</p>
 </div></blockquote>
-<p><strong>Gram: array-like, shape = (n_features, n_features) (optional)</strong> :</p>
+<p><strong>Gram</strong> : array-like, shape (n_features, n_features) (optional)</p>
 <blockquote>
-<div><p>Gram matrix of the input data: X.T * X</p>
+<div><p>Gram matrix of the input data: X.T * X
+WARNING : will be deprecated in 0.15</p>
 </div></blockquote>
-<p><strong>Xy: array-like, shape = (n_features,) or (n_features, n_targets)</strong> :</p>
+<p><strong>Xy</strong> : array-like, shape (n_features,) or (n_features, n_targets)</p>
 <blockquote>
 <div><p>(optional)
-Input targets multiplied by X: X.T * y</p>
+Input targets multiplied by X: X.T * y
+WARNING : will be deprecated in 0.15</p>
 </div></blockquote>
 </td>
 </tr>
@@ -290,7 +318,7 @@ Input targets multiplied by X: X.T * y</p>
 <dl class="method">
 <dt id="sklearn.linear_model.OrthogonalMatchingPursuit.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.OrthogonalMatchingPursuit.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -320,10 +348,13 @@ contained subobjects that are estimators.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array of shape [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix}, shape = (n_samples, n_features)</p>
+<blockquote>
+<div><p>Samples.</p>
+</div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>C</strong> : array, shape = [n_samples]</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>C</strong> : array, shape = (n_samples,)</p>
 <blockquote class="last">
 <div><p>Returns predicted values.</p>
 </div></blockquote>
@@ -362,7 +393,7 @@ Best possible score is 1.0, lower values are worse.</p>
 <dl class="method">
 <dt id="sklearn.linear_model.OrthogonalMatchingPursuit.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.OrthogonalMatchingPursuit.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each

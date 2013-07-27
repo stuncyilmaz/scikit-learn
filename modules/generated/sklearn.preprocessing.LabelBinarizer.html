@@ -11,6 +11,7 @@
 
     <title>sklearn.preprocessing.LabelBinarizer &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelBinarizer.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -143,6 +163,13 @@ with the inverse_transform method.</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition-see-also admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="sklearn.preprocessing.label_binarize.html#sklearn.preprocessing.label_binarize" title="sklearn.preprocessing.label_binarize"><tt class="xref py py-obj docutils literal"><span class="pre">label_binarize</span></tt></a></dt>
+<dd>function to perform the transform operation of LabelBinarizer with fixed classes.</dd>
+</dl>
+</div>
 <p class="rubric">Examples</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">preprocessing</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lb</span> <span class="o">=</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">LabelBinarizer</span><span class="p">()</span>
@@ -150,6 +177,8 @@ with the inverse_transform method.</p>
 <span class="go">LabelBinarizer(neg_label=0, pos_label=1)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lb</span><span class="o">.</span><span class="n">classes_</span>
 <span class="go">array([1, 2, 4, 6])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lb</span><span class="o">.</span><span class="n">multilabel_</span>
+<span class="go">False</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lb</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="go">array([[1, 0, 0, 0],</span>
 <span class="go">       [0, 0, 0, 1]])</span>
@@ -160,17 +189,23 @@ with the inverse_transform method.</p>
 <span class="go">       [0, 0, 1]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lb</span><span class="o">.</span><span class="n">classes_</span>
 <span class="go">array([1, 2, 3])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lb</span><span class="o">.</span><span class="n">multilabel_</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 <p class="rubric">Attributes</p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="54%" />
-<col width="46%" />
+<col width="36%" />
+<col width="64%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><cite>classes_</cite>: array of shape [n_class]</td>
 <td>Holds the label for each class.</td>
+</tr>
+<tr class="row-even"><td><cite>multilabel_</cite>: boolean</td>
+<td>True if the transformer was fitted on a multilabel rather than a
+multiclass set of labels.</td>
 </tr>
 </tbody>
 </table>
@@ -185,16 +220,16 @@ with the inverse_transform method.</p>
 <td>Fit label binarizer</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.preprocessing.LabelBinarizer.fit_transform" title="sklearn.preprocessing.LabelBinarizer.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it</td>
+<td>Fit to data, then transform it.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.preprocessing.LabelBinarizer.get_params" title="sklearn.preprocessing.LabelBinarizer.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.preprocessing.LabelBinarizer.inverse_transform" title="sklearn.preprocessing.LabelBinarizer.inverse_transform"><tt class="xref py py-obj docutils literal"><span class="pre">inverse_transform</span></tt></a>(Y[,&nbsp;threshold])</td>
 <td>Transform binary labels back to multi-class labels</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.preprocessing.LabelBinarizer.set_params" title="sklearn.preprocessing.LabelBinarizer.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.preprocessing.LabelBinarizer.transform" title="sklearn.preprocessing.LabelBinarizer.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(y)</td>
 <td>Transform multi-class labels to binary labels</td>
@@ -231,7 +266,7 @@ have variable lengths.</p>
 <dl class="method">
 <dt id="sklearn.preprocessing.LabelBinarizer.fit_transform">
 <tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.preprocessing.LabelBinarizer.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it</p>
+<dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -261,7 +296,7 @@ and returns a transformed version of X.</p>
 <dl class="method">
 <dt id="sklearn.preprocessing.LabelBinarizer.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.preprocessing.LabelBinarizer.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -332,10 +367,16 @@ linear model&#8217;s decision_function method directly as the input
 of inverse_transform.</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="sklearn.preprocessing.LabelBinarizer.multilabel">
+<tt class="descname">multilabel</tt><a class="headerlink" href="#sklearn.preprocessing.LabelBinarizer.multilabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED: Attribute &#8216;multilabel&#8217; was renamed to &#8216;<a href="#id1"><span class="problematic" id="id2">multilabel_</span></a>&#8216; in 0.14 and will be removed in 0.16</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="sklearn.preprocessing.LabelBinarizer.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.preprocessing.LabelBinarizer.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each

@@ -11,6 +11,7 @@
 
     <title>sklearn.decomposition.FastICA &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.decomposition.FastICA.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -178,27 +198,6 @@ If empty and if fun=&#8217;logcosh&#8217;, fun_args will take value
 Algorithms and Applications, Neural Networks, 13(4-5), 2000,
 pp. 411-430</cite></p>
 <p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="14%" />
-<col width="43%" />
-<col width="43%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><cite>components_</cite></td>
-<td>2D array, [n_components, n_features]</td>
-<td>The unmixing matrix</td>
-</tr>
-<tr class="row-even"><td><cite>mixing_</cite></td>
-<td>array, shape = [n_features, n_components]</td>
-<td>Mixing matrix.</td>
-</tr>
-<tr class="row-odd"><td><cite>sources_</cite></td>
-<td>2D array, [n_samples, n_components]</td>
-<td>The estimated latent sources of the data.</td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -216,13 +215,13 @@ pp. 411-430</cite></p>
 <td>DEPRECATED: To be removed in 0.16. Use the <a href="#id1"><span class="problematic" id="id2">mixing_</span></a> attribute.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.FastICA.get_params" title="sklearn.decomposition.FastICA.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.decomposition.FastICA.inverse_transform" title="sklearn.decomposition.FastICA.inverse_transform"><tt class="xref py py-obj docutils literal"><span class="pre">inverse_transform</span></tt></a>(X[,&nbsp;copy])</td>
 <td>Transform the sources back to the mixed data (apply mixing matrix).</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.FastICA.set_params" title="sklearn.decomposition.FastICA.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.decomposition.FastICA.transform" title="sklearn.decomposition.FastICA.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X[,&nbsp;y,&nbsp;copy])</td>
 <td>Recover the sources from X (apply the unmixing matrix).</td>
@@ -296,7 +295,7 @@ and n_features is the number of features.</p>
 <dl class="method">
 <dt id="sklearn.decomposition.FastICA.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.FastICA.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -347,7 +346,7 @@ and n_components is the number of components.</p>
 <dl class="method">
 <dt id="sklearn.decomposition.FastICA.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.FastICA.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
@@ -360,6 +359,12 @@ component of a nested object.</p>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sklearn.decomposition.FastICA.sources_">
+<tt class="descname">sources_</tt><a class="headerlink" href="#sklearn.decomposition.FastICA.sources_" title="Permalink to this definition">¶</a></dt>
+<dd><p>DEPRECATED: To be removed in 0.16.  Use <cite>fit_transform</cite> and store the output instead.</p>
 </dd></dl>
 
 <dl class="method">

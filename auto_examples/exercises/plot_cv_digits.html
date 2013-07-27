@@ -11,6 +11,7 @@
 
     <title>Cross-validation on Digits Dataset Exercise &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
+    <link rel="up" title="Examples" href="../index.html" />
+    <link rel="next" title="SVM Exercise" href="plot_iris_exercise.html" />
+    <link rel="prev" title="Digits Classification Exercise" href="plot_digits_classification_exercise.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/auto_examples/exercises/plot_cv_digits.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="plot_digits_classification_exercise.html" title="Digits Classification Exercise"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        Digits Classific...
+        </span>
+            <span class="hiddenrellink">
+            Digits Classification Exercise
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="plot_iris_exercise.html" title="SVM Exercise"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        SVM Exercise
+        </span>
+            <span class="hiddenrellink">
+            SVM Exercise
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../index.html" title="Examples" >
+        Up
+        <br>
+        <span class="smallrellink">
+        Examples
+        </span>
+            <span class="hiddenrellink">
+            Examples
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -111,6 +177,7 @@ index -->
             
   <div class="section" id="cross-validation-on-digits-dataset-exercise">
 <span id="example-exercises-plot-cv-digits-py"></span><h1>Cross-validation on Digits Dataset Exercise<a class="headerlink" href="#cross-validation-on-digits-dataset-exercise" title="Permalink to this headline">¶</a></h1>
+<p>A tutorial excercise using Cross-validation with an SVM on the Digits dataset.</p>
 <p>This exercise is used in the <a class="reference internal" href="../../tutorial/statistical_inference/model_selection.html#cv-generators-tut"><em>Cross-validation generators</em></a> part of the
 <a class="reference internal" href="../../tutorial/statistical_inference/model_selection.html#model-selection-tut"><em>Model selection: choosing estimators and their parameters</em></a> section of the <a class="reference internal" href="../../tutorial/statistical_inference/index.html#stat-learn-tut-index"><em>A tutorial on statistical-learning for scientific data processing</em></a>.</p>
 <p><strong>Python source code:</strong> <a class="reference download internal" href="../../_downloads/plot_cv_digits.py"><tt class="xref download docutils literal"><span class="pre">plot_cv_digits.py</span></tt></a></p>
@@ -163,8 +230,16 @@ index -->
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="plot_digits_classification_exercise.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="plot_iris_exercise.html">Next
+      </a>
+    </div>
     
      </div>
      

@@ -11,6 +11,7 @@
 
     <title>PCA example with Iris Data-set &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
+    <link rel="up" title="Examples" href="../index.html" />
+    <link rel="next" title="Kernel PCA" href="plot_kernel_pca.html" />
+    <link rel="prev" title="Blind source separation using FastICA" href="plot_ica_blind_source_separation.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/auto_examples/decomposition/plot_pca_iris.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="plot_ica_blind_source_separation.html" title="Blind source separation using FastICA"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        Blind source sep...
+        </span>
+            <span class="hiddenrellink">
+            Blind source separation using FastICA
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="plot_kernel_pca.html" title="Kernel PCA"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        Kernel PCA
+        </span>
+            <span class="hiddenrellink">
+            Kernel PCA
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../index.html" title="Examples" >
+        Up
+        <br>
+        <span class="smallrellink">
+        Examples
+        </span>
+            <span class="hiddenrellink">
+            Examples
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -111,6 +177,9 @@ index -->
             
   <div class="section" id="pca-example-with-iris-data-set">
 <span id="example-decomposition-plot-pca-iris-py"></span><h1>PCA example with Iris Data-set<a class="headerlink" href="#pca-example-with-iris-data-set" title="Permalink to this headline">¶</a></h1>
+<p>Principal Component Analysis applied to the Iris dataset.</p>
+<p>See <a class="reference external" href="http://en.wikipedia.org/wiki/Iris_flower_data_set">here</a> for more
+information on this dataset.</p>
 <p><strong>Python source code:</strong> <a class="reference download internal" href="../../_downloads/plot_pca_iris.py"><tt class="xref download docutils literal"><span class="pre">plot_pca_iris.py</span></tt></a></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">print</span><span class="p">(</span><span class="n">__doc__</span><span class="p">)</span>
 
@@ -183,8 +252,16 @@ index -->
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="plot_ica_blind_source_separation.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="plot_kernel_pca.html">Next
+      </a>
+    </div>
     
      </div>
      

@@ -11,6 +11,7 @@
 
     <title>sklearn.naive_bayes.MultinomialNB &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -146,41 +166,25 @@ adjusted according to the data.</p>
 <p>For the rationale behind the names <cite>coef_</cite> and <cite>intercept_</cite>, i.e.
 naive Bayes as a linear classifier, see J. Rennie et al. (2003),
 Tackling the poor assumptions of naive Bayes text classifiers, ICML.</p>
+<p class="rubric">References</p>
+<p>C.D. Manning, P. Raghavan and H. Schütze (2008). Introduction to
+Information Retrieval. Cambridge University Press, pp. 234–265.
+<a class="reference external" href="http://nlp.stanford.edu/IR-book/html/htmledition/">http://nlp.stanford.edu/IR-book/html/htmledition/</a></p>
+<blockquote>
+<div>naive-bayes-text-classification-1.html</div></blockquote>
 <p class="rubric">Examples</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">MultinomialNB</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="go">MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
 <span class="go">[3]</span>
 </pre></div>
 </div>
 <p class="rubric">Attributes</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="27%" />
-<col width="32%" />
-<col width="42%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><cite>intercept_</cite>, <cite>class_log_prior_</cite></td>
-<td>array, shape = [n_classes]</td>
-<td>Smoothed empirical log probability for each class.</td>
-</tr>
-<tr class="row-even"><td><cite>feature_log_prob_</cite>, <cite>coef_</cite></td>
-<td>array, shape = [n_classes, n_features]</td>
-<td><p class="first">Empirical log probability of features
-given a class, P(x_i|y).</p>
-<p class="last">(<cite>intercept_</cite> and <cite>coef_</cite> are properties
-referring to <cite>class_log_prior_</cite> and
-<cite>feature_log_prob_</cite>, respectively.)</p>
-</td>
-</tr>
-</tbody>
-</table>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>
@@ -192,22 +196,25 @@ referring to <cite>class_log_prior_</cite> and
 <td>Fit Naive Bayes classifier according to X, y</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.get_params" title="sklearn.naive_bayes.MultinomialNB.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.predict" title="sklearn.naive_bayes.MultinomialNB.predict"><tt class="xref py py-obj docutils literal"><span class="pre">predict</span></tt></a>(X)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.partial_fit" title="sklearn.naive_bayes.MultinomialNB.partial_fit"><tt class="xref py py-obj docutils literal"><span class="pre">partial_fit</span></tt></a>(X,&nbsp;y[,&nbsp;classes,&nbsp;sample_weight])</td>
+<td>Incremental fit on a batch of samples.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.predict" title="sklearn.naive_bayes.MultinomialNB.predict"><tt class="xref py py-obj docutils literal"><span class="pre">predict</span></tt></a>(X)</td>
 <td>Perform classification on an array of test vectors X.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.predict_log_proba" title="sklearn.naive_bayes.MultinomialNB.predict_log_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_log_proba</span></tt></a>(X)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.predict_log_proba" title="sklearn.naive_bayes.MultinomialNB.predict_log_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_log_proba</span></tt></a>(X)</td>
 <td>Return log-probability estimates for the test vector X.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.predict_proba" title="sklearn.naive_bayes.MultinomialNB.predict_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_proba</span></tt></a>(X)</td>
+<tr class="row-even"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.predict_proba" title="sklearn.naive_bayes.MultinomialNB.predict_proba"><tt class="xref py py-obj docutils literal"><span class="pre">predict_proba</span></tt></a>(X)</td>
 <td>Return probability estimates for the test vector X.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.score" title="sklearn.naive_bayes.MultinomialNB.score"><tt class="xref py py-obj docutils literal"><span class="pre">score</span></tt></a>(X,&nbsp;y)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.score" title="sklearn.naive_bayes.MultinomialNB.score"><tt class="xref py py-obj docutils literal"><span class="pre">score</span></tt></a>(X,&nbsp;y)</td>
 <td>Returns the mean accuracy on the given test data and labels.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.set_params" title="sklearn.naive_bayes.MultinomialNB.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<tr class="row-even"><td><a class="reference internal" href="#sklearn.naive_bayes.MultinomialNB.set_params" title="sklearn.naive_bayes.MultinomialNB.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 </tbody>
 </table>
@@ -252,7 +259,7 @@ n_features is the number of features.</p>
 <dl class="method">
 <dt id="sklearn.naive_bayes.MultinomialNB.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.naive_bayes.MultinomialNB.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -267,6 +274,53 @@ contained subobjects that are estimators.</p>
 <tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>params</strong> : mapping of string to any</p>
 <blockquote class="last">
 <div><p>Parameter names mapped to their values.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sklearn.naive_bayes.MultinomialNB.partial_fit">
+<tt class="descname">partial_fit</tt><big>(</big><em>X</em>, <em>y</em>, <em>classes=None</em>, <em>sample_weight=None</em><big>)</big><a class="headerlink" href="#sklearn.naive_bayes.MultinomialNB.partial_fit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Incremental fit on a batch of samples.</p>
+<p>This method is expected to be called several times consecutively
+on different chunks of a dataset so as to implement out-of-core
+or online learning.</p>
+<p>This is especially useful when the whole dataset is too big to fit in
+memory at once.</p>
+<p>This method has some performance overhead hence it is better to call
+partial_fit on chunks of data that are as large as possible
+(as long as fitting in the memory budget) to hide the overhead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix}, shape = [n_samples, n_features]</p>
+<blockquote>
+<div><p>Training vectors, where n_samples is the number of samples and
+n_features is the number of features.</p>
+</div></blockquote>
+<p><strong>y</strong> : array-like, shape = [n_samples]</p>
+<blockquote>
+<div><p>Target values.</p>
+</div></blockquote>
+<p><strong>classes</strong> : array-like, shape = [n_classes]</p>
+<blockquote>
+<div><p>List of all the classes that can possibly appear in the y vector.</p>
+<p>Must be provided at the first call to partial_fit, can be omitted
+in subsequent calls.</p>
+</div></blockquote>
+<p><strong>sample_weight</strong> : array-like, shape = [n_samples], optional</p>
+<blockquote>
+<div><p>Weights applied to individual samples (1. for unweighted).</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>self</strong> : object</p>
+<blockquote class="last">
+<div><p>Returns self.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -367,7 +421,7 @@ the model, where classes are ordered arithmetically.</p>
 <dl class="method">
 <dt id="sklearn.naive_bayes.MultinomialNB.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.naive_bayes.MultinomialNB.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each

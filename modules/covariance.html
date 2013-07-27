@@ -9,8 +9,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>2.5. Covariance estimation &mdash; scikit-learn 0.14-git documentation</title>
+    <title>2.6. Covariance estimation &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+    <link rel="up" title="2. Unsupervised learning" href="../unsupervised_learning.html" />
+    <link rel="next" title="2.7. Novelty and Outlier Detection" href="outlier_detection.html" />
+    <link rel="prev" title="2.5. Decomposing signals in components (matrix factorization problems)" href="decomposition.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/covariance.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="decomposition.html" title="2.5. Decomposing signals in components (matrix factorization problems)"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        2.5. Decomposing...
+        </span>
+            <span class="hiddenrellink">
+            2.5. Decomposing signals in components (matrix factorization problems)
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="outlier_detection.html" title="2.7. Novelty and Outlier Detection"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        2.7. Novelty and...
+        </span>
+            <span class="hiddenrellink">
+            2.7. Novelty and Outlier Detection
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../unsupervised_learning.html" title="2. Unsupervised learning" >
+        Up
+        <br>
+        <span class="smallrellink">
+        2. Unsupervised ...
+        </span>
+            <span class="hiddenrellink">
+            2. Unsupervised learning
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -95,17 +161,17 @@ index -->
 
     <h3>This page</h3>
         <ul>
-<li><a class="reference internal" href="#">2.5. Covariance estimation</a><ul>
-<li><a class="reference internal" href="#empirical-covariance">2.5.1. Empirical covariance</a></li>
-<li><a class="reference internal" href="#shrunk-covariance">2.5.2. Shrunk Covariance</a><ul>
-<li><a class="reference internal" href="#basic-shrinkage">2.5.2.1. Basic shrinkage</a></li>
-<li><a class="reference internal" href="#ledoit-wolf-shrinkage">2.5.2.2. Ledoit-Wolf shrinkage</a></li>
-<li><a class="reference internal" href="#oracle-approximating-shrinkage">2.5.2.3. Oracle Approximating Shrinkage</a></li>
+<li><a class="reference internal" href="#">2.6. Covariance estimation</a><ul>
+<li><a class="reference internal" href="#empirical-covariance">2.6.1. Empirical covariance</a></li>
+<li><a class="reference internal" href="#shrunk-covariance">2.6.2. Shrunk Covariance</a><ul>
+<li><a class="reference internal" href="#basic-shrinkage">2.6.2.1. Basic shrinkage</a></li>
+<li><a class="reference internal" href="#ledoit-wolf-shrinkage">2.6.2.2. Ledoit-Wolf shrinkage</a></li>
+<li><a class="reference internal" href="#oracle-approximating-shrinkage">2.6.2.3. Oracle Approximating Shrinkage</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#sparse-inverse-covariance">2.5.3. Sparse inverse covariance</a></li>
-<li><a class="reference internal" href="#robust-covariance-estimation">2.5.4. Robust Covariance Estimation</a><ul>
-<li><a class="reference internal" href="#minimum-covariance-determinant">2.5.4.1. Minimum Covariance Determinant</a></li>
+<li><a class="reference internal" href="#sparse-inverse-covariance">2.6.3. Sparse inverse covariance</a></li>
+<li><a class="reference internal" href="#robust-covariance-estimation">2.6.4. Robust Covariance Estimation</a><ul>
+<li><a class="reference internal" href="#minimum-covariance-determinant">2.6.4.1. Minimum Covariance Determinant</a></li>
 </ul>
 </li>
 </ul>
@@ -124,7 +190,7 @@ index -->
           <div class="body">
             
   <div class="section" id="covariance-estimation">
-<span id="covariance"></span><h1>2.5. Covariance estimation<a class="headerlink" href="#covariance-estimation" title="Permalink to this headline">¶</a></h1>
+<span id="covariance"></span><h1>2.6. Covariance estimation<a class="headerlink" href="#covariance-estimation" title="Permalink to this headline">¶</a></h1>
 <p>Many statistical problems require at some point the estimation of a
 population&#8217;s covariance matrix, which can be seen as an estimation of
 data set scatter plot shape. Most of the time, such an estimation has
@@ -136,7 +202,7 @@ various settings.</p>
 <p>We assume that the observations are independent and identically
 distributed (i.i.d.).</p>
 <div class="section" id="empirical-covariance">
-<h2>2.5.1. Empirical covariance<a class="headerlink" href="#empirical-covariance" title="Permalink to this headline">¶</a></h2>
+<h2>2.6.1. Empirical covariance<a class="headerlink" href="#empirical-covariance" title="Permalink to this headline">¶</a></h2>
 <p>The covariance matrix of a data set is known to be well approximated
 with the classical <cite>Maximum Likelihood Estimator</cite> (or <cite>empirical
 covariance</cite>), provided the number of observations is large enough
@@ -160,9 +226,9 @@ to data.</li>
 </div>
 </div>
 <div class="section" id="shrunk-covariance">
-<span id="id1"></span><h2>2.5.2. Shrunk Covariance<a class="headerlink" href="#shrunk-covariance" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>2.6.2. Shrunk Covariance<a class="headerlink" href="#shrunk-covariance" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="basic-shrinkage">
-<h3>2.5.2.1. Basic shrinkage<a class="headerlink" href="#basic-shrinkage" title="Permalink to this headline">¶</a></h3>
+<h3>2.6.2.1. Basic shrinkage<a class="headerlink" href="#basic-shrinkage" title="Permalink to this headline">¶</a></h3>
 <p>Despite being an unbiased estimator of the covariance matrix, the
 Maximum Likelihood Estimator is not a good estimator of the
 eigenvalues of the covariance matrix, so the precision matrix obtained
@@ -197,7 +263,7 @@ to data.</li>
 </div>
 </div>
 <div class="section" id="ledoit-wolf-shrinkage">
-<h3>2.5.2.2. Ledoit-Wolf shrinkage<a class="headerlink" href="#ledoit-wolf-shrinkage" title="Permalink to this headline">¶</a></h3>
+<h3>2.6.2.2. Ledoit-Wolf shrinkage<a class="headerlink" href="#ledoit-wolf-shrinkage" title="Permalink to this headline">¶</a></h3>
 <p>In their 2004 paper [1], O. Ledoit and M. Wolf propose a formula so as
 to compute the optimal shrinkage coefficient <img class="math" src="../_images/math/10f32377ac67d94f764f12a15ea987e88c85d3e1.png" alt="\alpha"/> that
 minimizes the Mean Squared Error between the estimated and the real
@@ -222,7 +288,7 @@ February 2004, pages 365-411.</dd>
 </dl>
 </div>
 <div class="section" id="oracle-approximating-shrinkage">
-<span id="id2"></span><h3>2.5.2.3. Oracle Approximating Shrinkage<a class="headerlink" href="#oracle-approximating-shrinkage" title="Permalink to this headline">¶</a></h3>
+<span id="id2"></span><h3>2.6.2.3. Oracle Approximating Shrinkage<a class="headerlink" href="#oracle-approximating-shrinkage" title="Permalink to this headline">¶</a></h3>
 <p>Under the assumption that the data are Gaussian distributed, Chen et
 al. [2] derived a formula aimed at choosing a shrinkage coefficient that
 yields a smaller Mean Squared Error than the one given by Ledoit and
@@ -258,7 +324,7 @@ an <a class="reference internal" href="generated/sklearn.covariance.OAS.html#skl
 </div>
 </div>
 <div class="section" id="sparse-inverse-covariance">
-<span id="id3"></span><h2>2.5.3. Sparse inverse covariance<a class="headerlink" href="#sparse-inverse-covariance" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>2.6.3. Sparse inverse covariance<a class="headerlink" href="#sparse-inverse-covariance" title="Permalink to this headline">¶</a></h2>
 <p>The matrix inverse of the covariance matrix, often called the precision
 matrix, is proportional to the partial correlation matrix. It gives the
 partial independence relationship. In other words, if two features are
@@ -334,7 +400,7 @@ Biostatistics 9, pp 432, 2008</li>
 </div>
 </div>
 <div class="section" id="robust-covariance-estimation">
-<h2>2.5.4. Robust Covariance Estimation<a class="headerlink" href="#robust-covariance-estimation" title="Permalink to this headline">¶</a></h2>
+<h2>2.6.4. Robust Covariance Estimation<a class="headerlink" href="#robust-covariance-estimation" title="Permalink to this headline">¶</a></h2>
 <p>Real data set are often subjects to measurement or recording
 errors. Regular but uncommon observations may also appear for a variety
 of reason. Every observation which is very uncommon is called an
@@ -349,7 +415,7 @@ according to further processing of the data.</p>
 <p>The <cite>sklearn.covariance</cite> package implements a robust estimator of covariance,
 the Minimum Covariance Determinant [3].</p>
 <div class="section" id="minimum-covariance-determinant">
-<h3>2.5.4.1. Minimum Covariance Determinant<a class="headerlink" href="#minimum-covariance-determinant" title="Permalink to this headline">¶</a></h3>
+<h3>2.6.4.1. Minimum Covariance Determinant<a class="headerlink" href="#minimum-covariance-determinant" title="Permalink to this headline">¶</a></h3>
 <p>The Minimum Covariance Determinant estimator is a robust estimator of
 a data set&#8217;s covariance introduced by P.J.Rousseeuw in [3].  The idea
 is to find a given proportion (h) of &#8220;good&#8221; observations which are not
@@ -421,8 +487,16 @@ visualize the difference between <a class="reference internal" href="generated/s
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="decomposition.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="outlier_detection.html">Next
+      </a>
+    </div>
     
      </div>
      

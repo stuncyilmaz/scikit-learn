@@ -9,8 +9,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>2.7. Hidden Markov Models &mdash; scikit-learn 0.14-git documentation</title>
+    <title>2.8. Hidden Markov Models &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+    <link rel="up" title="2. Unsupervised learning" href="../unsupervised_learning.html" />
+    <link rel="next" title="2.9. Density Estimation" href="density.html" />
+    <link rel="prev" title="2.7. Novelty and Outlier Detection" href="outlier_detection.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/hmm.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="outlier_detection.html" title="2.7. Novelty and Outlier Detection"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        2.7. Novelty and...
+        </span>
+            <span class="hiddenrellink">
+            2.7. Novelty and Outlier Detection
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="density.html" title="2.9. Density Estimation"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        2.9. Density Est...
+        </span>
+            <span class="hiddenrellink">
+            2.9. Density Estimation
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../unsupervised_learning.html" title="2. Unsupervised learning" >
+        Up
+        <br>
+        <span class="smallrellink">
+        2. Unsupervised ...
+        </span>
+            <span class="hiddenrellink">
+            2. Unsupervised learning
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -95,11 +161,11 @@ index -->
 
     <h3>This page</h3>
         <ul>
-<li><a class="reference internal" href="#">2.7. Hidden Markov Models</a><ul>
-<li><a class="reference internal" href="#using-hmm">2.7.1. Using HMM</a><ul>
-<li><a class="reference internal" href="#building-hmm-and-generating-samples">2.7.1.1. Building HMM and generating samples</a></li>
-<li><a class="reference internal" href="#training-hmm-parameters-and-inferring-the-hidden-states">2.7.1.2. Training HMM parameters and inferring the hidden states</a></li>
-<li><a class="reference internal" href="#implementing-hmms-with-custom-emission-probabilities">2.7.1.3. Implementing HMMs with custom emission probabilities</a></li>
+<li><a class="reference internal" href="#">2.8. Hidden Markov Models</a><ul>
+<li><a class="reference internal" href="#using-hmm">2.8.1. Using HMM</a><ul>
+<li><a class="reference internal" href="#building-hmm-and-generating-samples">2.8.1.1. Building HMM and generating samples</a></li>
+<li><a class="reference internal" href="#training-hmm-parameters-and-inferring-the-hidden-states">2.8.1.2. Training HMM parameters and inferring the hidden states</a></li>
+<li><a class="reference internal" href="#implementing-hmms-with-custom-emission-probabilities">2.8.1.3. Implementing HMMs with custom emission probabilities</a></li>
 </ul>
 </li>
 </ul>
@@ -118,7 +184,7 @@ index -->
           <div class="body">
             
   <div class="section" id="hidden-markov-models">
-<span id="hmm"></span><h1>2.7. Hidden Markov Models<a class="headerlink" href="#hidden-markov-models" title="Permalink to this headline">¶</a></h1>
+<span id="hmm"></span><h1>2.8. Hidden Markov Models<a class="headerlink" href="#hidden-markov-models" title="Permalink to this headline">¶</a></h1>
 <p><cite>sklearn.hmm</cite> implements the Hidden Markov Models (HMMs).
 The HMM is a generative probabilistic model, in which a sequence of observable
 <img class="math" src="../_images/math/5ecbbc0083da71f2cbc69e1377535094685b108a.png" alt="\mathbf{X}"/> variable is generated by a sequence of internal hidden
@@ -152,13 +218,13 @@ algorithm, known as the Baum-Welch algorithm.</p>
 Lawrence, R. Rabiner, 1989</p>
 </div>
 <div class="section" id="using-hmm">
-<h2>2.7.1. Using HMM<a class="headerlink" href="#using-hmm" title="Permalink to this headline">¶</a></h2>
+<h2>2.8.1. Using HMM<a class="headerlink" href="#using-hmm" title="Permalink to this headline">¶</a></h2>
 <p>Classes in this module include <tt class="xref py py-class docutils literal"><span class="pre">MultinomalHMM</span></tt> <a class="reference internal" href="generated/sklearn.hmm.GaussianHMM.html#sklearn.hmm.GaussianHMM" title="sklearn.hmm.GaussianHMM"><tt class="xref py py-class docutils literal"><span class="pre">GaussianHMM</span></tt></a>,
 and <a class="reference internal" href="generated/sklearn.hmm.GMMHMM.html#sklearn.hmm.GMMHMM" title="sklearn.hmm.GMMHMM"><tt class="xref py py-class docutils literal"><span class="pre">GMMHMM</span></tt></a>. They implement HMM with emission probabilities
 determined by multimomial distributions, Gaussian distributions
 and mixtures of Gaussian distributions.</p>
 <div class="section" id="building-hmm-and-generating-samples">
-<h3>2.7.1.1. Building HMM and generating samples<a class="headerlink" href="#building-hmm-and-generating-samples" title="Permalink to this headline">¶</a></h3>
+<h3>2.8.1.1. Building HMM and generating samples<a class="headerlink" href="#building-hmm-and-generating-samples" title="Permalink to this headline">¶</a></h3>
 <p>You can build an HMM instance by passing the parameters described above to the
 constructor. Then, you can generate samples from the HMM by calling <cite>sample</cite>.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -185,7 +251,7 @@ constructor. Then, you can generate samples from the HMM by calling <cite>sample
 </div>
 </div>
 <div class="section" id="training-hmm-parameters-and-inferring-the-hidden-states">
-<h3>2.7.1.2. Training HMM parameters and inferring the hidden states<a class="headerlink" href="#training-hmm-parameters-and-inferring-the-hidden-states" title="Permalink to this headline">¶</a></h3>
+<h3>2.8.1.2. Training HMM parameters and inferring the hidden states<a class="headerlink" href="#training-hmm-parameters-and-inferring-the-hidden-states" title="Permalink to this headline">¶</a></h3>
 <p>You can train an HMM by calling the <cite>fit</cite> method. The input is &#8220;the list&#8221; of
 the sequence of observed value. Note, since the EM algorithm is a gradient-based
 optimization method, it will generally get stuck in local optima. You should try
@@ -211,7 +277,7 @@ in model2 will have a different order than those in the generating model.:</p>
 </div>
 </div>
 <div class="section" id="implementing-hmms-with-custom-emission-probabilities">
-<h3>2.7.1.3. Implementing HMMs with custom emission probabilities<a class="headerlink" href="#implementing-hmms-with-custom-emission-probabilities" title="Permalink to this headline">¶</a></h3>
+<h3>2.8.1.3. Implementing HMMs with custom emission probabilities<a class="headerlink" href="#implementing-hmms-with-custom-emission-probabilities" title="Permalink to this headline">¶</a></h3>
 <p>If you want to implement other emission probability (e.g. Poisson), you have to
 implement a new HMM class by inheriting the <tt class="xref py py-class docutils literal"><span class="pre">_BaseHMM</span></tt> and overriding
 the methods <cite>__init__</cite>, <cite>_compute_log_likelihood</cite>,
@@ -233,8 +299,16 @@ the methods <cite>__init__</cite>, <cite>_compute_log_likelihood</cite>,
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="outlier_detection.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="density.html">Next
+      </a>
+    </div>
     
      </div>
      

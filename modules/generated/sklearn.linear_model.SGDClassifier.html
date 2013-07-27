@@ -11,6 +11,7 @@
 
     <title>sklearn.linear_model.SGDClassifier &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -290,10 +310,10 @@ initialization, otherwise, just erase the previous solution.</p>
 <td>Fit linear model with Stochastic Gradient Descent.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.linear_model.SGDClassifier.fit_transform" title="sklearn.linear_model.SGDClassifier.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it</td>
+<td>Fit to data, then transform it.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.linear_model.SGDClassifier.get_params" title="sklearn.linear_model.SGDClassifier.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.linear_model.SGDClassifier.partial_fit" title="sklearn.linear_model.SGDClassifier.partial_fit"><tt class="xref py py-obj docutils literal"><span class="pre">partial_fit</span></tt></a>(X,&nbsp;y[,&nbsp;classes,&nbsp;sample_weight])</td>
 <td>Fit linear model with Stochastic Gradient Descent.</td>
@@ -336,16 +356,17 @@ sample to the hyperplane.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix}, shape = [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix}, shape = (n_samples, n_features)</p>
 <blockquote>
 <div><p>Samples.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>array, shape = [n_samples] if n_classes == 2 else [n_samples,n_classes]</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>array, shape=(n_samples,) if n_classes == 2 else (n_samples, n_classes)</strong> :</p>
 <blockquote class="last">
 <div><p>Confidence scores per (sample, class) combination. In the binary
-case, confidence score for the &#8220;positive&#8221; class.</p>
+case, confidence score for self.classes_[1] where &gt;0 means this
+class would be predicted.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -412,7 +433,7 @@ If not provided, uniform weights are assumed.</p>
 <dl class="method">
 <dt id="sklearn.linear_model.SGDClassifier.fit_transform">
 <tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.SGDClassifier.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it</p>
+<dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -442,7 +463,7 @@ and returns a transformed version of X.</p>
 <dl class="method">
 <dt id="sklearn.linear_model.SGDClassifier.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.SGDClassifier.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />

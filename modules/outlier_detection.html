@@ -9,8 +9,9 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>2.6. Novelty and Outlier Detection &mdash; scikit-learn 0.14-git documentation</title>
+    <title>2.7. Novelty and Outlier Detection &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,31 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
+    <link rel="up" title="2. Unsupervised learning" href="../unsupervised_learning.html" />
+    <link rel="next" title="2.8. Hidden Markov Models" href="hmm.html" />
+    <link rel="prev" title="2.6. Covariance estimation" href="covariance.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/outlier_detection.html">
 
 
   </head>
@@ -83,11 +104,56 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
+        <div class="rel">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+        <div class="rellink">
+        <a href="covariance.html" title="2.6. Covariance estimation"
+        accesskey="P">Previous
+        <br>
+        <span class="smallrellink">
+        2.6. Covariance ...
+        </span>
+            <span class="hiddenrellink">
+            2.6. Covariance estimation
+            </span>
+        </a>
+        </div>
+            <div class="spacer">
+            &nbsp;
+            </div>
+        <div class="rellink">
+        <a href="hmm.html" title="2.8. Hidden Markov Models"
+        accesskey="N">Next
+        <br>
+        <span class="smallrellink">
+        2.8. Hidden Mark...
+        </span>
+            <span class="hiddenrellink">
+            2.8. Hidden Markov Models
+            </span>
+        </a>
+        </div>
+
+    <!-- Ad a link to the 'up' page -->
+        <div class="spacer">
+        &nbsp;
+        </div>
+        <div class="rellink">
+        <a href="../unsupervised_learning.html" title="2. Unsupervised learning" >
+        Up
+        <br>
+        <span class="smallrellink">
+        2. Unsupervised ...
+        </span>
+            <span class="hiddenrellink">
+            2. Unsupervised learning
+            </span>
+            
+        </a>
+        </div>
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -95,11 +161,11 @@ index -->
 
     <h3>This page</h3>
         <ul>
-<li><a class="reference internal" href="#">2.6. Novelty and Outlier Detection</a><ul>
-<li><a class="reference internal" href="#novelty-detection">2.6.1. Novelty Detection</a></li>
-<li><a class="reference internal" href="#id1">2.6.2. Outlier Detection</a><ul>
-<li><a class="reference internal" href="#fitting-an-elliptic-envelop">2.6.2.1. Fitting an elliptic envelop</a></li>
-<li><a class="reference internal" href="#one-class-svm-versus-elliptic-envelop">2.6.2.2. One-class SVM versus elliptic envelop</a></li>
+<li><a class="reference internal" href="#">2.7. Novelty and Outlier Detection</a><ul>
+<li><a class="reference internal" href="#novelty-detection">2.7.1. Novelty Detection</a></li>
+<li><a class="reference internal" href="#id1">2.7.2. Outlier Detection</a><ul>
+<li><a class="reference internal" href="#fitting-an-elliptic-envelop">2.7.2.1. Fitting an elliptic envelop</a></li>
+<li><a class="reference internal" href="#one-class-svm-versus-elliptic-envelop">2.7.2.2. One-class SVM versus elliptic envelop</a></li>
 </ul>
 </li>
 </ul>
@@ -118,7 +184,7 @@ index -->
           <div class="body">
             
   <div class="section" id="novelty-and-outlier-detection">
-<span id="outlier-detection"></span><h1>2.6. Novelty and Outlier Detection<a class="headerlink" href="#novelty-and-outlier-detection" title="Permalink to this headline">¶</a></h1>
+<span id="outlier-detection"></span><h1>2.7. Novelty and Outlier Detection<a class="headerlink" href="#novelty-and-outlier-detection" title="Permalink to this headline">¶</a></h1>
 <p>Many applications require being able to decide whether a new observation
 belongs to the same distribution as exiting observations (it is an
 <cite>inlier</cite>), or should be considered as different (it is an outlier).
@@ -151,7 +217,7 @@ implemented with objects learning in an unsupervised way from the data:</p>
 </div>
 <p>Inliers are labeled 0, while outliers are labeled 1.</p>
 <div class="section" id="novelty-detection">
-<h2>2.6.1. Novelty Detection<a class="headerlink" href="#novelty-detection" title="Permalink to this headline">¶</a></h2>
+<h2>2.7.1. Novelty Detection<a class="headerlink" href="#novelty-detection" title="Permalink to this headline">¶</a></h2>
 <p>Consider a data set of <img class="math" src="../_images/math/174fadd07fd54c9afe288e96558c92e0c1da733a.png" alt="n"/> observations from the same
 distribution described by <img class="math" src="../_images/math/36f73fc1312ee0349b3f3a0f3bd9eb5504339011.png" alt="p"/> features.  Consider now that we
 add one more observation to that data set. Is the new observation so
@@ -189,14 +255,14 @@ frontier learned around some data by a
 </div>
 </div>
 <div class="section" id="id1">
-<h2>2.6.2. Outlier Detection<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>2.7.2. Outlier Detection<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Outlier detection is similar to novelty detection in the sense that
 the goal is to separate a core of regular observations from some
 polluting ones, called &#8220;outliers&#8221;. Yet, in the case of outlier
 detection, we don&#8217;t have a clean data set representing the population
 of regular observations that can be used to train any tool.</p>
 <div class="section" id="fitting-an-elliptic-envelop">
-<h3>2.6.2.1. Fitting an elliptic envelop<a class="headerlink" href="#fitting-an-elliptic-envelop" title="Permalink to this headline">¶</a></h3>
+<h3>2.7.2.1. Fitting an elliptic envelop<a class="headerlink" href="#fitting-an-elliptic-envelop" title="Permalink to this headline">¶</a></h3>
 <p>One common way of performing outlier detection is to assume that the
 regular data come from a known distribution (e.g. data are Gaussian
 distributed). From this assumption, we generally try to define the
@@ -236,7 +302,7 @@ covariance determinant estimator&#8221; Technometrics 41(3), 212 (1999)</td></tr
 </div>
 </div>
 <div class="section" id="one-class-svm-versus-elliptic-envelop">
-<h3>2.6.2.2. One-class SVM versus elliptic envelop<a class="headerlink" href="#one-class-svm-versus-elliptic-envelop" title="Permalink to this headline">¶</a></h3>
+<h3>2.7.2.2. One-class SVM versus elliptic envelop<a class="headerlink" href="#one-class-svm-versus-elliptic-envelop" title="Permalink to this headline">¶</a></h3>
 <p>Strictly-speaking, the One-class SVM is not an outlier-detection method,
 but a novelty-detection method: it&#8217;s training set should not be
 contaminated by outliers as it may fit them. That said, outlier detection
@@ -303,8 +369,16 @@ detection with <a class="reference internal" href="generated/sklearn.covariance.
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
     </div>
-     <div class="rel rellarge">
+     <div class="rel">
     
+    <div class="buttonPrevious">
+      <a href="covariance.html">Previous
+      </a>
+    </div>
+    <div class="buttonNext">
+      <a href="hmm.html">Next
+      </a>
+    </div>
     
      </div>
      

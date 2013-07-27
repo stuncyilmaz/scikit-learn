@@ -11,6 +11,7 @@
 
     <title>sklearn.isotonic.IsotonicRegression &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
 <link rel="stylesheet" href="../../_static/css/bootstrap-responsive.css"/>
 
@@ -30,11 +31,28 @@
     <script type="text/javascript" src="../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sidebar.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="author" title="About these documents" href="../../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../../index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../../_static/js/bootstrap.min.js"></script>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22606712-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+      <link rel="canonical" href="http://scikit-learn.org/stable/modules/generated/sklearn.isotonic.IsotonicRegression.html">
 
 
   </head>
@@ -85,9 +103,11 @@
     <div class="sphinxsidebarwrapper">
         <div class="rel rellarge">
     
-<!-- rellinks[1:] is an ugly hack to avoid link to module
-index -->
-<!-- Ad a link to the 'up' page -->
+
+  <!-- rellinks[1:] is an ugly hack to avoid link to module
+  index -->
+
+    <!-- Ad a link to the 'up' page -->
     </div>
     <p style="text-align: center; background-color: #FFE4E4">This documentation is
     for scikit-learn <strong>version 0.14-git</strong>
@@ -113,7 +133,7 @@ index -->
 <h1>sklearn.isotonic.IsotonicRegression<a class="headerlink" href="#sklearn-isotonic-isotonicregression" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.isotonic.IsotonicRegression">
-<em class="property">class </em><tt class="descclassname">sklearn.isotonic.</tt><tt class="descname">IsotonicRegression</tt><big>(</big><em>y_min=None</em>, <em>y_max=None</em><big>)</big><a class="headerlink" href="#sklearn.isotonic.IsotonicRegression" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.isotonic.</tt><tt class="descname">IsotonicRegression</tt><big>(</big><em>y_min=None</em>, <em>y_max=None</em>, <em>increasing=True</em><big>)</big><a class="headerlink" href="#sklearn.isotonic.IsotonicRegression" title="Permalink to this definition">¶</a></dt>
 <dd><p>Isotonic regression model.</p>
 <p>The isotonic regression optimization problem is defined by:</p>
 <div class="highlight-python"><pre>min sum w_i (y[i] - y_[i]) ** 2
@@ -185,7 +205,7 @@ Vol. 14, No. 2 (May, 1989), pp. 303-308</p>
 <td>Fit model and transform y by linear interpolation.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.isotonic.IsotonicRegression.get_params" title="sklearn.isotonic.IsotonicRegression.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.isotonic.IsotonicRegression.predict" title="sklearn.isotonic.IsotonicRegression.predict"><tt class="xref py py-obj docutils literal"><span class="pre">predict</span></tt></a>(T)</td>
 <td>Predict new data by linear interpolation.</td>
@@ -194,7 +214,7 @@ Vol. 14, No. 2 (May, 1989), pp. 303-308</p>
 <td>Returns the coefficient of determination R^2 of the prediction.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.isotonic.IsotonicRegression.set_params" title="sklearn.isotonic.IsotonicRegression.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.isotonic.IsotonicRegression.transform" title="sklearn.isotonic.IsotonicRegression.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(T)</td>
 <td>Transform new data by linear interpolation</td>
@@ -203,7 +223,7 @@ Vol. 14, No. 2 (May, 1989), pp. 303-308</p>
 </table>
 <dl class="method">
 <dt id="sklearn.isotonic.IsotonicRegression.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>y_min=None</em>, <em>y_max=None</em><big>)</big><a class="headerlink" href="#sklearn.isotonic.IsotonicRegression.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>y_min=None</em>, <em>y_max=None</em>, <em>increasing=True</em><big>)</big><a class="headerlink" href="#sklearn.isotonic.IsotonicRegression.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -282,7 +302,7 @@ data.</p>
 <dl class="method">
 <dt id="sklearn.isotonic.IsotonicRegression.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.isotonic.IsotonicRegression.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -357,7 +377,7 @@ Best possible score is 1.0, lower values are worse.</p>
 <dl class="method">
 <dt id="sklearn.isotonic.IsotonicRegression.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.isotonic.IsotonicRegression.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
