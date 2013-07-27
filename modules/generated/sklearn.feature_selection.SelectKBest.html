@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>sklearn.feature_selection.SelectKBest &mdash; scikit-learn 0.14-git documentation</title>
+    <title>8.10.2. sklearn.feature_selection.SelectKBest &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
@@ -119,17 +119,10 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
-    
-
-  <!-- rellinks[1:] is an ugly hack to avoid link to module
-  index -->
-
-    <!-- Ad a link to the 'up' page -->
-    </div>
-    <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
-        <ul>
-<li><a class="reference internal" href="#">sklearn.feature_selection.SelectKBest</a></li>
+      <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
+    <p class="citing">If you use the software, please consider <a href="../../about.html#citing-scikit-learn">citing scikit-learn</a>.</p>
+    <ul>
+<li><a class="reference internal" href="#">8.10.2. sklearn.feature_selection.SelectKBest</a></li>
 </ul>
 
     </div>
@@ -147,7 +140,7 @@
 <h1>sklearn.feature_selection.SelectKBest<a class="headerlink" href="#sklearn-feature-selection-selectkbest" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.feature_selection.SelectKBest">
-<em class="property">class </em><tt class="descclassname">sklearn.feature_selection.</tt><tt class="descname">SelectKBest</tt><big>(</big><em>score_func=&lt;function f_classif at 0x49e9488&gt;</em>, <em>k=10</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.SelectKBest" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.feature_selection.</tt><tt class="descname">SelectKBest</tt><big>(</big><em>score_func=&lt;function f_classif at 0x323f398&gt;</em>, <em>k=10</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.SelectKBest" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select features according to the k highest scores.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -199,10 +192,10 @@ way.</p>
 <td>Evaluate the score function on samples X with outputs y.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.feature_selection.SelectKBest.fit_transform" title="sklearn.feature_selection.SelectKBest.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it</td>
+<td>Fit to data, then transform it.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.feature_selection.SelectKBest.get_params" title="sklearn.feature_selection.SelectKBest.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.feature_selection.SelectKBest.get_support" title="sklearn.feature_selection.SelectKBest.get_support"><tt class="xref py py-obj docutils literal"><span class="pre">get_support</span></tt></a>([indices])</td>
 <td>Get a mask, or integer index, of the features selected</td>
@@ -211,7 +204,7 @@ way.</p>
 <td>Reverse the transformation operation</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.feature_selection.SelectKBest.set_params" title="sklearn.feature_selection.SelectKBest.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.feature_selection.SelectKBest.transform" title="sklearn.feature_selection.SelectKBest.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X)</td>
 <td>Reduce X to the selected features.</td>
@@ -220,7 +213,7 @@ way.</p>
 </table>
 <dl class="method">
 <dt id="sklearn.feature_selection.SelectKBest.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>score_func=&lt;function f_classif at 0x49e9488&gt;</em>, <em>k=10</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.SelectKBest.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>score_func=&lt;function f_classif at 0x323f398&gt;</em>, <em>k=10</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.SelectKBest.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -233,7 +226,7 @@ way.</p>
 <dl class="method">
 <dt id="sklearn.feature_selection.SelectKBest.fit_transform">
 <tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.SelectKBest.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it</p>
+<dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -263,7 +256,7 @@ and returns a transformed version of X.</p>
 <dl class="method">
 <dt id="sklearn.feature_selection.SelectKBest.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.SelectKBest.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -343,7 +336,7 @@ been removed by <cite>transform</cite>.</p>
 <dl class="method">
 <dt id="sklearn.feature_selection.SelectKBest.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.SelectKBest.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
@@ -396,10 +389,7 @@ component of a nested object.</p>
 
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
-    <div>
-        <a href="../../_sources/modules/generated/sklearn.feature_selection.SelectKBest.txt"
-    rel="nofollow">Show this page source</a>
-    </div>
+      <a href="../../_sources/modules/generated/sklearn.feature_selection.SelectKBest.txt" rel="nofollow">Show this page source</a>
     </div>
      <div class="rel rellarge">
     

@@ -1,13 +1,13 @@
 
 
-.. _example_plot_pls.py:
+.. _example_cross_decomposition_plot_pls.py:
 
 
 =========================
-PLS Partial Least Squares
+Cross decomposition
 =========================
 
-Simple usage of various PLS flavor:
+Simple usage of various cross decomposition algorithms:
 - PLSCanonical
 - PLSRegression, with multivariate response, a.k.a. PLS2
 - PLSRegression, with univariate response, a.k.a. PLS1

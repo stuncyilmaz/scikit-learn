@@ -2121,6 +2121,50 @@ Examples concerning the :mod:`sklearn.covariance` package.
     
 
 
+.. _cross_decomposition_examples:
+
+Cross Decomposition
+-------------------
+
+Examples concerning the :mod:`sklearn.cross_decomposition` package.
+
+
+
+
+
+.. raw:: html
+
+
+    <div class="thumbnailContainer">
+        <div class="docstringWrapper">
+
+
+.. figure:: cross_decomposition/images/thumb/plot_pls.png
+   :target: ./cross_decomposition/plot_pls.html
+
+   :ref:`example_cross_decomposition_plot_pls.py`
+
+
+.. raw:: html
+
+
+    <p>Simple usage of various cross decomposition algorithms: - PLSCanonical - PLSRegression, with mu...
+    </p></div>
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   cross_decomposition/plot_pls
+
+
+.. raw:: html
+
+    <div style="clear: both"></div>
+    
+
+
 .. _dataset_examples:
 
 Dataset examples

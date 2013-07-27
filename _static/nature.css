@@ -305,7 +305,7 @@ div.sphinxsidebar input[type=text]{
 /* -- body styles ----------------------------------------------------------- */
 
 a {
-    color: #3499CD;
+    color: #2878A2;
     text-decoration: none;
     word-wrap: break-word;
 }
@@ -401,9 +401,9 @@ div.note {
 }
 
 div.seealso {
-    background-color: #fcf8e3;
+    background-color: #FFFBE8;
     border: 1px solid #fbeed5;
-    color: #c09853;
+    color: #AF8A4B;
 }
 
 div.topic {
@@ -425,7 +425,7 @@ div.admonition {
 
 div.warning {
     color: #b94a48;
-    background-color: #f2dede;
+    background-color: #F3E5E5;
     border: 1px solid #eed3d7;
 }
 
@@ -519,7 +519,7 @@ div.rellarge div.spacer {
 
 
 div.rel {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 div.rel a,
@@ -825,7 +825,6 @@ div.body h2.no-bg, div.body h3.no-bg{
 
 div.box-links {
     margin-top: 8px;
-    font-size: 88%;
 }
 
 div.box-links p {
@@ -840,9 +839,18 @@ div.carousel img {
 
 p.doc-version {
     text-align: center;
-    color: #B94A48;
-    background-color: #F2DEDE;
-    border: 1px solid #EED3D7;
+    color: #b94a48;
+    background-color: #F3E5E5;
+    border: 1px solid #eed3d7;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+p.citing {
+    background-color: #FFFBE8;
+    border: 1px solid #fbeed5;
+    color: #AF8A4B;
+    text-align: center;
     border-radius: 4px;
     margin-right: 10px;
 }
@@ -947,14 +955,14 @@ div.navbar ul.dropdown-menu li{
 }
 
 div.navbar ul.dropdown-menu li a {
-  font-size: 12px;
-  color: #355F7C;
+  font-size: 88%;
+  color: #2878A2;
   padding: 0;
   font-weight: normal;
 }
 
 div.navbar ul.dropdown-menu li a:hover {
-  color: #000;
+  color: #055781;
   text-decoration: underline;
   background-color: transparent;
   background-image: none;
@@ -981,7 +989,7 @@ div.navbar ul.dropdown-menu li a.btn {
   box-shadow: inset 0 0px 0 rgba(255,255,255,.2), 0 0px 0px rgba(0,0,0,.05);
 }
 
-.btn, .open>.btn, .btn:hover{
+.navbar .btn, .navbar .open>.btn, .navbar .btn:hover{
   display: inline-block;
   padding: 4px 12px;
   margin-bottom: 0;
@@ -996,25 +1004,25 @@ div.navbar ul.dropdown-menu li a.btn {
   box-shadow: inset 0 0px 0 rgba(255,255,255,.2), 0 0px 0px rgba(0,0,0,.05);
 }
 
-.btn:hover .caret{
+.navbar .btn:hover .caret{
   color: rgb(220, 220, 220);
   border-top-color: rgb(220, 220, 220);
 
 }
 
-div.navbar li.btn-li {
+.navbar li.btn-li {
   margin: 0;
   vertical-align: middle;
   padding: 4px 0px 5px 0px;
 }
 
-div.navbar .btn-group li.bnt-li a {
+.navbar .btn-group li.bnt-li a {
   padding: 4px 10px 5px 10px;
   vertical-align: middle;
   height: 100%;
 }
 
-.btn .caret{
+.navbar .btn .caret{
   margin: 0px;
   color: #fff;
   vertical-align: middle;
@@ -1022,16 +1030,18 @@ div.navbar .btn-group li.bnt-li a {
   padding-bottom: 8px;
 }
 
-.dropdown-menu .divider {
+.navbar .dropdown-menu .divider {
   height: 1px;
   margin-top: 5px;
   background-color: #fff;
   overflow: hidden;
-  border-bottom: 2px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 
-div.navbar ul.dropdown-menu li {
+.navbar ul.dropdown-menu li {
   font-weight: bold;
   font-size: 11px;
   color: #000;
 }
+
+

@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>sklearn.linear_model.Perceptron &mdash; scikit-learn 0.14-git documentation</title>
+    <title>8.18.20. sklearn.linear_model.Perceptron &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
@@ -119,17 +119,10 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
-    
-
-  <!-- rellinks[1:] is an ugly hack to avoid link to module
-  index -->
-
-    <!-- Ad a link to the 'up' page -->
-    </div>
-    <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
-        <ul>
-<li><a class="reference internal" href="#">sklearn.linear_model.Perceptron</a></li>
+      <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
+    <p class="citing">If you use the software, please consider <a href="../../about.html#citing-scikit-learn">citing scikit-learn</a>.</p>
+    <ul>
+<li><a class="reference internal" href="#">8.18.20. sklearn.linear_model.Perceptron</a></li>
 </ul>
 
     </div>
@@ -262,10 +255,10 @@ eta0=1, learning_rate=&#8221;constant&#8221;, penalty=None)</cite>.</p>
 <td>Fit linear model with Stochastic Gradient Descent.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.linear_model.Perceptron.fit_transform" title="sklearn.linear_model.Perceptron.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it</td>
+<td>Fit to data, then transform it.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.linear_model.Perceptron.get_params" title="sklearn.linear_model.Perceptron.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.linear_model.Perceptron.partial_fit" title="sklearn.linear_model.Perceptron.partial_fit"><tt class="xref py py-obj docutils literal"><span class="pre">partial_fit</span></tt></a>(X,&nbsp;y[,&nbsp;classes,&nbsp;sample_weight])</td>
 <td>Fit linear model with Stochastic Gradient Descent.</td>
@@ -302,16 +295,17 @@ sample to the hyperplane.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix}, shape = [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : {array-like, sparse matrix}, shape = (n_samples, n_features)</p>
 <blockquote>
 <div><p>Samples.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>array, shape = [n_samples] if n_classes == 2 else [n_samples,n_classes]</strong> :</p>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>array, shape=(n_samples,) if n_classes == 2 else (n_samples, n_classes)</strong> :</p>
 <blockquote class="last">
 <div><p>Confidence scores per (sample, class) combination. In the binary
-case, confidence score for the &#8220;positive&#8221; class.</p>
+case, confidence score for self.classes_[1] where &gt;0 means this
+class would be predicted.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -378,7 +372,7 @@ If not provided, uniform weights are assumed.</p>
 <dl class="method">
 <dt id="sklearn.linear_model.Perceptron.fit_transform">
 <tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.Perceptron.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it</p>
+<dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -408,7 +402,7 @@ and returns a transformed version of X.</p>
 <dl class="method">
 <dt id="sklearn.linear_model.Perceptron.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.Perceptron.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -598,10 +592,7 @@ available, the object attribute <tt class="docutils literal"><span class="pre">t
 
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
-    <div>
-        <a href="../../_sources/modules/generated/sklearn.linear_model.Perceptron.txt"
-    rel="nofollow">Show this page source</a>
-    </div>
+      <a href="../../_sources/modules/generated/sklearn.linear_model.Perceptron.txt" rel="nofollow">Show this page source</a>
     </div>
      <div class="rel rellarge">
     

@@ -173,8 +173,10 @@
         </a>
         </div>
     </div>
-    <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
-        <ul>
+    
+      <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
+    <p class="citing">If you use the software, please consider <a href="../../about.html#citing-scikit-learn">citing scikit-learn</a>.</p>
+    <ul>
 <li><a class="reference internal" href="#">3.2.3.3.2. sklearn.ensemble.RandomForestRegressor</a></li>
 </ul>
 
@@ -283,10 +285,10 @@ by <cite>np.random</cite>.</p>
 <p class="last"><tt class="xref py py-obj docutils literal"><span class="pre">DecisionTreeRegressor</span></tt>, <a class="reference internal" href="sklearn.ensemble.ExtraTreesRegressor.html#sklearn.ensemble.ExtraTreesRegressor" title="sklearn.ensemble.ExtraTreesRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">ExtraTreesRegressor</span></tt></a></p>
 </div>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r104" rules="none">
+<table class="docutils citation" frame="void" id="r112" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[R104]</a></td><td><ol class="first last upperalpha simple" start="12">
+<tr><td class="label"><a class="fn-backref" href="#id1">[R112]</a></td><td><ol class="first last upperalpha simple" start="12">
 <li>Breiman, &#8220;Random Forests&#8221;, Machine Learning, 45(1), 5-32, 2001.</li>
 </ol>
 </td></tr>
@@ -332,10 +334,10 @@ by <cite>np.random</cite>.</p>
 <td>Build a forest of trees from the training set (X, y).</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.ensemble.RandomForestRegressor.fit_transform" title="sklearn.ensemble.RandomForestRegressor.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it</td>
+<td>Fit to data, then transform it.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.ensemble.RandomForestRegressor.get_params" title="sklearn.ensemble.RandomForestRegressor.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.ensemble.RandomForestRegressor.predict" title="sklearn.ensemble.RandomForestRegressor.predict"><tt class="xref py py-obj docutils literal"><span class="pre">predict</span></tt></a>(X)</td>
 <td>Predict regression target for X.</td>
@@ -344,7 +346,7 @@ by <cite>np.random</cite>.</p>
 <td>Returns the coefficient of determination R^2 of the prediction.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.ensemble.RandomForestRegressor.set_params" title="sklearn.ensemble.RandomForestRegressor.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.ensemble.RandomForestRegressor.transform" title="sklearn.ensemble.RandomForestRegressor.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X[,&nbsp;threshold])</td>
 <td>Reduce X to its most important features.</td>
@@ -438,7 +440,7 @@ single class carrying a negative weight in either child node.</p>
 <dl class="method">
 <dt id="sklearn.ensemble.RandomForestRegressor.fit_transform">
 <tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.ensemble.RandomForestRegressor.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it</p>
+<dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -468,7 +470,7 @@ and returns a transformed version of X.</p>
 <dl class="method">
 <dt id="sklearn.ensemble.RandomForestRegressor.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.ensemble.RandomForestRegressor.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -545,7 +547,7 @@ Best possible score is 1.0, lower values are worse.</p>
 <dl class="method">
 <dt id="sklearn.ensemble.RandomForestRegressor.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.ensemble.RandomForestRegressor.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
@@ -608,10 +610,7 @@ available, the object attribute <tt class="docutils literal"><span class="pre">t
 
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
-    <div>
-        <a href="../../_sources/modules/generated/sklearn.ensemble.RandomForestRegressor.txt"
-    rel="nofollow">Show this page source</a>
-    </div>
+      <a href="../../_sources/modules/generated/sklearn.ensemble.RandomForestRegressor.txt" rel="nofollow">Show this page source</a>
     </div>
      <div class="rel">
     

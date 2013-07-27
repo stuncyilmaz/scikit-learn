@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>sklearn.manifold.locally_linear_embedding &mdash; scikit-learn 0.14-git documentation</title>
+    <title>8.19.5. sklearn.manifold.locally_linear_embedding &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" media="screen" />
@@ -119,17 +119,10 @@
 <div class="content-wrapper">
     <div class="sphinxsidebar">
     <div class="sphinxsidebarwrapper">
-        <div class="rel rellarge">
-    
-
-  <!-- rellinks[1:] is an ugly hack to avoid link to module
-  index -->
-
-    <!-- Ad a link to the 'up' page -->
-    </div>
-    <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
-        <ul>
-<li><a class="reference internal" href="#">sklearn.manifold.locally_linear_embedding</a></li>
+      <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
+    <p class="citing">If you use the software, please consider <a href="../../about.html#citing-scikit-learn">citing scikit-learn</a>.</p>
+    <ul>
+<li><a class="reference internal" href="#">8.19.5. sklearn.manifold.locally_linear_embedding</a></li>
 </ul>
 
     </div>
@@ -202,17 +195,17 @@ Not used if eigen_solver==&#8217;dense&#8217;.</p>
 <blockquote>
 <div><dl class="docutils">
 <dt>standard <span class="classifier-delimiter">:</span> <span class="classifier">use the standard locally linear embedding algorithm.</span></dt>
-<dd><p class="first last">see reference <a class="reference internal" href="sklearn.tree.DecisionTreeRegressor.html#r116">[R116]</a></p>
+<dd><p class="first last">see reference <a class="reference internal" href="#r124">[R124]</a></p>
 </dd>
 <dt>hessian <span class="classifier-delimiter">:</span> <span class="classifier">use the Hessian eigenmap method.  This method requires</span></dt>
 <dd><p class="first last">n_neighbors &gt; n_components * (1 + (n_components + 1) / 2.
-see reference <a class="reference internal" href="sklearn.tree.ExtraTreeClassifier.html#r117">[R117]</a></p>
+see reference <a class="reference internal" href="#r125">[R125]</a></p>
 </dd>
 <dt>modified <span class="classifier-delimiter">:</span> <span class="classifier">use the modified locally linear embedding algorithm.</span></dt>
-<dd><p class="first last">see reference <a class="reference internal" href="sklearn.tree.ExtraTreeRegressor.html#r118">[R118]</a></p>
+<dd><p class="first last">see reference <a class="reference internal" href="#r126">[R126]</a></p>
 </dd>
 <dt>ltsa <span class="classifier-delimiter">:</span> <span class="classifier">use local tangent space alignment algorithm</span></dt>
-<dd><p class="first last">see reference [R119]</p>
+<dd><p class="first last">see reference <a class="reference internal" href="#r127">[R127]</a></p>
 </dd>
 </dl>
 </div></blockquote>
@@ -247,33 +240,33 @@ iterations.  Defaults to numpy.random.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r116" rules="none">
+<table class="docutils citation" frame="void" id="r124" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R116]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id5">2</a>)</em> <cite>Roweis, S. &amp; Saul, L. Nonlinear dimensionality reduction
+<tr><td class="label">[R124]</td><td><em>(<a class="fn-backref" href="#id1">1</a>, <a class="fn-backref" href="#id5">2</a>)</em> <cite>Roweis, S. &amp; Saul, L. Nonlinear dimensionality reduction
 by locally linear embedding.  Science 290:2323 (2000).</cite></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r117" rules="none">
+<table class="docutils citation" frame="void" id="r125" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R117]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> <cite>Donoho, D. &amp; Grimes, C. Hessian eigenmaps: Locally
+<tr><td class="label">[R125]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id6">2</a>)</em> <cite>Donoho, D. &amp; Grimes, C. Hessian eigenmaps: Locally
 linear embedding techniques for high-dimensional data.
 Proc Natl Acad Sci U S A.  100:5591 (2003).</cite></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r118" rules="none">
+<table class="docutils citation" frame="void" id="r126" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R118]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> <cite>Zhang, Z. &amp; Wang, J. MLLE: Modified Locally Linear
+<tr><td class="label">[R126]</td><td><em>(<a class="fn-backref" href="#id3">1</a>, <a class="fn-backref" href="#id7">2</a>)</em> <cite>Zhang, Z. &amp; Wang, J. MLLE: Modified Locally Linear
 Embedding Using Multiple Weights.</cite>
 <a class="reference external" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.70.382">http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.70.382</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r119" rules="none">
+<table class="docutils citation" frame="void" id="r127" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R119]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id8">2</a>)</em> <cite>Zhang, Z. &amp; Zha, H. Principal manifolds and nonlinear
+<tr><td class="label">[R127]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id8">2</a>)</em> <cite>Zhang, Z. &amp; Zha, H. Principal manifolds and nonlinear
 dimensionality reduction via tangent space alignment.
 Journal of Shanghai Univ.  8:406 (2004)</cite></td></tr>
 </tbody>
@@ -292,10 +285,7 @@ Journal of Shanghai Univ.  8:406 (2004)</cite></td></tr>
 
     <div class="footer">
         &copy; 2010 - 2013, scikit-learn developers (BSD License).
-    <div>
-        <a href="../../_sources/modules/generated/sklearn.manifold.locally_linear_embedding.txt"
-    rel="nofollow">Show this page source</a>
-    </div>
+      <a href="../../_sources/modules/generated/sklearn.manifold.locally_linear_embedding.txt" rel="nofollow">Show this page source</a>
     </div>
      <div class="rel rellarge">
     
