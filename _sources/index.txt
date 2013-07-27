@@ -147,7 +147,7 @@
 
     <small class="float-right example-links">
 
-:ref:`Examples<manifold_examples>`
+:ref:`Examples<decomposition_examples>`
 
 .. raw:: html
 
@@ -229,8 +229,8 @@
             <div class="span4">
                 <h4>News</h4>
                 <ul>
-                <li><em>July 2013.</em> The scikit-learn international code sprint is around the corner! Please, sponsor us.</li>
-                <li><em>February 2013.</em> scikit-learn 0.13.1 is available for download. <a href="#">Changelog</a>.</li>
+                    <li><em>July 2013.</em> The scikit-learn international code sprint is around the corner! Please, sponsor us.</li>
+                    <li><em>February 2013.</em> scikit-learn 0.13.1 is available for download. <a href="whats_new.html">Changelog</a> .</li>
                 </ul>
             </div>
 
