@@ -108,11 +108,7 @@
 
     <!-- Ad a link to the 'up' page -->
     </div>
-    <p style="text-align: center; background-color: #FFE4E4">This documentation is
-    for scikit-learn <strong>version 0.14-git</strong>
-    &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
-
-    <h3>This page</h3>
+    <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
         <ul>
 <li><a class="reference internal" href="#">sklearn.feature_selection.RFE</a></li>
 </ul>
@@ -177,10 +173,10 @@ Useful for doing grid searches.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r107" rules="none">
+<table class="docutils citation" frame="void" id="r13" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[R107]</a></td><td>Guyon, I., Weston, J., Barnhill, S., &amp; Vapnik, V., &#8220;Gene selection
+<tr><td class="label"><a class="fn-backref" href="#id1">[R13]</a></td><td>Guyon, I., Weston, J., Barnhill, S., &amp; Vapnik, V., &#8220;Gene selection
 for cancer classification using support vector machines&#8221;,
 Mach. Learn., 46(1-3), 389&#8211;422, 2002.</td></tr>
 </tbody>
@@ -242,10 +238,10 @@ features in the Friedman #1 dataset.</p>
 <td>Fit the RFE model and then the underlying estimator on the selected</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.feature_selection.RFE.fit_transform" title="sklearn.feature_selection.RFE.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it</td>
+<td>Fit to data, then transform it.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.feature_selection.RFE.get_params" title="sklearn.feature_selection.RFE.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
-<td>Get parameters for the estimator</td>
+<td>Get parameters for this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.feature_selection.RFE.get_support" title="sklearn.feature_selection.RFE.get_support"><tt class="xref py py-obj docutils literal"><span class="pre">get_support</span></tt></a>([indices])</td>
 <td>Get a mask, or integer index, of the features selected</td>
@@ -263,7 +259,7 @@ features in the Friedman #1 dataset.</p>
 <td>Reduce X to the selected features and then return the score of the</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.feature_selection.RFE.set_params" title="sklearn.feature_selection.RFE.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
-<td>Set the parameters of the estimator.</td>
+<td>Set the parameters of this estimator.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.feature_selection.RFE.transform" title="sklearn.feature_selection.RFE.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X)</td>
 <td>Reduce X to the selected features.</td>
@@ -301,7 +297,7 @@ features.</p>
 <dl class="method">
 <dt id="sklearn.feature_selection.RFE.fit_transform">
 <tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.RFE.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it</p>
+<dd><p>Fit to data, then transform it.</p>
 <p>Fits transformer to X and y with optional parameters fit_params
 and returns a transformed version of X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -331,7 +327,7 @@ and returns a transformed version of X.</p>
 <dl class="method">
 <dt id="sklearn.feature_selection.RFE.get_params">
 <tt class="descname">get_params</tt><big>(</big><em>deep=True</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.RFE.get_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get parameters for the estimator</p>
+<dd><p>Get parameters for this estimator.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -459,7 +455,7 @@ underlying estimator.</p>
 <dl class="method">
 <dt id="sklearn.feature_selection.RFE.set_params">
 <tt class="descname">set_params</tt><big>(</big><em>**params</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.RFE.set_params" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the parameters of the estimator.</p>
+<dd><p>Set the parameters of this estimator.</p>
 <p>The method works on simple estimators as well as on nested objects
 (such as pipelines). The former have parameters of the form
 <tt class="docutils literal"><span class="pre">&lt;component&gt;__&lt;parameter&gt;</span></tt> so that it&#8217;s possible to update each
