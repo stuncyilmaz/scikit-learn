@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
 
-    <title>1.8. Ensemble methods &mdash; scikit-learn 0.14-git documentation</title>
+    <title>1.9. Ensemble methods &mdash; scikit-learn 0.14-git documentation</title>
 <!-- htmltitle is before nature.css - we use this hack to load bootstrap first -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="../_static/css/bootstrap.min.css" media="screen" />
@@ -35,8 +35,8 @@
     <link rel="author" title="About these documents" href="../about.html" />
     <link rel="top" title="scikit-learn 0.14-git documentation" href="../index.html" />
     <link rel="up" title="1. Supervised learning" href="../supervised_learning.html" />
-    <link rel="next" title="1.9. Multiclass and multilabel algorithms" href="multiclass.html" />
-    <link rel="prev" title="1.7. Decision Trees" href="tree.html" />
+    <link rel="next" title="1.10. Multiclass and multilabel algorithms" href="multiclass.html" />
+    <link rel="prev" title="1.8. Decision Trees" href="tree.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="../_static/js/bootstrap.min.js"></script>
 
@@ -132,10 +132,10 @@
         accesskey="P">Previous
         <br>
         <span class="smallrellink">
-        1.7. Decision Tr...
+        1.8. Decision Tr...
         </span>
             <span class="hiddenrellink">
-            1.7. Decision Trees
+            1.8. Decision Trees
             </span>
         </a>
         </div>
@@ -147,10 +147,10 @@
         accesskey="N">Next
         <br>
         <span class="smallrellink">
-        1.9. Multiclass ...
+        1.10. Multiclass...
         </span>
             <span class="hiddenrellink">
-            1.9. Multiclass and multilabel algorithms
+            1.10. Multiclass and multilabel algorithms
             </span>
         </a>
         </div>
@@ -177,35 +177,35 @@
       <p class="doc-version">This documentation is for scikit-learn <strong>version 0.14-git</strong> &mdash; <a href="http://scikit-learn.org/stable/support.html#documentation-resources">Other versions</a></p>
     <p class="citing">If you use the software, please consider <a href="../about.html#citing-scikit-learn">citing scikit-learn</a>.</p>
     <ul>
-<li><a class="reference internal" href="#">1.8. Ensemble methods</a><ul>
-<li><a class="reference internal" href="#forests-of-randomized-trees">1.8.1. Forests of randomized trees</a><ul>
-<li><a class="reference internal" href="#random-forests">1.8.1.1. Random Forests</a></li>
-<li><a class="reference internal" href="#extremely-randomized-trees">1.8.1.2. Extremely Randomized Trees</a></li>
-<li><a class="reference internal" href="#parameters">1.8.1.3. Parameters</a></li>
-<li><a class="reference internal" href="#parallelization">1.8.1.4. Parallelization</a></li>
-<li><a class="reference internal" href="#feature-importance-evaluation">1.8.1.5. Feature importance evaluation</a></li>
-<li><a class="reference internal" href="#totally-random-trees-embedding">1.8.1.6. Totally Random Trees Embedding</a></li>
+<li><a class="reference internal" href="#">1.9. Ensemble methods</a><ul>
+<li><a class="reference internal" href="#forests-of-randomized-trees">1.9.1. Forests of randomized trees</a><ul>
+<li><a class="reference internal" href="#random-forests">1.9.1.1. Random Forests</a></li>
+<li><a class="reference internal" href="#extremely-randomized-trees">1.9.1.2. Extremely Randomized Trees</a></li>
+<li><a class="reference internal" href="#parameters">1.9.1.3. Parameters</a></li>
+<li><a class="reference internal" href="#parallelization">1.9.1.4. Parallelization</a></li>
+<li><a class="reference internal" href="#feature-importance-evaluation">1.9.1.5. Feature importance evaluation</a></li>
+<li><a class="reference internal" href="#totally-random-trees-embedding">1.9.1.6. Totally Random Trees Embedding</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#adaboost">1.8.2. AdaBoost</a><ul>
-<li><a class="reference internal" href="#usage">1.8.2.1. Usage</a></li>
+<li><a class="reference internal" href="#adaboost">1.9.2. AdaBoost</a><ul>
+<li><a class="reference internal" href="#usage">1.9.2.1. Usage</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#gradient-tree-boosting">1.8.3. Gradient Tree Boosting</a><ul>
-<li><a class="reference internal" href="#classification">1.8.3.1. Classification</a></li>
-<li><a class="reference internal" href="#regression">1.8.3.2. Regression</a></li>
-<li><a class="reference internal" href="#mathematical-formulation">1.8.3.3. Mathematical formulation</a><ul>
-<li><a class="reference internal" href="#loss-functions">1.8.3.3.1. Loss Functions</a></li>
+<li><a class="reference internal" href="#gradient-tree-boosting">1.9.3. Gradient Tree Boosting</a><ul>
+<li><a class="reference internal" href="#classification">1.9.3.1. Classification</a></li>
+<li><a class="reference internal" href="#regression">1.9.3.2. Regression</a></li>
+<li><a class="reference internal" href="#mathematical-formulation">1.9.3.3. Mathematical formulation</a><ul>
+<li><a class="reference internal" href="#loss-functions">1.9.3.3.1. Loss Functions</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#regularization">1.8.3.4. Regularization</a><ul>
-<li><a class="reference internal" href="#shrinkage">1.8.3.4.1. Shrinkage</a></li>
-<li><a class="reference internal" href="#subsampling">1.8.3.4.2. Subsampling</a></li>
+<li><a class="reference internal" href="#regularization">1.9.3.4. Regularization</a><ul>
+<li><a class="reference internal" href="#shrinkage">1.9.3.4.1. Shrinkage</a></li>
+<li><a class="reference internal" href="#subsampling">1.9.3.4.2. Subsampling</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#interpretation">1.8.3.5. Interpretation</a><ul>
-<li><a class="reference internal" href="#feature-importance">1.8.3.5.1. Feature importance</a></li>
-<li><a class="reference internal" href="#partial-dependence">1.8.3.5.2. Partial dependence</a></li>
+<li><a class="reference internal" href="#interpretation">1.9.3.5. Interpretation</a><ul>
+<li><a class="reference internal" href="#feature-importance">1.9.3.5.1. Feature importance</a></li>
+<li><a class="reference internal" href="#partial-dependence">1.9.3.5.2. Partial dependence</a></li>
 </ul>
 </li>
 </ul>
@@ -226,7 +226,7 @@
           <div class="body">
             
   <div class="section" id="ensemble-methods">
-<span id="ensemble"></span><h1>1.8. Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h1>
+<span id="ensemble"></span><h1>1.9. Ensemble methods<a class="headerlink" href="#ensemble-methods" title="Permalink to this headline">¶</a></h1>
 <p>The goal of <strong>ensemble methods</strong> is to combine the predictions of several
 models built with a given learning algorithm in order to improve
 generalizability / robustness over a single model.</p>
@@ -245,7 +245,7 @@ several weak models to produce a powerful ensemble.</p>
 </li>
 </ul>
 <div class="section" id="forests-of-randomized-trees">
-<span id="forest"></span><h2>1.8.1. Forests of randomized trees<a class="headerlink" href="#forests-of-randomized-trees" title="Permalink to this headline">¶</a></h2>
+<span id="forest"></span><h2>1.9.1. Forests of randomized trees<a class="headerlink" href="#forests-of-randomized-trees" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="classes.html#module-sklearn.ensemble" title="sklearn.ensemble"><tt class="xref py py-mod docutils literal"><span class="pre">sklearn.ensemble</span></tt></a> module includes two averaging algorithms based
 on randomized <a class="reference internal" href="tree.html#tree"><em>decision trees</em></a>: the RandomForest algorithm
 and the Extra-Trees method. Both algorithms are perturb-and-combine
@@ -268,7 +268,7 @@ target values (class labels) for the training samples:</p>
 to <a class="reference internal" href="tree.html#tree-multioutput"><em>multi-output problems</em></a>  (if Y is an array of size
 <tt class="docutils literal"><span class="pre">[n_samples,</span> <span class="pre">n_outputs]</span></tt>).</p>
 <div class="section" id="random-forests">
-<h3>1.8.1.1. Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.1.1. Random Forests<a class="headerlink" href="#random-forests" title="Permalink to this headline">¶</a></h3>
 <p>In random forests (see <a class="reference internal" href="generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier" title="sklearn.ensemble.RandomForestClassifier"><tt class="xref py py-class docutils literal"><span class="pre">RandomForestClassifier</span></tt></a> and
 <a class="reference internal" href="generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor" title="sklearn.ensemble.RandomForestRegressor"><tt class="xref py py-class docutils literal"><span class="pre">RandomForestRegressor</span></tt></a> classes), each tree in the ensemble is
 built from a sample drawn with replacement (i.e., a bootstrap sample)
@@ -285,7 +285,7 @@ implementation combines classifiers by averaging their probabilistic
 prediction, instead of letting each classifier vote for a single class.</p>
 </div>
 <div class="section" id="extremely-randomized-trees">
-<h3>1.8.1.2. Extremely Randomized Trees<a class="headerlink" href="#extremely-randomized-trees" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.1.2. Extremely Randomized Trees<a class="headerlink" href="#extremely-randomized-trees" title="Permalink to this headline">¶</a></h3>
 <p>In extremely randomized trees (see <a class="reference internal" href="generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier" title="sklearn.ensemble.ExtraTreesClassifier"><tt class="xref py py-class docutils literal"><span class="pre">ExtraTreesClassifier</span></tt></a>
 and <a class="reference internal" href="generated/sklearn.ensemble.ExtraTreesRegressor.html#sklearn.ensemble.ExtraTreesRegressor" title="sklearn.ensemble.ExtraTreesRegressor"><tt class="xref py py-class docutils literal"><span class="pre">ExtraTreesRegressor</span></tt></a> classes), randomness goes one step
 further in the way splits are computed. As in random forests, a random
@@ -324,11 +324,11 @@ in bias:</p>
 </pre></div>
 </div>
 <div class="figure align-center">
-<a class="reference external image-reference" href="../auto_examples/ensemble/plot_forest_iris.html"><img alt="modules/../auto_examples/ensemble/images/plot_forest_iris_1.png" src="modules/../auto_examples/ensemble/images/plot_forest_iris_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/ensemble/plot_forest_iris.html"><img alt="../_images/plot_forest_iris_1.png" src="../_images/plot_forest_iris_1.png" style="width: 600.0px; height: 450.0px;" /></a>
 </div>
 </div>
 <div class="section" id="parameters">
-<h3>1.8.1.3. Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.1.3. Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
 <p>The main parameters to adjust when using these methods is <tt class="docutils literal"><span class="pre">n_estimators</span></tt>
 and <tt class="docutils literal"><span class="pre">max_features</span></tt>. The former is the number of trees in the forest. The
 larger the better, but also the longer it will take to compute. In
@@ -348,7 +348,7 @@ in random forests (<tt class="docutils literal"><span class="pre">bootstrap=True
 use the original dataset for building extra-trees (<tt class="docutils literal"><span class="pre">bootstrap=False</span></tt>).</p>
 </div>
 <div class="section" id="parallelization">
-<h3>1.8.1.4. Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.1.4. Parallelization<a class="headerlink" href="#parallelization" title="Permalink to this headline">¶</a></h3>
 <p>Finally, this module also features the parallel construction of the trees
 and the parallel computation of the predictions through the <tt class="docutils literal"><span class="pre">n_jobs</span></tt>
 parameter. If <tt class="docutils literal"><span class="pre">n_jobs=k</span></tt> then computations are partitioned into
@@ -364,7 +364,7 @@ amount of time (e.g., on large datasets).</p>
 <ul class="simple">
 <li><a class="reference internal" href="../auto_examples/ensemble/plot_forest_iris.html#example-ensemble-plot-forest-iris-py"><em>Plot the decision surfaces of ensembles of trees on the iris dataset</em></a></li>
 <li><a class="reference internal" href="../auto_examples/ensemble/plot_forest_importances_faces.html#example-ensemble-plot-forest-importances-faces-py"><em>Pixel importances with a parallel forest of trees</em></a></li>
-<li><em class="xref std std-ref">example_ensemble_plot_forest_multioutput.py</em></li>
+<li><a class="reference internal" href="../auto_examples/plot_multioutput_face_completion.html#example-plot-multioutput-face-completion-py"><em>Face completion with a multi-output estimators</em></a></li>
 </ul>
 </div>
 <div class="topic">
@@ -397,7 +397,7 @@ trees&#8221;, Machine Learning, 63(1), 3-42, 2006.</td></tr>
 </div>
 </div>
 <div class="section" id="feature-importance-evaluation">
-<span id="random-forest-feature-importance"></span><h3>1.8.1.5. Feature importance evaluation<a class="headerlink" href="#feature-importance-evaluation" title="Permalink to this headline">¶</a></h3>
+<span id="random-forest-feature-importance"></span><h3>1.9.1.5. Feature importance evaluation<a class="headerlink" href="#feature-importance-evaluation" title="Permalink to this headline">¶</a></h3>
 <p>The relative rank (i.e. depth) of a feature used as a decision node in a
 tree can be used to assess the relative importance of that feature with
 respect to the predictability of the target variable. Features used at
@@ -412,7 +412,7 @@ for feature selection.</p>
 importances of each individual pixel for a face recognition task using
 a <a class="reference internal" href="generated/sklearn.ensemble.ExtraTreesClassifier.html#sklearn.ensemble.ExtraTreesClassifier" title="sklearn.ensemble.ExtraTreesClassifier"><tt class="xref py py-class docutils literal"><span class="pre">ExtraTreesClassifier</span></tt></a> model.</p>
 <div class="figure align-center">
-<a class="reference external image-reference" href="../auto_examples/ensemble/plot_forest_importances_faces.html"><img alt="modules/../auto_examples/ensemble/images/plot_forest_importances_faces_1.png" src="modules/../auto_examples/ensemble/images/plot_forest_importances_faces_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/ensemble/plot_forest_importances_faces.html"><img alt="../_images/plot_forest_importances_faces_1.png" src="../_images/plot_forest_importances_faces_1.png" style="width: 450.0px; height: 450.0px;" /></a>
 </div>
 <p>In practice those estimates are stored as an attribute named
 <tt class="docutils literal"><span class="pre">feature_importances_</span></tt> on the fitted model. This is an array with shape
@@ -428,7 +428,7 @@ to the prediction function.</p>
 </div>
 </div>
 <div class="section" id="totally-random-trees-embedding">
-<span id="random-trees-embedding"></span><h3>1.8.1.6. Totally Random Trees Embedding<a class="headerlink" href="#totally-random-trees-embedding" title="Permalink to this headline">¶</a></h3>
+<span id="random-trees-embedding"></span><h3>1.9.1.6. Totally Random Trees Embedding<a class="headerlink" href="#totally-random-trees-embedding" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="generated/sklearn.ensemble.RandomTreesEmbedding.html#sklearn.ensemble.RandomTreesEmbedding" title="sklearn.ensemble.RandomTreesEmbedding"><tt class="xref py py-class docutils literal"><span class="pre">RandomTreesEmbedding</span></tt></a> implements an unsupervised transformation of the
 data.  Using a forest of completely random trees, <a class="reference internal" href="generated/sklearn.ensemble.RandomTreesEmbedding.html#sklearn.ensemble.RandomTreesEmbedding" title="sklearn.ensemble.RandomTreesEmbedding"><tt class="xref py py-class docutils literal"><span class="pre">RandomTreesEmbedding</span></tt></a>
 encodes the data by the indices of the leaves a data point ends up in.  This
@@ -459,7 +459,7 @@ dimensionality reduction.</p>
 </div>
 </div>
 <div class="section" id="adaboost">
-<span id="id3"></span><h2>1.8.2. AdaBoost<a class="headerlink" href="#adaboost" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>1.9.2. AdaBoost<a class="headerlink" href="#adaboost" title="Permalink to this headline">¶</a></h2>
 <p>The module <a class="reference internal" href="classes.html#module-sklearn.ensemble" title="sklearn.ensemble"><tt class="xref py py-mod docutils literal"><span class="pre">sklearn.ensemble</span></tt></a> includes the popular boosting algorithm
 AdaBoost, introduced in 1995 by Freud and Schapire <a class="reference internal" href="#fs1995">[FS1995]</a>.</p>
 <p>The core principle of AdaBoost is to fit a sequence of weak learners (i.e.,
@@ -480,7 +480,7 @@ ever-increasing influence. Each subsequent weak learner is thereby forced to
 concentrate on the examples that are missed by the previous ones in the sequence
 <a class="reference internal" href="#id18">[HTF2009]</a>.</p>
 <div class="figure align-center">
-<a class="reference external image-reference" href="../auto_examples/ensemble/plot_adaboost_hastie_10_2.html"><img alt="modules/../auto_examples/ensemble/images/plot_adaboost_hastie_10_2_1.png" src="modules/../auto_examples/ensemble/images/plot_adaboost_hastie_10_2_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/ensemble/plot_adaboost_hastie_10_2.html"><img alt="../_images/plot_adaboost_hastie_10_2_1.png" src="../_images/plot_adaboost_hastie_10_2_1.png" style="width: 600.0px; height: 450.0px;" /></a>
 </div>
 <p>AdaBoost can be used both for classification and regression problems:</p>
 <blockquote>
@@ -491,7 +491,7 @@ AdaBoost-SAMME and AdaBoost-SAMME.R <a class="reference internal" href="#zzrh200
 </ul>
 </div></blockquote>
 <div class="section" id="usage">
-<h3>1.8.2.1. Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.2.1. Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
 <p>The following example shows how to fit an AdaBoost classifier with 100 weak
 learners:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
@@ -564,7 +564,7 @@ Statistical Learning Ed. 2&#8221;, Springer, 2009.</td></tr>
 </div>
 </div>
 <div class="section" id="gradient-tree-boosting">
-<span id="gradient-boosting"></span><h2>1.8.3. Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this headline">¶</a></h2>
+<span id="gradient-boosting"></span><h2>1.9.3. Gradient Tree Boosting<a class="headerlink" href="#gradient-tree-boosting" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://en.wikipedia.org/wiki/Gradient_boosting">Gradient Tree Boosting</a>
 or Gradient Boosted Regression Trees (GBRT) is a generalization
 of boosting to arbitrary
@@ -591,7 +591,7 @@ hardly be parallelized.</li>
 for both classification and regression via gradient boosted regression
 trees.</p>
 <div class="section" id="classification">
-<h3>1.8.3.1. Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.3.1. Classification<a class="headerlink" href="#classification" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="generated/sklearn.ensemble.GradientBoostingClassifier.html#sklearn.ensemble.GradientBoostingClassifier" title="sklearn.ensemble.GradientBoostingClassifier"><tt class="xref py py-class docutils literal"><span class="pre">GradientBoostingClassifier</span></tt></a> supports both binary and multi-class
 classification via the deviance loss function (<tt class="docutils literal"><span class="pre">loss='deviance'</span></tt>).
 The following example shows how to fit a gradient boosting classifier
@@ -624,7 +624,7 @@ of classes we strongly recommend to use
 </div>
 </div>
 <div class="section" id="regression">
-<h3>1.8.3.2. Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.3.2. Regression<a class="headerlink" href="#regression" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="generated/sklearn.ensemble.GradientBoostingRegressor.html#sklearn.ensemble.GradientBoostingRegressor" title="sklearn.ensemble.GradientBoostingRegressor"><tt class="xref py py-class docutils literal"><span class="pre">GradientBoostingRegressor</span></tt></a> supports a number of
 <a class="reference internal" href="#gradient-boosting-loss"><em>different loss functions</em></a>
 for regression which can be specified via the argument
@@ -656,7 +656,7 @@ to determine the optimal number of trees (i.e. <tt class="docutils literal"><spa
 The plot on the right shows the feature importances which can be obtained via
 the <tt class="docutils literal"><span class="pre">feature_importances_</span></tt> property.</p>
 <div class="figure align-center">
-<a class="reference external image-reference" href="../auto_examples/ensemble/plot_gradient_boosting_regression.html"><img alt="modules/../auto_examples/ensemble/images/plot_gradient_boosting_regression_1.png" src="modules/../auto_examples/ensemble/images/plot_gradient_boosting_regression_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/ensemble/plot_gradient_boosting_regression.html"><img alt="../_images/plot_gradient_boosting_regression_1.png" src="../_images/plot_gradient_boosting_regression_1.png" style="width: 900.0px; height: 450.0px;" /></a>
 </div>
 <div class="topic">
 <p class="topic-title first">Examples:</p>
@@ -667,7 +667,7 @@ the <tt class="docutils literal"><span class="pre">feature_importances_</span></
 </div>
 </div>
 <div class="section" id="mathematical-formulation">
-<h3>1.8.3.3. Mathematical formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.3.3. Mathematical formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this headline">¶</a></h3>
 <p>GBRT considers additive models of the following form:</p>
 <blockquote>
 <div><div class="math">
@@ -719,7 +719,7 @@ F_{m-1}(x_i))"/></p>
 <p>The algorithms for regression and classification
 only differ in the concrete loss function used.</p>
 <div class="section" id="loss-functions">
-<span id="gradient-boosting-loss"></span><h4>1.8.3.3.1. Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h4>
+<span id="gradient-boosting-loss"></span><h4>1.9.3.3.1. Loss Functions<a class="headerlink" href="#loss-functions" title="Permalink to this headline">¶</a></h4>
 <p>The following loss functions are supported and can be specified using
 the parameter <tt class="docutils literal"><span class="pre">loss</span></tt>:</p>
 <blockquote>
@@ -760,9 +760,9 @@ inefficient for data sets with a large number of classes.</li>
 </div>
 </div>
 <div class="section" id="regularization">
-<h3>1.8.3.4. Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.3.4. Regularization<a class="headerlink" href="#regularization" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="shrinkage">
-<span id="gradient-boosting-shrinkage"></span><h4>1.8.3.4.1. Shrinkage<a class="headerlink" href="#shrinkage" title="Permalink to this headline">¶</a></h4>
+<span id="gradient-boosting-shrinkage"></span><h4>1.9.3.4.1. Shrinkage<a class="headerlink" href="#shrinkage" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference internal" href="#f2001">[F2001]</a> proposed a simple regularization strategy that scales
 the contribution of each weak learner by a factor <img class="math" src="../_images/math/d6a7ccf879c4a4fe694033606332cb83806db296.png" alt="\nu"/>:</p>
 <div class="math">
@@ -781,7 +781,7 @@ stopping. For a more detailed discussion of the interaction between
 <tt class="docutils literal"><span class="pre">learning_rate</span></tt> and <tt class="docutils literal"><span class="pre">n_estimators</span></tt> see <a class="reference internal" href="#r2007">[R2007]</a>.</p>
 </div>
 <div class="section" id="subsampling">
-<h4>1.8.3.4.2. Subsampling<a class="headerlink" href="#subsampling" title="Permalink to this headline">¶</a></h4>
+<h4>1.9.3.4.2. Subsampling<a class="headerlink" href="#subsampling" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference internal" href="#f1999">[F1999]</a> proposed stochastic gradient boosting, which combines gradient
 boosting with bootstrap averaging (bagging). At each iteration
 the base classifier is trained on a fraction <tt class="docutils literal"><span class="pre">subsample</span></tt> of
@@ -793,7 +793,7 @@ outperforms no-shrinkage. Subsampling with shrinkage can further increase
 the accuracy of the model. Subsampling without shrinkage, on the other hand,
 does poorly.</p>
 <div class="figure align-center">
-<a class="reference external image-reference" href="../auto_examples/ensemble/plot_gradient_boosting_regularization.html"><img alt="modules/../auto_examples/ensemble/images/plot_gradient_boosting_regularization_1.png" src="modules/../auto_examples/ensemble/images/plot_gradient_boosting_regularization_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/ensemble/plot_gradient_boosting_regularization.html"><img alt="../_images/plot_gradient_boosting_regularization_1.png" src="../_images/plot_gradient_boosting_regularization_1.png" style="width: 600.0px; height: 450.0px;" /></a>
 </div>
 <p>Another strategy to reduce the variance is by subsampling the features
 analogous to the random splits in <a class="reference internal" href="generated/sklearn.ensemble.RandomForestClassifier.html#sklearn.ensemble.RandomForestClassifier" title="sklearn.ensemble.RandomForestClassifier"><tt class="xref py py-class docutils literal"><span class="pre">RandomForestClassifier</span></tt></a> .
@@ -824,7 +824,7 @@ is too time consuming.</p>
 </div>
 </div>
 <div class="section" id="interpretation">
-<h3>1.8.3.5. Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">¶</a></h3>
+<h3>1.9.3.5. Interpretation<a class="headerlink" href="#interpretation" title="Permalink to this headline">¶</a></h3>
 <p>Individual decision trees can be interpreted easily by simply
 visualizing the tree structure. Gradient boosting models, however,
 comprise hundreds of regression trees thus they cannot be easily
@@ -832,7 +832,7 @@ interpreted by visual inspection of the individual trees. Fortunately,
 a number of techniques have been proposed to summarize and interpret
 gradient boosting models.</p>
 <div class="section" id="feature-importance">
-<h4>1.8.3.5.1. Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">¶</a></h4>
+<h4>1.9.3.5.1. Feature importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">¶</a></h4>
 <p>Often features do not contribute equally to predict the target
 response; in many situations the majority of the features are in fact
 irrelevant.
@@ -866,7 +866,7 @@ accessed via the <tt class="docutils literal"><span class="pre">feature_importan
 </div>
 </div>
 <div class="section" id="partial-dependence">
-<h4>1.8.3.5.2. Partial dependence<a class="headerlink" href="#partial-dependence" title="Permalink to this headline">¶</a></h4>
+<h4>1.9.3.5.2. Partial dependence<a class="headerlink" href="#partial-dependence" title="Permalink to this headline">¶</a></h4>
 <p>Partial dependence plots (PDP) show the dependence between the target response
 and a set of &#8216;target&#8217; features, marginalizing over the
 values of all other features (the &#8216;complement&#8217; features).
@@ -878,7 +878,7 @@ usually chosen among the most important features.</p>
 <p>The Figure below shows four one-way and one two-way partial dependence plots
 for the California housing dataset:</p>
 <div class="figure align-center">
-<a class="reference external image-reference" href="../auto_examples/ensemble/plot_partial_dependence.html"><img alt="modules/../auto_examples/ensemble/images/plot_partial_dependence_1.png" src="modules/../auto_examples/ensemble/images/plot_partial_dependence_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/ensemble/plot_partial_dependence.html"><img alt="../_images/plot_partial_dependence_1.png" src="../_images/plot_partial_dependence_1.png" style="width: 560.0px; height: 420.0px;" /></a>
 </div>
 <p>One-way PDPs tell us about the interaction between the target
 response and the target feature (e.g. linear, non-linear).

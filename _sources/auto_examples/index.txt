@@ -602,34 +602,6 @@ General-purpose and introductory examples for the scikit.
         <div class="docstringWrapper">
 
 
-.. figure:: ./images/thumb/plot_classification_probability.png
-   :target: ./plot_classification_probability.html
-
-   :ref:`example_plot_classification_probability.py`
-
-
-.. raw:: html
-
-
-    <p>Plot the classification probability for different classifiers. We use a 3 class dataset, and we...
-    </p></div>
-    </div>
-
-
-.. toctree::
-   :hidden:
-
-   ./plot_classification_probability
-
-
-
-.. raw:: html
-
-
-    <div class="thumbnailContainer">
-        <div class="docstringWrapper">
-
-
 .. figure:: ./images/thumb/plot_feature_selection.png
    :target: ./plot_feature_selection.html
 
@@ -648,6 +620,34 @@ General-purpose and introductory examples for the scikit.
    :hidden:
 
    ./plot_feature_selection
+
+
+
+.. raw:: html
+
+
+    <div class="thumbnailContainer">
+        <div class="docstringWrapper">
+
+
+.. figure:: ./images/thumb/plot_classification_probability.png
+   :target: ./plot_classification_probability.html
+
+   :ref:`example_plot_classification_probability.py`
+
+
+.. raw:: html
+
+
+    <p>Plot the classification probability for different classifiers. We use a 3 class dataset, and we...
+    </p></div>
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   ./plot_classification_probability
 
 
 
@@ -2123,10 +2123,11 @@ Examples concerning the :mod:`sklearn.covariance` package.
 
 .. _cross_decomposition_examples:
 
-Cross Decomposition
+Cross decomposition
 -------------------
 
 Examples concerning the :mod:`sklearn.cross_decomposition` package.
+
 
 
 
@@ -2139,10 +2140,10 @@ Examples concerning the :mod:`sklearn.cross_decomposition` package.
         <div class="docstringWrapper">
 
 
-.. figure:: cross_decomposition/images/thumb/plot_pls.png
-   :target: ./cross_decomposition/plot_pls.html
+.. figure:: cross_decomposition/images/thumb/plot_compare_cross_decomposition.png
+   :target: ./cross_decomposition/plot_compare_cross_decomposition.html
 
-   :ref:`example_cross_decomposition_plot_pls.py`
+   :ref:`example_cross_decomposition_plot_compare_cross_decomposition.py`
 
 
 .. raw:: html
@@ -2156,7 +2157,7 @@ Examples concerning the :mod:`sklearn.cross_decomposition` package.
 .. toctree::
    :hidden:
 
-   cross_decomposition/plot_pls
+   cross_decomposition/plot_compare_cross_decomposition
 
 
 .. raw:: html

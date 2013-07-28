@@ -195,7 +195,7 @@
 <h1>3.2.3.1.1. sklearn.linear_model.RidgeCV<a class="headerlink" href="#sklearn-linear-model-ridgecv" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.linear_model.RidgeCV">
-<em class="property">class </em><tt class="descclassname">sklearn.linear_model.</tt><tt class="descname">RidgeCV</tt><big>(</big><em>alphas=array([  0.1</em>, <em>1.</em>, <em>10. ])</em>, <em>fit_intercept=True</em>, <em>normalize=False</em>, <em>score_func=None</em>, <em>loss_func=None</em>, <em>cv=None</em>, <em>gcv_mode=None</em>, <em>store_cv_values=False</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.RidgeCV" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.linear_model.</tt><tt class="descname">RidgeCV</tt><big>(</big><em>alphas=array([  0.1</em>, <em>1.</em>, <em>10. ])</em>, <em>fit_intercept=True</em>, <em>normalize=False</em>, <em>scoring=None</em>, <em>score_func=None</em>, <em>loss_func=None</em>, <em>cv=None</em>, <em>gcv_mode=None</em>, <em>store_cv_values=False</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.RidgeCV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ridge regression with built-in cross-validation.</p>
 <p>By default, it performs Generalized Cross-Validation, which is a form of
 efficient Leave-One-Out cross-validation.</p>
@@ -221,17 +221,11 @@ to false, no intercept will be used in calculations
 <blockquote>
 <div><p>If True, the regressors X will be normalized before regression.</p>
 </div></blockquote>
-<p><strong>score_func: callable, optional</strong> :</p>
+<p><strong>scoring</strong> : string, callable or None, optional, default: None</p>
 <blockquote>
-<div><p>function that takes 2 arguments and compares them in
-order to evaluate the performance of prediction (big is good)
-if None is passed, the score of the estimator is maximized</p>
-</div></blockquote>
-<p><strong>loss_func: callable, optional</strong> :</p>
-<blockquote>
-<div><p>function that takes 2 arguments and compares them in
-order to evaluate the performance of prediction (small is good)
-if None is passed, the score of the estimator is maximized</p>
+<div><p>A string (see model evaluation documentation) or
+a scorer callable object / function with signature
+<tt class="docutils literal"><span class="pre">scorer(estimator,</span> <span class="pre">X,</span> <span class="pre">y)</span></tt>.</p>
 </div></blockquote>
 <p><strong>cv</strong> : cross-validation generator, optional</p>
 <blockquote>
@@ -325,7 +319,7 @@ Generalized Cross-Validation).</p>
 </table>
 <dl class="method">
 <dt id="sklearn.linear_model.RidgeCV.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>alphas=array([  0.1</em>, <em>1.</em>, <em>10. ])</em>, <em>fit_intercept=True</em>, <em>normalize=False</em>, <em>score_func=None</em>, <em>loss_func=None</em>, <em>cv=None</em>, <em>gcv_mode=None</em>, <em>store_cv_values=False</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.RidgeCV.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>alphas=array([  0.1</em>, <em>1.</em>, <em>10. ])</em>, <em>fit_intercept=True</em>, <em>normalize=False</em>, <em>scoring=None</em>, <em>score_func=None</em>, <em>loss_func=None</em>, <em>cv=None</em>, <em>gcv_mode=None</em>, <em>store_cv_values=False</em><big>)</big><a class="headerlink" href="#sklearn.linear_model.RidgeCV.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

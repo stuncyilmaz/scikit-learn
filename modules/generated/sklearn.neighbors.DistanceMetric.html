@@ -162,8 +162,8 @@ distance metric classes:</p>
 <colgroup>
 <col width="20%" />
 <col width="29%" />
-<col width="12%" />
-<col width="39%" />
+<col width="11%" />
+<col width="40%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>identifier</td>
@@ -218,21 +218,15 @@ distance metric classes:</p>
 </tbody>
 </table>
 <p><em>Metrics intended for two-dimensional vector spaces:</em>
-===========  =================  =======================================
-identifier   class name         distance function
-&#8212;&#8212;&#8212;&#8211;  &#8212;&#8212;&#8212;&#8212;&#8212;&#8211;  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
-&#8220;haversine&#8221;  HaversineDistance  2 arcsin(sqrt(sin^2(0.5*dx)</p>
+============  ==================  ========================================
+identifier    class name          distance function
+&#8212;&#8212;&#8212;&#8212;  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-
+&#8220;haversine&#8221;   HaversineDistance   2 arcsin(sqrt(sin^2(0.5*dx)</p>
 <blockquote>
 <div><ul class="simple">
 <li>cos(x1)cos(x2)sin^2(0.5*dy)))</li>
 </ul>
 </div></blockquote>
-<p>identifier     class name            distance function
-&#8212;&#8212;&#8212;&#8212;-  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;  &#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;
-&#8220;hamming&#8221;      HammingDistance       N_unequal(x, y) / N_tot
-&#8220;canberra&#8221;     CanberraDistance      sum(<a href="#id9"><span class="problematic" id="id10">|x - y|</span></a> / (<a href="#id11"><span class="problematic" id="id12">|x|</span></a> + <a href="#id13"><span class="problematic" id="id14">|y|</span></a>))
-&#8220;braycurtis&#8221;   BrayCurtisDistance    sum(<a href="#id15"><span class="problematic" id="id16">|x - y|</span></a>) / (sum(<a href="#id17"><span class="problematic" id="id18">|x|</span></a>) + sum(<a href="#id19"><span class="problematic" id="id20">|y|</span></a>))
-=============  ====================  ====================================</p>
 <p><em>Metrics intended for boolean-valued vector spaces:</em>  Any nonzero entry
 is evaluated to &#8220;True&#8221;.  In the listings below, the following
 abbreviations are used:</p>
@@ -247,12 +241,57 @@ abbreviations are used:</p>
 <li>NNZ : number of nonzero dimensions, NNZ = NTF + NFT + NTT</li>
 </ul>
 </div></blockquote>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="32%" />
+<col width="45%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>identifier</td>
+<td>class name</td>
+<td>distance function</td>
+</tr>
+<tr class="row-even"><td>&#8220;jaccard&#8221;</td>
+<td>JaccardDistance</td>
+<td>NNEQ / NNZ</td>
+</tr>
+<tr class="row-odd"><td>&#8220;maching&#8221;</td>
+<td>MatchingDistance</td>
+<td>NNEQ / N</td>
+</tr>
+<tr class="row-even"><td>&#8220;dice&#8221;</td>
+<td>DiceDistance</td>
+<td>NNEQ / (NTT + NNZ)</td>
+</tr>
+<tr class="row-odd"><td>&#8220;kulsinski&#8221;</td>
+<td>KulsinskiDistance</td>
+<td>(NNEQ + N - NTT) / (NNEQ + N)</td>
+</tr>
+<tr class="row-even"><td>&#8220;rogerstanimoto&#8221;</td>
+<td>RogersTanimotoDistance</td>
+<td>2 * NNEQ / (N + NNEQ)</td>
+</tr>
+<tr class="row-odd"><td>&#8220;russellrao&#8221;</td>
+<td>RussellRaoDistance</td>
+<td>NNZ / N</td>
+</tr>
+<tr class="row-even"><td>&#8220;sokalmichener&#8221;</td>
+<td>SokalMichenerDistance</td>
+<td>2 * NNEQ / (N + NNEQ)</td>
+</tr>
+<tr class="row-odd"><td>&#8220;sokalsneath&#8221;</td>
+<td>SokalSneathDistance</td>
+<td>NNEQ / (NNEQ + 0.5 * NTT)</td>
+</tr>
+</tbody>
+</table>
 <p><em>User-defined distance:</em></p>
 <table border="1" class="docutils">
 <colgroup>
-<col width="32%" />
+<col width="33%" />
 <col width="45%" />
-<col width="23%" />
+<col width="21%" />
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>identifier</td>

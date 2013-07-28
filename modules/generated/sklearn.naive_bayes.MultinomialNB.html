@@ -192,6 +192,45 @@ Information Retrieval. Cambridge University Press, pp. 234–265.
 </pre></div>
 </div>
 <p class="rubric">Attributes</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="23%" />
+<col width="41%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><cite>class_log_prior_</cite></td>
+<td>array, shape (n_classes)</td>
+<td>Smoothed empirical log probability for each class.</td>
+</tr>
+<tr class="row-even"><td><cite>intercept_</cite></td>
+<td>property</td>
+<td>Mirrors <tt class="docutils literal"><span class="pre">class_log_prior_</span></tt> for interpreting MultinomialNB
+as a linear model.</td>
+</tr>
+<tr class="row-odd"><td><cite>feature_log_prob_</cite>: array, shape (n_classes, n_features)</td>
+<td>&nbsp;</td>
+<td>Empirical log probability of features
+given a class, P(x_i|y).</td>
+</tr>
+<tr class="row-even"><td><cite>coef_</cite></td>
+<td>property</td>
+<td>Mirrors <tt class="docutils literal"><span class="pre">feature_log_prob_</span></tt> for interpreting MultinomialNB
+as a linear model.</td>
+</tr>
+<tr class="row-odd"><td><cite>class_count_</cite></td>
+<td>array, shape (n_classes,)</td>
+<td>Number of samples encountered for each class during fitting. This
+value is weighted by the sample weight when provided.</td>
+</tr>
+<tr class="row-even"><td><cite>feature_count_</cite></td>
+<td>array, shape (n_classes, n_features)</td>
+<td>Number of samples encountered for each (class, feature)
+during fitting. This value is weighted by the sample weight when
+provided.</td>
+</tr>
+</tbody>
+</table>
 <p class="rubric">Methods</p>
 <table border="1" class="longtable docutils">
 <colgroup>

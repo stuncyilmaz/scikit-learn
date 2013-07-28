@@ -162,12 +162,11 @@ dictionaries, in which case the grids spanned by each dictionary
 in the list are explored. This enables searching over any sequence
 of parameter settings.</p>
 </div></blockquote>
-<p><strong>scoring</strong> : string or callable, optional</p>
+<p><strong>scoring</strong> : string, callable or None, optional, default: None</p>
 <blockquote>
-<div><p>Either one of either a string (&#8220;zero_one&#8221;, &#8220;f1&#8221;, &#8220;roc_auc&#8221;, ... for
-classification, &#8220;mse&#8221;, &#8220;r2&#8221;,... for regression) or a callable.
-See &#8216;Scoring objects&#8217; in the model evaluation section of the user guide
-for details.</p>
+<div><p>A string (see model evaluation documentation) or
+a scorer callable object / function with signature
+<tt class="docutils literal"><span class="pre">scorer(estimator,</span> <span class="pre">X,</span> <span class="pre">y)</span></tt>.</p>
 </div></blockquote>
 <p><strong>fit_params</strong> : dict, optional</p>
 <blockquote>
@@ -250,12 +249,12 @@ n_jobs</cite>.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
 <span class="gp">... </span>                            
 <span class="go">GridSearchCV(cv=None,</span>
-<span class="go">    estimator=SVC(C=1.0, cache_size=..., coef0=..., degree=...,</span>
-<span class="go">        gamma=..., kernel=&#39;rbf&#39;, max_iter=-1, probability=False,</span>
-<span class="go">        shrinking=True, tol=...),</span>
-<span class="go">    fit_params={}, iid=True, loss_func=None, n_jobs=1,</span>
-<span class="go">        param_grid=...,</span>
-<span class="go">        ...)</span>
+<span class="go">       estimator=SVC(C=1.0, cache_size=..., class_weight=..., coef0=..., degree=..., gamma=...,</span>
+<span class="go">   kernel=&#39;rbf&#39;, max_iter=-1, probability=False, random_state=None,</span>
+<span class="go">   shrinking=True, tol=..., verbose=False),</span>
+<span class="go">       fit_params={}, iid=..., loss_func=..., n_jobs=1,</span>
+<span class="go">       param_grid=..., pre_dispatch=..., refit=..., score_func=...,</span>
+<span class="go">       scoring=..., verbose=...)</span>
 </pre></div>
 </div>
 <p class="rubric">Attributes</p>

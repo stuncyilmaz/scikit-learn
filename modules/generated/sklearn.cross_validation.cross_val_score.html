@@ -154,19 +154,18 @@
 <blockquote>
 <div><p>The data to fit.</p>
 </div></blockquote>
-<p><strong>y</strong> : array-like, optional</p>
+<p><strong>y</strong> : array-like, optional, default: None</p>
 <blockquote>
 <div><p>The target variable to try to predict in the case of
 supervised learning.</p>
 </div></blockquote>
-<p><strong>scoring</strong> : string or callable, optional</p>
+<p><strong>scoring</strong> : string, callable or None, optional, default: None</p>
 <blockquote>
-<div><p>Either one of either a string (&#8220;zero_one&#8221;, &#8220;f1&#8221;, &#8220;roc_auc&#8221;, ... for
-classification, &#8220;mse&#8221;, &#8220;r2&#8221;, ... for regression) or a callable.
-See &#8216;Scoring objects&#8217; in the model evaluation section of the user guide
-for details.</p>
+<div><p>A string (see model evaluation documentation) or
+a scorer callable object / function with signature
+<tt class="docutils literal"><span class="pre">scorer(estimator,</span> <span class="pre">X,</span> <span class="pre">y)</span></tt>.</p>
 </div></blockquote>
-<p><strong>cv</strong> : cross-validation generator, optional</p>
+<p><strong>cv</strong> : cross-validation generator, optional, default: None</p>
 <blockquote>
 <div><p>A cross-validation generator. If None, a 3-fold cross
 validation is used or 3-fold stratified cross-validation

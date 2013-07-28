@@ -219,7 +219,7 @@
 <li><a class="reference internal" href="#clustering-metrics">3.5.3. Clustering metrics</a></li>
 <li><a class="reference internal" href="#biclustering-metrics">3.5.4. Biclustering metrics</a></li>
 <li><a class="reference internal" href="#scoring-objects-defining-your-scoring-rules">3.5.5. <cite>Scoring</cite> objects: defining your scoring rules</a><ul>
-<li><a class="reference internal" href="#id9">3.5.5.1. Clustering metrics</a></li>
+<li><a class="reference internal" href="#id8">3.5.5.1. Clustering metrics</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dummy-estimators">3.5.6. Dummy estimators</a></li>
@@ -247,7 +247,7 @@ model:</p>
 default evaluation criterion for the problem they are designed to solve.
 This is not discussed on this page, but in each estimator&#8217;s documentation.</li>
 <li><strong>Scoring parameter</strong>: Model-evaluation tools using
-<em class="xref std std-ref">cross-validation</em> (such as
+<a class="reference internal" href="cross_validation.html#cross-validation"><em>cross-validation</em></a> (such as
 <a class="reference internal" href="generated/sklearn.cross_validation.cross_val_score.html#sklearn.cross_validation.cross_val_score" title="sklearn.cross_validation.cross_val_score"><tt class="xref py py-func docutils literal"><span class="pre">cross_validation.cross_val_score</span></tt></a> and
 <a class="reference internal" href="generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV" title="sklearn.grid_search.GridSearchCV"><tt class="xref py py-class docutils literal"><span class="pre">grid_search.GridSearchCV</span></tt></a>) rely on an internal <em>scoring</em> strategy.
 This is discussed on section <a class="reference internal" href="#scoring-parameter"><em>The scoring parameter: defining model evaluation rules</em></a>.</li>
@@ -272,6 +272,55 @@ controls what metric they apply to estimators evaluated.</p>
 <h3>3.5.1.1. Common cases: predefined values<a class="headerlink" href="#common-cases-predefined-values" title="Permalink to this headline">¶</a></h3>
 <p>For the most common usecases, you can simply provide a string as the
 <tt class="docutils literal"><span class="pre">scoring</span></tt> parameter. Possible values are:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Scoring</th>
+<th class="head">Function</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>Classification</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>&#8216;accuracy&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.accuracy_score.html#sklearn.metrics.accuracy_score" title="sklearn.metrics.accuracy_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.accuracy_score</span></tt></a></td>
+</tr>
+<tr class="row-even"><td>&#8216;average_precision&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.average_precision_score.html#sklearn.metrics.average_precision_score" title="sklearn.metrics.average_precision_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.average_precision_score</span></tt></a></td>
+</tr>
+<tr class="row-odd"><td>&#8216;f1&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score" title="sklearn.metrics.f1_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.f1_score</span></tt></a></td>
+</tr>
+<tr class="row-even"><td>&#8216;precision&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.precision_score.html#sklearn.metrics.precision_score" title="sklearn.metrics.precision_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.precision_score</span></tt></a></td>
+</tr>
+<tr class="row-odd"><td>&#8216;recall&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.recall_score.html#sklearn.metrics.recall_score" title="sklearn.metrics.recall_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.recall_score</span></tt></a></td>
+</tr>
+<tr class="row-even"><td>&#8216;roc_auc&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.auc_score.html#sklearn.metrics.auc_score" title="sklearn.metrics.auc_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.auc_score</span></tt></a></td>
+</tr>
+<tr class="row-odd"><td><strong>Clustering</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&#8216;adjusted_rand_score&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.adjusted_rand_score.html#sklearn.metrics.adjusted_rand_score" title="sklearn.metrics.adjusted_rand_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.adjusted_rand_score</span></tt></a></td>
+</tr>
+<tr class="row-odd"><td><strong>Regression</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>&#8216;mean_squared_error&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.mean_squared_error.html#sklearn.metrics.mean_squared_error" title="sklearn.metrics.mean_squared_error"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.mean_squared_error</span></tt></a></td>
+</tr>
+<tr class="row-odd"><td>&#8216;r2&#8217;</td>
+<td><a class="reference internal" href="generated/sklearn.metrics.r2_score.html#sklearn.metrics.r2_score" title="sklearn.metrics.r2_score"><tt class="xref py py-func docutils literal"><span class="pre">sklearn.metrics.r2_score</span></tt></a></td>
+</tr>
+</tbody>
+</table>
 <p>Setting the <tt class="docutils literal"><span class="pre">scoring</span></tt> parameter to a wrong value should give you a list
 of acceptable values:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">cross_validation</span><span class="p">,</span> <span class="n">datasets</span>
@@ -292,7 +341,7 @@ of acceptable values:</p>
 predicted values. These are detailed below, in the next sections.</p>
 </div>
 <div class="section" id="defining-your-scoring-strategy-from-score-functions">
-<span id="score-func-objects"></span><h3>3.5.1.2. Defining your scoring strategy from score functions<a class="headerlink" href="#defining-your-scoring-strategy-from-score-functions" title="Permalink to this headline">¶</a></h3>
+<span id="scoring"></span><h3>3.5.1.2. Defining your scoring strategy from score functions<a class="headerlink" href="#defining-your-scoring-strategy-from-score-functions" title="Permalink to this headline">¶</a></h3>
 <p>The scoring parameter can be a callable that takes model predictions and
 ground truth.</p>
 <p>However, if you want to use a scoring function that takes additional parameters, such as
@@ -326,12 +375,8 @@ from a simple python function:</p>
 <li>the function you want to use</li>
 <li>whether it is a score (<tt class="docutils literal"><span class="pre">greater_is_better=True</span></tt>) or a loss
 (<tt class="docutils literal"><span class="pre">greater_is_better=False</span></tt>),</li>
-<li>whether the function you provided takes predictions as input</li>
-</ul>
-<blockquote>
-<div>(<tt class="docutils literal"><span class="pre">needs_threshold=False</span></tt>) or needs confidence scores
-(<tt class="docutils literal"><span class="pre">needs_threshold=True</span></tt>)</div></blockquote>
-<ul class="simple">
+<li>whether the function you provided takes predictions as input
+(<tt class="docutils literal"><span class="pre">needs_threshold=False</span></tt>) or needs confidence scores (<tt class="docutils literal"><span class="pre">needs_threshold=True</span></tt>)</li>
 <li>any additional parameters, such as <tt class="docutils literal"><span class="pre">beta</span></tt> in an <a class="reference internal" href="generated/sklearn.metrics.f1_score.html#sklearn.metrics.f1_score" title="sklearn.metrics.f1_score"><tt class="xref py py-func docutils literal"><span class="pre">f1_score</span></tt></a>.</li>
 </ul>
 </div>
@@ -545,7 +590,7 @@ predicted to be in group <img class="math" src="../_images/math/8122aa89ea6e8078
 </div>
 <p>Here a visual representation of such confusion matrix (this figure comes
 from the <a class="reference internal" href="../auto_examples/plot_confusion_matrix.html#example-plot-confusion-matrix-py"><em>Confusion matrix</em></a> example):</p>
-<a class="reference external image-reference" href="../auto_examples/plot_confusion_matrix.html"><img alt="modules/../auto_examples/images/plot_confusion_matrix_1.png" class="align-center" src="modules/../auto_examples/images/plot_confusion_matrix_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/plot_confusion_matrix.html"><img alt="../_images/plot_confusion_matrix_1.png" class="align-center" src="../_images/plot_confusion_matrix_1.png" style="width: 450.0px; height: 450.0px;" /></a>
 <div class="topic">
 <p class="topic-title first">Example:</p>
 <ul class="simple">
@@ -1030,7 +1075,7 @@ sensitivity, and FPR is one minus the specificity or true negative rate.&#8221;<
 </pre></div>
 </div>
 <p>The following figure shows an example of such ROC curve.</p>
-<a class="reference external image-reference" href="../auto_examples/plot_roc.html"><img alt="modules/../auto_examples/images/plot_roc_1.png" class="align-center" src="modules/../auto_examples/images/plot_roc_1.png" /></a>
+<a class="reference external image-reference" href="../auto_examples/plot_roc.html"><img alt="../_images/plot_roc_1.png" class="align-center" src="../_images/plot_roc_1.png" style="width: 600.0px; height: 450.0px;" /></a>
 <div class="topic">
 <p class="topic-title first">Examples:</p>
 <ul class="simple">
@@ -1220,7 +1265,7 @@ metrics. For more information see the <a class="reference internal" href="biclus
 section.</p>
 </div>
 <div class="section" id="scoring-objects-defining-your-scoring-rules">
-<span id="id8"></span><h2>3.5.5. <cite>Scoring</cite> objects: defining your scoring rules<a class="headerlink" href="#scoring-objects-defining-your-scoring-rules" title="Permalink to this headline">¶</a></h2>
+<span id="score-func-objects"></span><h2>3.5.5. <cite>Scoring</cite> objects: defining your scoring rules<a class="headerlink" href="#scoring-objects-defining-your-scoring-rules" title="Permalink to this headline">¶</a></h2>
 <p>While the above functions provide a simple interface for most use-cases, they
 can not directly be used for model selection and evaluation using
 <a class="reference internal" href="generated/sklearn.grid_search.GridSearchCV.html#sklearn.grid_search.GridSearchCV" title="sklearn.grid_search.GridSearchCV"><tt class="xref py py-class docutils literal"><span class="pre">grid_search.GridSearchCV</span></tt></a> and
@@ -1287,14 +1332,14 @@ values are:</p>
 </table>
 <p>The corresponding scorer objects are stored in the dictionary
 <tt class="docutils literal"><span class="pre">sklearn.metrics.SCORERS</span></tt>.</p>
-<div class="section" id="id9">
-<span id="id10"></span><h3>3.5.5.1. Clustering metrics<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<span id="id9"></span><h3>3.5.5.1. Clustering metrics<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference internal" href="classes.html#module-sklearn.metrics" title="sklearn.metrics"><tt class="xref py py-mod docutils literal"><span class="pre">sklearn.metrics</span></tt></a> implements several losses, scores and utility
 functions. For more information see the <a class="reference internal" href="clustering.html#clustering-evaluation"><em>Clustering performance evaluation</em></a> section.</p>
 </div>
 </div>
 <div class="section" id="dummy-estimators">
-<span id="id11"></span><h2>3.5.6. Dummy estimators<a class="headerlink" href="#dummy-estimators" title="Permalink to this headline">¶</a></h2>
+<span id="id10"></span><h2>3.5.6. Dummy estimators<a class="headerlink" href="#dummy-estimators" title="Permalink to this headline">¶</a></h2>
 <p>When doing supervised learning, a simple sanity check consists in comparing
 one&#8217;s estimator against simple rules of thumb. <a class="reference internal" href="generated/sklearn.dummy.DummyClassifier.html#sklearn.dummy.DummyClassifier" title="sklearn.dummy.DummyClassifier"><tt class="xref py py-class docutils literal"><span class="pre">DummyClassifier</span></tt></a>
 implements three such simple strategies for classification:</p>

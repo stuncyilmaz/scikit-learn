@@ -52,7 +52,7 @@ Functions
 .. _bicluster_ref:
 
 :mod:`sklearn.cluster.bicluster`: Biclustering
-======================================
+==============================================
 
 .. automodule:: sklearn.cluster.bicluster
    :no-members:
@@ -950,8 +950,8 @@ Pairwise metrics
 
 .. _cross_decomposition_ref:
 
-:mod:`sklearn.cross_decomposition`: Cross Decomposition
-==========================================================
+:mod:`sklearn.cross_decomposition`: Cross decomposition
+=======================================================
 
 .. automodule:: sklearn.cross_decomposition
    :no-members:

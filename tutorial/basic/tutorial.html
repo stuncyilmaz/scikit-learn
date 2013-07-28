@@ -298,8 +298,8 @@ set, let us use all the images of our dataset apart from the last
 one:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">digits</span><span class="o">.</span><span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">digits</span><span class="o">.</span><span class="n">target</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  
 <span class="go">SVC(C=100.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,</span>
-<span class="go">  gamma=0.001, kernel=&#39;rbf&#39;, max_iter=-1, probability=False, shrinking=True,</span>
-<span class="go">  tol=0.001, verbose=False)</span>
+<span class="go">  gamma=0.001, kernel=&#39;rbf&#39;, max_iter=-1, probability=False,</span>
+<span class="go">  random_state=None, shrinking=True, tol=0.001, verbose=False)</span>
 </pre></div>
 </div>
 <p>Now you can predict new values, in particular, we can ask to the
@@ -310,7 +310,7 @@ which we have not used to train the classifier:</p>
 </pre></div>
 </div>
 <p>The corresponding image is the following:</p>
-<a class="reference external image-reference" href="../../auto_examples/datasets/plot_digits_last_image.html"><img alt="tutorial/basic/../../auto_examples/datasets/images/plot_digits_last_image_1.png" class="align-center" src="tutorial/basic/../../auto_examples/datasets/images/plot_digits_last_image_1.png" /></a>
+<a class="reference external image-reference" href="../../auto_examples/datasets/plot_digits_last_image.html"><img alt="../../_images/plot_digits_last_image_11.png" class="align-center" src="../../_images/plot_digits_last_image_11.png" style="width: 150.0px; height: 150.0px;" /></a>
 <p>As you can see, it is a challenging task: the images are of poor
 resolution. Do you agree with the classifier?</p>
 <p>A complete example of this classification problem is available as an
@@ -328,8 +328,8 @@ persistence model, namely <a class="reference external" href="http://docs.python
 <span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>  
 <span class="go">SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0, degree=3, gamma=0.0,</span>
-<span class="go">  kernel=&#39;rbf&#39;, max_iter=-1, probability=False, shrinking=True, tol=0.001,</span>
-<span class="go">  verbose=False)</span>
+<span class="go">  kernel=&#39;rbf&#39;, max_iter=-1, probability=False, random_state=None,</span>
+<span class="go">  shrinking=True, tol=0.001, verbose=False)</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pickle</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>

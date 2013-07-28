@@ -140,7 +140,7 @@
 <h1>sklearn.svm.SVR<a class="headerlink" href="#sklearn-svm-svr" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.svm.SVR">
-<em class="property">class </em><tt class="descclassname">sklearn.svm.</tt><tt class="descname">SVR</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>C=1.0</em>, <em>epsilon=0.1</em>, <em>shrinking=True</em>, <em>probability=False</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em><big>)</big><a class="headerlink" href="#sklearn.svm.SVR" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.svm.</tt><tt class="descname">SVR</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>C=1.0</em>, <em>epsilon=0.1</em>, <em>shrinking=True</em>, <em>probability=False</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.svm.SVR" title="Permalink to this definition">¶</a></dt>
 <dd><p>epsilon-Support Vector Regression.</p>
 <p>The free parameters in the model are C and epsilon.</p>
 <p>The implementations is a based on libsvm.</p>
@@ -206,8 +206,13 @@ per-process runtime setting in libsvm that, if enabled, may not work
 properly in a multithreaded context.</p>
 </div></blockquote>
 <p><strong>max_iter</strong> : int, optional (default=-1)</p>
-<blockquote class="last">
+<blockquote>
 <div><p>Hard limit on iterations within solver, or -1 for no limit.</p>
+</div></blockquote>
+<p><strong>random_state</strong> : int seed, RandomState instance, or None (default)</p>
+<blockquote class="last">
+<div><p>The seed of the pseudo random number generator to use when
+shuffling the data for probability estimaton.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -230,8 +235,8 @@ properly in a multithreaded context.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">SVR</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> 
 <span class="go">SVR(C=1.0, cache_size=200, coef0=0.0, degree=3, epsilon=0.2, gamma=0.0,</span>
-<span class="go">  kernel=&#39;rbf&#39;, max_iter=-1, probability=False, shrinking=True, tol=0.001,</span>
-<span class="go">  verbose=False)</span>
+<span class="go">    kernel=&#39;rbf&#39;, max_iter=-1, probability=False, random_state=None,</span>
+<span class="go">    shrinking=True, tol=0.001, verbose=False)</span>
 </pre></div>
 </div>
 <p class="rubric">Attributes</p>
@@ -297,7 +302,7 @@ problem). This is only available in the case of linear kernel.</p>
 </table>
 <dl class="method">
 <dt id="sklearn.svm.SVR.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>C=1.0</em>, <em>epsilon=0.1</em>, <em>shrinking=True</em>, <em>probability=False</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em><big>)</big><a class="headerlink" href="#sklearn.svm.SVR.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>C=1.0</em>, <em>epsilon=0.1</em>, <em>shrinking=True</em>, <em>probability=False</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.svm.SVR.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

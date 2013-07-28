@@ -140,7 +140,7 @@
 <h1>sklearn.grid_search.RandomizedSearchCV<a class="headerlink" href="#sklearn-grid-search-randomizedsearchcv" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.grid_search.RandomizedSearchCV">
-<em class="property">class </em><tt class="descclassname">sklearn.grid_search.</tt><tt class="descname">RandomizedSearchCV</tt><big>(</big><em>estimator</em>, <em>param_distributions</em>, <em>n_iter=10</em>, <em>scoring=None</em>, <em>loss_func=None</em>, <em>score_func=None</em>, <em>fit_params=None</em>, <em>n_jobs=1</em>, <em>iid=True</em>, <em>refit=True</em>, <em>cv=None</em>, <em>verbose=0</em>, <em>pre_dispatch='2*n_jobs'</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.grid_search.RandomizedSearchCV" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.grid_search.</tt><tt class="descname">RandomizedSearchCV</tt><big>(</big><em>estimator</em>, <em>param_distributions</em>, <em>n_iter=10</em>, <em>scoring=None</em>, <em>fit_params=None</em>, <em>n_jobs=1</em>, <em>iid=True</em>, <em>refit=True</em>, <em>cv=None</em>, <em>verbose=0</em>, <em>pre_dispatch='2*n_jobs'</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.grid_search.RandomizedSearchCV" title="Permalink to this definition">¶</a></dt>
 <dd><p>Randomized search on hyper parameters.</p>
 <p>RandomizedSearchCV implements a &#8220;fit&#8221; method and a &#8220;predict&#8221; method like
 any classifier except that the parameters of the classifier
@@ -169,12 +169,11 @@ If a list is given, it is sampled uniformly.</p>
 <div><p>Number of parameter settings that are sampled. n_iter trades
 off runtime vs quality of the solution.</p>
 </div></blockquote>
-<p><strong>scoring</strong> : string or callable, optional</p>
+<p><strong>scoring</strong> : string, callable or None, optional, default: None</p>
 <blockquote>
-<div><p>Either one of either a string (&#8220;zero_one&#8221;, &#8220;f1&#8221;, &#8220;roc_auc&#8221;, ... for
-classification, &#8220;mse&#8221;, &#8220;r2&#8221;,... for regression) or a callable.
-See &#8216;Scoring objects&#8217; in the model evaluation section of the user guide
-for details.</p>
+<div><p>A string (see model evaluation documentation) or
+a scorer callable object / function with signature
+<tt class="docutils literal"><span class="pre">scorer(estimator,</span> <span class="pre">X,</span> <span class="pre">y)</span></tt>.</p>
 </div></blockquote>
 <p><strong>fit_params</strong> : dict, optional</p>
 <blockquote>
@@ -239,10 +238,8 @@ this RandomizedSearchCV instance after fitting.</p>
 </dl>
 </div>
 <p class="rubric">Notes</p>
-<p>The parameters selected are those that maximize the score of the left out
-data, unless an explicit score_func is passed in which case it is used
-instead. If a loss function loss_func is passed, it overrides the score
-functions and is minimized.</p>
+<p>The parameters selected are those that maximize the score of the held-out
+data, according to the scoring parameter.</p>
 <p>If <cite>n_jobs</cite> was set to a value higher than one, the data is copied for each
 parameter setting(and not <cite>n_jobs</cite> times). This is done for efficiency
 reasons if individual jobs take very little time, but may raise errors if
@@ -312,7 +309,7 @@ on the left out data.</td>
 </table>
 <dl class="method">
 <dt id="sklearn.grid_search.RandomizedSearchCV.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>estimator</em>, <em>param_distributions</em>, <em>n_iter=10</em>, <em>scoring=None</em>, <em>loss_func=None</em>, <em>score_func=None</em>, <em>fit_params=None</em>, <em>n_jobs=1</em>, <em>iid=True</em>, <em>refit=True</em>, <em>cv=None</em>, <em>verbose=0</em>, <em>pre_dispatch='2*n_jobs'</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.grid_search.RandomizedSearchCV.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>estimator</em>, <em>param_distributions</em>, <em>n_iter=10</em>, <em>scoring=None</em>, <em>fit_params=None</em>, <em>n_jobs=1</em>, <em>iid=True</em>, <em>refit=True</em>, <em>cv=None</em>, <em>verbose=0</em>, <em>pre_dispatch='2*n_jobs'</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.grid_search.RandomizedSearchCV.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

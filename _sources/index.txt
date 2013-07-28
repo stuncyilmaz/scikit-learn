@@ -226,7 +226,7 @@
     <div class="container index-lower">
         <div class="row-fluid">
             <!-- News -->
-            <div class="span6">
+            <div class="span4">
                 <h4>News</h4>
                 <ul>
                 <li><em>July 28th, 2013.</em>
@@ -264,7 +264,7 @@
             </div>
 
             <!-- Community -->
-            <div class="span6">
+            <div class="span4">
                 <h4>Community</h4>
                 <ul>
                 <li><em>Questions?</em> See <a href="http://stackoverflow.com/questions/tagged/scikit-learn">stackoverflow</a> # scikit-learn for usage questions</li>
@@ -279,7 +279,6 @@
             </div>
 
             <!-- who using -->
-            <!--
             <div class="span4">
                 <h4>Who is using scikit-learn?</h4>
 
@@ -289,11 +288,16 @@
                         <div class="active item"><img src="_images/inria.jpg" class="thumbnail" /><br /> <em>-- Great stuff!</em></div>
                         <div class="item"><img src="_static/img/google.png" class="thumbnail" /><br /> <em>-- So good!</em></div>
                     </div>
-                    <div style="margin-top: 5px"><a href="#">More testimonials</a></div>
+                    <div style="margin-top: 5px"><a href="testimonials/testimonials.html">More testimonials</a></div>
+                    <!--
+                    <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    </ol>
+                    -->
                 </div>
                 <script>$('#myCarousel').carousel()</script>
             </div>
-            -->
 
         </div>
     </div>

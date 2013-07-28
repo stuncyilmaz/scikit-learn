@@ -168,7 +168,9 @@ percentage specified by n_components</p>
 </div></blockquote>
 <p><strong>copy</strong> : bool</p>
 <blockquote>
-<div><p>If False, data passed to fit are overwritten</p>
+<div><p>If False, data passed to fit are overwritten and running
+fit(X).transform(X) will not yield the expected results,
+use fit_transform(X) instead.</p>
 </div></blockquote>
 <p><strong>whiten</strong> : bool, optional</p>
 <blockquote class="last">
@@ -259,7 +261,7 @@ transform data in a consistent fashion.</p>
 
 <dl class="method">
 <dt id="sklearn.decomposition.PCA.fit">
-<tt class="descname">fit</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**params</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.PCA.fit" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">fit</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.PCA.fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the model with X.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -284,7 +286,7 @@ and n_features is the number of features.</p>
 
 <dl class="method">
 <dt id="sklearn.decomposition.PCA.fit_transform">
-<tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**params</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.PCA.fit_transform" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.PCA.fit_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit the model with X and apply the dimensionality reduction on X.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

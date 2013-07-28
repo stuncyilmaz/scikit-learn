@@ -209,7 +209,7 @@ n_samples case is handled efficiently.</p>
 <div><p>Array of alpha values to try.
 Small positive values of alpha improve the conditioning of the
 problem and reduce the variance of the estimates.
-Alpha corresponds to (2*C)^-1 in other linear models such as
+Alpha corresponds to <tt class="docutils literal"><span class="pre">(2*C)^-1</span></tt> in other linear models such as
 LogisticRegression or LinearSVC.</p>
 </div></blockquote>
 <p><strong>fit_intercept</strong> : boolean</p>
@@ -222,17 +222,11 @@ to false, no intercept will be used in calculations
 <blockquote>
 <div><p>If True, the regressors X will be normalized before regression.</p>
 </div></blockquote>
-<p><strong>score_func: callable, optional</strong> :</p>
+<p><strong>scoring</strong> : string, callable or None, optional, default: None</p>
 <blockquote>
-<div><p>function that takes 2 arguments and compares them in
-order to evaluate the performance of prediction (big is good)
-if None is passed, the score of the estimator is maximized</p>
-</div></blockquote>
-<p><strong>loss_func: callable, optional</strong> :</p>
-<blockquote>
-<div><p>function that takes 2 arguments and compares them in
-order to evaluate the performance of prediction (small is good)
-if None is passed, the score of the estimator is maximized</p>
+<div><p>A string (see model evaluation documentation) or
+a scorer callable object / function with signature
+<tt class="docutils literal"><span class="pre">scorer(estimator,</span> <span class="pre">X,</span> <span class="pre">y)</span></tt>.</p>
 </div></blockquote>
 <p><strong>cv</strong> : cross-validation generator, optional</p>
 <blockquote>
@@ -242,7 +236,7 @@ will be used.</p>
 <p><strong>class_weight</strong> : dict, optional</p>
 <blockquote class="last">
 <div><p>Weights associated with classes in the form
-{class_label : weight}. If not given, all classes are
+<tt class="docutils literal"><span class="pre">{class_label</span> <span class="pre">:</span> <span class="pre">weight}</span></tt>. If not given, all classes are
 supposed to have weight one.</p>
 </div></blockquote>
 </td>
@@ -358,25 +352,23 @@ class would be predicted.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape = [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape (n_samples, n_features)</p>
 <blockquote>
 <div><p>Training vectors, where n_samples is the number of samples
 and n_features is the number of features.</p>
 </div></blockquote>
-<p><strong>y</strong> : array-like, shape = [n_samples]</p>
+<p><strong>y</strong> : array-like, shape (n_samples,)</p>
 <blockquote>
 <div><p>Target values.</p>
 </div></blockquote>
-<p><strong>sample_weight</strong> : float or numpy array of shape [n_samples]</p>
+<p><strong>sample_weight</strong> : float or numpy array of shape (n_samples,)</p>
 <blockquote>
-<div><p>Sample weight</p>
+<div><p>Sample weight.</p>
 </div></blockquote>
 <p><strong>class_weight</strong> : dict, optional</p>
 <blockquote>
-<div><blockquote>
-<div><p>Weights associated with classes in the form</p>
-</div></blockquote>
-<p>{class_label : weight}. If not given, all classes are
+<div><p>Weights associated with classes in the form
+<tt class="docutils literal"><span class="pre">{class_label</span> <span class="pre">:</span> <span class="pre">weight}</span></tt>. If not given, all classes are
 supposed to have weight one. This is parameter is
 deprecated.</p>
 </div></blockquote>

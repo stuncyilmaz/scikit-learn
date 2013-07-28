@@ -140,7 +140,7 @@
 <h1>sklearn.svm.OneClassSVM<a class="headerlink" href="#sklearn-svm-oneclasssvm" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.svm.OneClassSVM">
-<em class="property">class </em><tt class="descclassname">sklearn.svm.</tt><tt class="descname">OneClassSVM</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>nu=0.5</em>, <em>shrinking=True</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em><big>)</big><a class="headerlink" href="#sklearn.svm.OneClassSVM" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.svm.</tt><tt class="descname">OneClassSVM</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>nu=0.5</em>, <em>shrinking=True</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.svm.OneClassSVM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unsupervised Outliers Detection.</p>
 <p>Estimate the support of a high-dimensional distribution.</p>
 <p>The implementation is based on libsvm.</p>
@@ -196,8 +196,13 @@ per-process runtime setting in libsvm that, if enabled, may not work
 properly in a multithreaded context.</p>
 </div></blockquote>
 <p><strong>max_iter</strong> : int, optional (default=-1)</p>
-<blockquote class="last">
+<blockquote>
 <div><p>Hard limit on iterations within solver, or -1 for no limit.</p>
+</div></blockquote>
+<p><strong>random_state</strong> : int seed, RandomState instance, or None (default)</p>
+<blockquote class="last">
+<div><p>The seed of the pseudo random number generator to use when
+shuffling the data for probability estimation.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -263,7 +268,7 @@ problem). This is only available in the case of linear kernel.</p>
 </table>
 <dl class="method">
 <dt id="sklearn.svm.OneClassSVM.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>nu=0.5</em>, <em>shrinking=True</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em><big>)</big><a class="headerlink" href="#sklearn.svm.OneClassSVM.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>kernel='rbf'</em>, <em>degree=3</em>, <em>gamma=0.0</em>, <em>coef0=0.0</em>, <em>tol=0.001</em>, <em>nu=0.5</em>, <em>shrinking=True</em>, <em>cache_size=200</em>, <em>verbose=False</em>, <em>max_iter=-1</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.svm.OneClassSVM.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

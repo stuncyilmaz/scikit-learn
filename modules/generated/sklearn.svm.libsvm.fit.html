@@ -146,52 +146,81 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X: array-like, dtype=float64, size=[n_samples, n_features]</strong> :</p>
-<p><strong>Y: array, dtype=float64, size=[n_samples]</strong> :</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, dtype=float64, size=[n_samples, n_features]</p>
+<p><strong>Y</strong> : array, dtype=float64, size=[n_samples]</p>
 <blockquote>
 <div><p>target vector</p>
 </div></blockquote>
-<p><strong>svm_type</strong> : {0, 1, 2, 3, 4}</p>
+<p><strong>svm_type</strong> : {0, 1, 2, 3, 4}, optional</p>
 <blockquote>
 <div><p>Type of SVM: C_SVC, NuSVC, OneClassSVM, EpsilonSVR or NuSVR
-respectively.</p>
+respectively. 0 by default.</p>
 </div></blockquote>
-<p><strong>kernel</strong> : {&#8216;linear&#8217;, &#8216;rbf&#8217;, &#8216;poly&#8217;, &#8216;sigmoid&#8217;, &#8216;precomputed&#8217;}</p>
+<p><strong>kernel</strong> : {&#8216;linear&#8217;, &#8216;rbf&#8217;, &#8216;poly&#8217;, &#8216;sigmoid&#8217;, &#8216;precomputed&#8217;}, optional</p>
 <blockquote>
 <div><p>Kernel to use in the model: linear, polynomial, RBF, sigmoid
-or precomputed.</p>
+or precomputed. &#8216;rbf&#8217; by default.</p>
 </div></blockquote>
-<p><strong>degree</strong> : int32</p>
+<p><strong>degree</strong> : int32, optional</p>
 <blockquote>
 <div><p>Degree of the polynomial kernel (only relevant if kernel is
-set to polynomial)</p>
+set to polynomial), 3 by default.</p>
 </div></blockquote>
-<p><strong>gamma</strong> : float64</p>
+<p><strong>gamma</strong> : float64, optional</p>
 <blockquote>
 <div><p>Gamma parameter in RBF kernel (only relevant if kernel is set
-to RBF)</p>
+to RBF). 0.1 by default.</p>
 </div></blockquote>
-<p><strong>coef0</strong> : float64</p>
+<p><strong>coef0</strong> : float64, optional</p>
 <blockquote>
-<div><p>Independent parameter in poly/sigmoid kernel.</p>
+<div><p>Independent parameter in poly/sigmoid kernel. 0 by default.</p>
 </div></blockquote>
-<p><strong>tol</strong> : float64</p>
+<p><strong>tol</strong> : float64, optional</p>
 <blockquote>
-<div><p>Numeric stopping criterion (WRITEME).</p>
+<div><p>Numeric stopping criterion (WRITEME). 1e-3 by default.</p>
 </div></blockquote>
-<p><strong>C</strong> : float64</p>
+<p><strong>C</strong> : float64, optional</p>
 <blockquote>
-<div><p>C parameter in C-Support Vector Classification</p>
+<div><p>C parameter in C-Support Vector Classification. 1 by default.</p>
 </div></blockquote>
-<p><strong>nu</strong> : float64</p>
-<p><strong>cache_size</strong> : float64</p>
+<p><strong>nu</strong> : float64, optional</p>
 <blockquote>
-<div><p>Cache size for gram matrix columns (in megabytes)</p>
+<div><p>0.5 by default.</p>
 </div></blockquote>
-<p><strong>max_iter: int (-1 for no limit)</strong> :</p>
+<p><strong>epsilon</strong> : double, optional</p>
+<blockquote>
+<div><p>0.1 by default.</p>
+</div></blockquote>
+<p><strong>class_weight</strong> : array, dtype float64, shape (n_classes,), optional</p>
+<blockquote>
+<div><p>np.empty(0) by default.</p>
+</div></blockquote>
+<p><strong>sample_weight</strong> : array, dtype float64, shape (n_samples,), optional</p>
+<blockquote>
+<div><p>np.empty(0) by default.</p>
+</div></blockquote>
+<p><strong>shrinking</strong> : int, optional</p>
+<blockquote>
+<div><p>1 by default.</p>
+</div></blockquote>
+<p><strong>probability</strong> : int, optional</p>
+<blockquote>
+<div><p>0 by default.</p>
+</div></blockquote>
+<p><strong>cache_size</strong> : float64, optional</p>
+<blockquote>
+<div><p>Cache size for gram matrix columns (in megabytes). 100 by default.</p>
+</div></blockquote>
+<p><strong>max_iter</strong> : int (-1 for no limit), optional.</p>
 <blockquote>
 <div><p>Stop solver after this many iterations regardless of accuracy
-(XXX Currently there is no API to know whether this kicked in.)</p>
+(XXX Currently there is no API to know whether this kicked in.)
+-1 by default.</p>
+</div></blockquote>
+<p><strong>random_seed</strong> : int, optional</p>
+<blockquote>
+<div><p>Seed for the random number generator used for probability estimates.
+0 by default.</p>
 </div></blockquote>
 </td>
 </tr>

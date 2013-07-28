@@ -141,7 +141,7 @@
 <dl class="class">
 <dt id="sklearn.decomposition.FastICA">
 <em class="property">class </em><tt class="descclassname">sklearn.decomposition.</tt><tt class="descname">FastICA</tt><big>(</big><em>n_components=None</em>, <em>algorithm='parallel'</em>, <em>whiten=True</em>, <em>fun='logcosh'</em>, <em>fun_args=None</em>, <em>max_iter=200</em>, <em>tol=0.0001</em>, <em>w_init=None</em>, <em>random_state=None</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.FastICA" title="Permalink to this definition">¶</a></dt>
-<dd><p>FastICA: a fast algorithm for Independent Component Analysis</p>
+<dd><p>FastICA: a fast algorithm for Independent Component Analysis.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -152,7 +152,7 @@
 </div></blockquote>
 <p><strong>algorithm</strong> : {&#8216;parallel&#8217;, &#8216;deflation&#8217;}</p>
 <blockquote>
-<div><p>Apply parallel or deflational algorithm for FastICA</p>
+<div><p>Apply parallel or deflational algorithm for FastICA.</p>
 </div></blockquote>
 <p><strong>whiten</strong> : boolean, optional</p>
 <blockquote>
@@ -177,15 +177,15 @@ point. Example:</p>
 <blockquote>
 <div><p>Arguments to send to the functional form.
 If empty and if fun=&#8217;logcosh&#8217;, fun_args will take value
-{&#8216;alpha&#8217; : 1.0}</p>
+{&#8216;alpha&#8217; : 1.0}.</p>
 </div></blockquote>
 <p><strong>max_iter</strong> : int, optional</p>
 <blockquote>
-<div><p>Maximum number of iterations during fit</p>
+<div><p>Maximum number of iterations during fit.</p>
 </div></blockquote>
 <p><strong>tol</strong> : float, optional</p>
 <blockquote>
-<div><p>Tolerance on update at each iteration</p>
+<div><p>Tolerance on update at each iteration.</p>
 </div></blockquote>
 <p><strong>w_init</strong> : None of an (n_components, n_components) ndarray</p>
 <blockquote>
@@ -219,7 +219,7 @@ pp. 411-430</cite></p>
 <td>Fit the model and recover the sources from X.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.decomposition.FastICA.get_mixing_matrix" title="sklearn.decomposition.FastICA.get_mixing_matrix"><tt class="xref py py-obj docutils literal"><span class="pre">get_mixing_matrix</span></tt></a>(*args,&nbsp;**kwargs)</td>
-<td>DEPRECATED: To be removed in 0.16. Use the <a href="#id1"><span class="problematic" id="id2">mixing_</span></a> attribute.</td>
+<td>DEPRECATED: To be removed in 0.16. Use the <tt class="docutils literal"><span class="pre">mixing_</span></tt> attribute.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.FastICA.get_params" title="sklearn.decomposition.FastICA.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
 <td>Get parameters for this estimator.</td>
@@ -287,7 +287,7 @@ and n_features is the number of features.</p>
 <dl class="method">
 <dt id="sklearn.decomposition.FastICA.get_mixing_matrix">
 <tt class="descname">get_mixing_matrix</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.FastICA.get_mixing_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>DEPRECATED: To be removed in 0.16. Use the <a href="#id3"><span class="problematic" id="id4">mixing_</span></a> attribute.</p>
+<dd><p>DEPRECATED: To be removed in 0.16. Use the <tt class="docutils literal"><span class="pre">mixing_</span></tt> attribute.</p>
 <p>Compute the mixing matrix.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />

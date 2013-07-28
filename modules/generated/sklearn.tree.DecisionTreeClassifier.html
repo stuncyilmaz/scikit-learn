@@ -198,30 +198,30 @@ by <cite>np.random</cite>.</p>
 <p class="last"><a class="reference internal" href="sklearn.tree.DecisionTreeRegressor.html#sklearn.tree.DecisionTreeRegressor" title="sklearn.tree.DecisionTreeRegressor"><tt class="xref py py-obj docutils literal"><span class="pre">DecisionTreeRegressor</span></tt></a></p>
 </div>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r113" rules="none">
+<table class="docutils citation" frame="void" id="r109" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[R113]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Decision_tree_learning">http://en.wikipedia.org/wiki/Decision_tree_learning</a></td></tr>
+<tr><td class="label"><a class="fn-backref" href="#id1">[R109]</a></td><td><a class="reference external" href="http://en.wikipedia.org/wiki/Decision_tree_learning">http://en.wikipedia.org/wiki/Decision_tree_learning</a></td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r114" rules="none">
+<table class="docutils citation" frame="void" id="r110" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id2">[R114]</a></td><td>L. Breiman, J. Friedman, R. Olshen, and C. Stone, &#8220;Classification
+<tr><td class="label"><a class="fn-backref" href="#id2">[R110]</a></td><td>L. Breiman, J. Friedman, R. Olshen, and C. Stone, &#8220;Classification
 and Regression Trees&#8221;, Wadsworth, Belmont, CA, 1984.</td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r115" rules="none">
+<table class="docutils citation" frame="void" id="r111" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id3">[R115]</a></td><td>T. Hastie, R. Tibshirani and J. Friedman. &#8220;Elements of Statistical
+<tr><td class="label"><a class="fn-backref" href="#id3">[R111]</a></td><td>T. Hastie, R. Tibshirani and J. Friedman. &#8220;Elements of Statistical
 Learning&#8221;, Springer, 2009.</td></tr>
 </tbody>
 </table>
-<table class="docutils citation" frame="void" id="r116" rules="none">
+<table class="docutils citation" frame="void" id="r112" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label">[R116]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id5">2</a>)</em> L. Breiman, and A. Cutler, &#8220;Random Forests&#8221;,
+<tr><td class="label">[R112]</td><td><em>(<a class="fn-backref" href="#id4">1</a>, <a class="fn-backref" href="#id5">2</a>)</em> L. Breiman, and A. Cutler, &#8220;Random Forests&#8221;,
 <a class="reference external" href="http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm">http://www.stat.berkeley.edu/~breiman/RandomForests/cc_home.htm</a></td></tr>
 </tbody>
 </table>
@@ -229,13 +229,9 @@ Learning&#8221;, Springer, 2009.</td></tr>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">cross_val_score</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">clf</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">iris</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">... </span>                            
 <span class="gp">...</span>
 <span class="go">array([ 1.     ,  0.93...,  0.86...,  0.93...,  0.93...,</span>
@@ -270,7 +266,7 @@ output (for multi-output problems).</td>
 <td>The feature importances. The higher, the more important the
 feature. The importance of a feature is computed as the (normalized)
 total reduction of the criterion brought by that feature.  It is also
-known as the Gini importance <a class="reference internal" href="#r116">[R116]</a>.</td>
+known as the Gini importance <a class="reference internal" href="#r112">[R112]</a>.</td>
 </tr>
 </tbody>
 </table>

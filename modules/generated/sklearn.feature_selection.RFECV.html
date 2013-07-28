@@ -140,7 +140,7 @@
 <h1>sklearn.feature_selection.RFECV<a class="headerlink" href="#sklearn-feature-selection-rfecv" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="sklearn.feature_selection.RFECV">
-<em class="property">class </em><tt class="descclassname">sklearn.feature_selection.</tt><tt class="descname">RFECV</tt><big>(</big><em>estimator</em>, <em>step=1</em>, <em>cv=None</em>, <em>loss_func=None</em>, <em>estimator_params={}</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.RFECV" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">sklearn.feature_selection.</tt><tt class="descname">RFECV</tt><big>(</big><em>estimator</em>, <em>step=1</em>, <em>cv=None</em>, <em>scoring=None</em>, <em>loss_func=None</em>, <em>estimator_params={}</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.RFECV" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>Feature ranking with recursive feature elimination and cross-validated</dt>
 <dd>selection of the best number of features.</dd>
@@ -172,10 +172,11 @@ If None, 3-fold cross-validation is performed by default.
 Specific cross-validation objects can also be passed, see
 <cite>sklearn.cross_validation module</cite> for details.</p>
 </div></blockquote>
-<p><strong>loss_func</strong> : function, optional (default=None)</p>
+<p><strong>scoring</strong> : string, callable or None, optional, default: None</p>
 <blockquote>
-<div><p>The loss function to minimize by cross-validation. If None, then the
-score function of the estimator is maximized.</p>
+<div><p>A string (see model evaluation documentation) or
+a scorer callable object / function with signature
+<tt class="docutils literal"><span class="pre">scorer(estimator,</span> <span class="pre">X,</span> <span class="pre">y)</span></tt>.</p>
 </div></blockquote>
 <p><strong>estimator_params</strong> : dict</p>
 <blockquote>
@@ -191,10 +192,10 @@ Useful for doing grid searches.</p>
 </tbody>
 </table>
 <p class="rubric">References</p>
-<table class="docutils citation" frame="void" id="r116" rules="none">
+<table class="docutils citation" frame="void" id="r91" rules="none">
 <colgroup><col class="label" /><col /></colgroup>
 <tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id1">[R116]</a></td><td>Guyon, I., Weston, J., Barnhill, S., &amp; Vapnik, V., &#8220;Gene selection
+<tr><td class="label"><a class="fn-backref" href="#id1">[R91]</a></td><td>Guyon, I., Weston, J., Barnhill, S., &amp; Vapnik, V., &#8220;Gene selection
 for cancer classification using support vector machines&#8221;,
 Mach. Learn., 46(1-3), 389&#8211;422, 2002.</td></tr>
 </tbody>
@@ -296,7 +297,7 @@ the CV score of the i-th subset of features.</td>
 </table>
 <dl class="method">
 <dt id="sklearn.feature_selection.RFECV.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>estimator</em>, <em>step=1</em>, <em>cv=None</em>, <em>loss_func=None</em>, <em>estimator_params={}</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.RFECV.__init__" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">__init__</tt><big>(</big><em>estimator</em>, <em>step=1</em>, <em>cv=None</em>, <em>scoring=None</em>, <em>loss_func=None</em>, <em>estimator_params={}</em>, <em>verbose=0</em><big>)</big><a class="headerlink" href="#sklearn.feature_selection.RFECV.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

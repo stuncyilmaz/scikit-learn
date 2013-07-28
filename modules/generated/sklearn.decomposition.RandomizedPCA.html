@@ -156,7 +156,9 @@ is set to n_features (the second dimension of the training data).</p>
 </div></blockquote>
 <p><strong>copy</strong> : bool</p>
 <blockquote>
-<div><p>If False, data passed to fit are overwritten</p>
+<div><p>If False, data passed to fit are overwritten and running
+fit(X).transform(X) will not yield the expected results,
+use fit_transform(X) instead.</p>
 </div></blockquote>
 <p><strong>iterated_power</strong> : int, optional</p>
 <blockquote>
@@ -244,21 +246,21 @@ Per-Gunnar Martinsson, Vladimir Rokhlin and Mark Tygert</cite></td></tr>
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.fit" title="sklearn.decomposition.RandomizedPCA.fit"><tt class="xref py py-obj docutils literal"><span class="pre">fit</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit the model to the data X.</td>
+<td>Fit the model with X.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.fit_transform" title="sklearn.decomposition.RandomizedPCA.fit_transform"><tt class="xref py py-obj docutils literal"><span class="pre">fit_transform</span></tt></a>(X[,&nbsp;y])</td>
-<td>Fit to data, then transform it.</td>
+<td>Apply dimensionality reduction on X.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.get_params" title="sklearn.decomposition.RandomizedPCA.get_params"><tt class="xref py py-obj docutils literal"><span class="pre">get_params</span></tt></a>([deep])</td>
 <td>Get parameters for this estimator.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.inverse_transform" title="sklearn.decomposition.RandomizedPCA.inverse_transform"><tt class="xref py py-obj docutils literal"><span class="pre">inverse_transform</span></tt></a>(X)</td>
+<tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.inverse_transform" title="sklearn.decomposition.RandomizedPCA.inverse_transform"><tt class="xref py py-obj docutils literal"><span class="pre">inverse_transform</span></tt></a>(X[,&nbsp;y])</td>
 <td>Transform data back to its original space.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.set_params" title="sklearn.decomposition.RandomizedPCA.set_params"><tt class="xref py py-obj docutils literal"><span class="pre">set_params</span></tt></a>(**params)</td>
 <td>Set the parameters of this estimator.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.transform" title="sklearn.decomposition.RandomizedPCA.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X)</td>
+<tr class="row-even"><td><a class="reference internal" href="#sklearn.decomposition.RandomizedPCA.transform" title="sklearn.decomposition.RandomizedPCA.transform"><tt class="xref py py-obj docutils literal"><span class="pre">transform</span></tt></a>(X[,&nbsp;y])</td>
 <td>Apply dimensionality reduction on X.</td>
 </tr>
 </tbody>
@@ -271,15 +273,15 @@ Per-Gunnar Martinsson, Vladimir Rokhlin and Mark Tygert</cite></td></tr>
 <dl class="method">
 <dt id="sklearn.decomposition.RandomizedPCA.fit">
 <tt class="descname">fit</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.RandomizedPCA.fit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit the model to the data X.</p>
+<dd><p>Fit the model with X.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X: array-like, shape (n_samples, n_features)</strong> :</p>
 <blockquote>
-<div><p>Training vector, where n_samples in the number of samples and
-n_features is the number of features.</p>
+<div><p>Training data, where n_samples in the number of samples
+and n_features is the number of features.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -295,28 +297,20 @@ n_features is the number of features.</p>
 
 <dl class="method">
 <dt id="sklearn.decomposition.RandomizedPCA.fit_transform">
-<tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em>, <em>**fit_params</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.RandomizedPCA.fit_transform" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit to data, then transform it.</p>
-<p>Fits transformer to X and y with optional parameters fit_params
-and returns a transformed version of X.</p>
+<tt class="descname">fit_transform</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.RandomizedPCA.fit_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply dimensionality reduction on X.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : numpy array of shape [n_samples, n_features]</p>
+<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>X</strong> : array-like, shape (n_samples, n_features)</p>
 <blockquote>
-<div><p>Training set.</p>
-</div></blockquote>
-<p><strong>y</strong> : numpy array of shape [n_samples]</p>
-<blockquote>
-<div><p>Target values.</p>
+<div><p>New data, where n_samples in the number of samples
+and n_features is the number of features.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first"><strong>X_new</strong> : numpy array of shape [n_samples, n_features_new]</p>
-<blockquote class="last">
-<div><p>Transformed array.</p>
-</div></blockquote>
+<tr class="field-even field"><th class="field-name">Returns :</th><td class="field-body"><p class="first last"><strong>X_new</strong> : array-like, shape (n_samples, n_components)</p>
 </td>
 </tr>
 </tbody>
@@ -350,7 +344,7 @@ contained subobjects that are estimators.</p>
 
 <dl class="method">
 <dt id="sklearn.decomposition.RandomizedPCA.inverse_transform">
-<tt class="descname">inverse_transform</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.RandomizedPCA.inverse_transform" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">inverse_transform</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.RandomizedPCA.inverse_transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transform data back to its original space.</p>
 <p>Returns an array X_original whose transform would be X.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -394,7 +388,7 @@ component of a nested object.</p>
 
 <dl class="method">
 <dt id="sklearn.decomposition.RandomizedPCA.transform">
-<tt class="descname">transform</tt><big>(</big><em>X</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.RandomizedPCA.transform" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">transform</tt><big>(</big><em>X</em>, <em>y=None</em><big>)</big><a class="headerlink" href="#sklearn.decomposition.RandomizedPCA.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply dimensionality reduction on X.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
