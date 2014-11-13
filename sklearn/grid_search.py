@@ -164,16 +164,33 @@ class ParameterSampler(object):
         self.random_state = random_state
 
     def __iter__(self):
+        samples = []
+        # check if all distributions are given as lists
+        # in this case we want to sample without replacement
+        all_lists = np.all([not hasattr(v, "rvs")
+                            for v in self.param_distributions.values()])
+        if all_lists:
+            # size of complete grid
+            grid_size = np.prod([len(v) for v in self.param_distributions.values()])
+            if grid_size < self.n_iter:
+                raise ValueError("The total space of parameters passed is smaller than n_iter. "
+                                 "For exhaustive searches, use GridSearchCV.")
         rnd = check_random_state(self.random_state)
         # Always sort the keys of a dictionary, for reproducibility
         items = sorted(self.param_distributions.items())
-        for _ in range(self.n_iter):
+        while len(samples) < self.n_iter:
             params = dict()
             for k, v in items:
                 if hasattr(v, "rvs"):
                     params[k] = v.rvs()
                 else:
                     params[k] = v[rnd.randint(len(v))]
+            if all_lists and params in samples:
+                # do sampling without replacement only if all_lists
+                # otherwise distributions with finite support might
+                # cause infinite loops
+                continue
+            samples.append(params)
             yield params
 
     def __len__(self):
