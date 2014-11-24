@@ -173,8 +173,9 @@ class ParameterSampler(object):
             # size of complete grid
             grid_size = np.prod([len(v) for v in self.param_distributions.values()])
             if grid_size < self.n_iter:
-                raise ValueError("The total space of parameters passed is smaller than n_iter. "
-                                 "For exhaustive searches, use GridSearchCV.")
+                raise ValueError("The total space of parameters %d is smaller than n_iter=%d. "
+                                 % (grid_size, self.n_iter)
+                                 + "For exhaustive searches, use GridSearchCV.")
         rnd = check_random_state(self.random_state)
         # Always sort the keys of a dictionary, for reproducibility
         items = sorted(self.param_distributions.items())
