@@ -97,6 +97,11 @@ true_result5 = [0, 1, 1]
 
 class CommonTest(object):
 
+    def factory(self, **kwargs):
+        if "random_state" not in kwargs:
+            kwargs["random_state"] = 42
+        return self.factory_class(**kwargs)
+
     # a simple implementation of ASGD to use for testing
     # uses squared loss to find the gradient
     def asgd(self, X, y, eta, alpha, weight_init=None, intercept_init=0.0):
@@ -230,10 +235,10 @@ class CommonTest(object):
 
         clf1 = self.factory(average=7, learning_rate="constant",
                             loss='squared_loss', eta0=eta0,
-                            alpha=alpha, n_iter=2)
+                            alpha=alpha, n_iter=2, shuffle=False)
         clf2 = self.factory(average=0, learning_rate="constant",
                             loss='squared_loss', eta0=eta0,
-                            alpha=alpha, n_iter=1)
+                            alpha=alpha, n_iter=1, shuffle=False)
 
         clf1.fit(X, Y_encode)
         clf2.fit(X, Y_encode)
@@ -251,8 +256,7 @@ class CommonTest(object):
 
 class DenseSGDClassifierTestCase(unittest.TestCase, CommonTest):
     """Test suite for the dense representation variant of SGD"""
-
-    factory = SGDClassifier
+    factory_class = SGDClassifier
 
     def test_sgd(self):
         """Check that SGD gives any results :-)"""
@@ -340,7 +344,7 @@ class DenseSGDClassifierTestCase(unittest.TestCase, CommonTest):
                            learning_rate='constant',
                            eta0=eta, alpha=alpha,
                            fit_intercept=True,
-                           n_iter=1, average=True)
+                           n_iter=1, average=True, shuffle=False)
 
         # simple linear function without noise
         y = np.dot(X, w)
@@ -399,7 +403,7 @@ class DenseSGDClassifierTestCase(unittest.TestCase, CommonTest):
                            learning_rate='constant',
                            eta0=eta, alpha=alpha,
                            fit_intercept=True,
-                           n_iter=1, average=True)
+                           n_iter=1, average=True, shuffle=False)
 
         np_Y2 = np.array(Y2)
         clf.fit(X2, np_Y2)
@@ -529,7 +533,7 @@ class DenseSGDClassifierTestCase(unittest.TestCase, CommonTest):
         Y = Y4[idx]
 
         clf = self.factory(penalty='l1', alpha=.2, fit_intercept=False,
-                           n_iter=2000)
+                           n_iter=2000, shuffle=False)
         clf.fit(X, Y)
         assert_array_equal(clf.coef_[0, 1:-1], np.zeros((4,)))
         pred = clf.predict(X)
@@ -604,18 +608,18 @@ class DenseSGDClassifierTestCase(unittest.TestCase, CommonTest):
         X, y = iris.data, iris.target
         X = scale(X)
         idx = np.arange(X.shape[0])
-        rng = np.random.RandomState(0)
+        rng = np.random.RandomState(6)
         rng.shuffle(idx)
         X = X[idx]
         y = y[idx]
         clf = self.factory(alpha=0.0001, n_iter=1000,
-                           class_weight=None).fit(X, y)
+                           class_weight=None, shuffle=False).fit(X, y)
         assert_almost_equal(metrics.f1_score(y, clf.predict(X)), 0.96,
                             decimal=1)
 
         # make the same prediction using automated class_weight
         clf_auto = self.factory(alpha=0.0001, n_iter=1000,
-                                class_weight="auto").fit(X, y)
+                                class_weight="auto", shuffle=False).fit(X, y)
         assert_almost_equal(metrics.f1_score(y, clf_auto.predict(X)), 0.96,
                             decimal=1)
 
@@ -631,19 +635,19 @@ class DenseSGDClassifierTestCase(unittest.TestCase, CommonTest):
         y_imbalanced = np.concatenate([y] + [y_0] * 10)
 
         # fit a model on the imbalanced data without class weight info
-        clf = self.factory(n_iter=1000, class_weight=None)
+        clf = self.factory(n_iter=1000, class_weight=None, shuffle=False)
         clf.fit(X_imbalanced, y_imbalanced)
         y_pred = clf.predict(X)
         assert_less(metrics.f1_score(y, y_pred), 0.96)
 
         # fit a model with auto class_weight enabled
-        clf = self.factory(n_iter=1000, class_weight="auto")
+        clf = self.factory(n_iter=1000, class_weight="auto", shuffle=False)
         clf.fit(X_imbalanced, y_imbalanced)
         y_pred = clf.predict(X)
         assert_greater(metrics.f1_score(y, y_pred), 0.96)
 
         # fit another using a fit parameter override
-        clf = self.factory(n_iter=1000, class_weight="auto")
+        clf = self.factory(n_iter=1000, class_weight="auto", shuffle=False)
         clf.fit(X_imbalanced, y_imbalanced)
         y_pred = clf.predict(X)
         assert_greater(metrics.f1_score(y, y_pred), 0.96)
@@ -788,7 +792,7 @@ class DenseSGDClassifierTestCase(unittest.TestCase, CommonTest):
 class SparseSGDClassifierTestCase(DenseSGDClassifierTestCase):
     """Run exactly the same tests using the sparse representation variant"""
 
-    factory = SparseSGDClassifier
+    factory_class = SparseSGDClassifier
 
 
 ###############################################################################
@@ -797,7 +801,7 @@ class SparseSGDClassifierTestCase(DenseSGDClassifierTestCase):
 class DenseSGDRegressorTestCase(unittest.TestCase, CommonTest):
     """Test suite for the dense representation variant of SGD"""
 
-    factory = SGDRegressor
+    factory_class = SGDRegressor
 
     def test_sgd(self):
         """Check that SGD gives any results."""
@@ -834,7 +838,7 @@ class DenseSGDRegressorTestCase(unittest.TestCase, CommonTest):
                            learning_rate='constant',
                            eta0=eta, alpha=alpha,
                            fit_intercept=True,
-                           n_iter=1, average=True)
+                           n_iter=1, average=True, shuffle=False)
 
         clf.fit(X, y)
         average_weights, average_intercept = self.asgd(X, y, eta, alpha)
@@ -861,7 +865,7 @@ class DenseSGDRegressorTestCase(unittest.TestCase, CommonTest):
                            learning_rate='constant',
                            eta0=eta, alpha=alpha,
                            fit_intercept=True,
-                           n_iter=1, average=True)
+                           n_iter=1, average=True, shuffle=False)
 
         clf.partial_fit(X[:int(n_samples / 2)][:], y[:int(n_samples / 2)])
         clf.partial_fit(X[int(n_samples / 2):][:], y[int(n_samples / 2):])
@@ -881,7 +885,7 @@ class DenseSGDRegressorTestCase(unittest.TestCase, CommonTest):
                            learning_rate='constant',
                            eta0=eta, alpha=alpha,
                            fit_intercept=True,
-                           n_iter=1, average=True)
+                           n_iter=1, average=True, shuffle=False)
 
         n_samples = Y3.shape[0]
 
@@ -1044,7 +1048,7 @@ class DenseSGDRegressorTestCase(unittest.TestCase, CommonTest):
 class SparseSGDRegressorTestCase(DenseSGDRegressorTestCase):
     """Run exactly the same tests using the sparse representation variant"""
 
-    factory = SparseSGDRegressor
+    factory_class = SparseSGDRegressor
 
 
 def test_l1_ratio():
@@ -1055,14 +1059,14 @@ def test_l1_ratio():
 
     # test if elasticnet with l1_ratio near 1 gives same result as pure l1
     est_en = SGDClassifier(alpha=0.001, penalty='elasticnet',
-                           l1_ratio=0.9999999999).fit(X, y)
-    est_l1 = SGDClassifier(alpha=0.001, penalty='l1').fit(X, y)
+                           l1_ratio=0.9999999999, random_state=42).fit(X, y)
+    est_l1 = SGDClassifier(alpha=0.001, penalty='l1', random_state=42).fit(X, y)
     assert_array_almost_equal(est_en.coef_, est_l1.coef_)
 
     # test if elasticnet with l1_ratio near 0 gives same result as pure l2
     est_en = SGDClassifier(alpha=0.001, penalty='elasticnet',
-                           l1_ratio=0.0000000001).fit(X, y)
-    est_l2 = SGDClassifier(alpha=0.001, penalty='l2').fit(X, y)
+                           l1_ratio=0.0000000001, random_state=42).fit(X, y)
+    est_l2 = SGDClassifier(alpha=0.001, penalty='l2', random_state=42).fit(X, y)
     assert_array_almost_equal(est_en.coef_, est_l2.coef_)
 
 
@@ -1116,8 +1120,8 @@ def test_large_regularization():
     # Non regression tests for numerical stability issues caused by large
     # regularization parameters
     for penalty in ['l2', 'l1', 'elasticnet']:
-        model = SGDClassifier(alpha=1000., learning_rate='constant', eta0=0.1,
-                              n_iter=5, penalty=penalty)
+        model = SGDClassifier(alpha=1e5, learning_rate='constant', eta0=0.1,
+                              n_iter=5, penalty=penalty, shuffle=False)
         with np.errstate(all='raise'):
             model.fit(iris.data, iris.target)
         assert_array_almost_equal(model.coef_, np.zeros_like(model.coef_))
