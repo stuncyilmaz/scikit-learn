@@ -169,30 +169,38 @@ class ParameterSampler(object):
         # in this case we want to sample without replacement
         all_lists = np.all([not hasattr(v, "rvs")
                             for v in self.param_distributions.values()])
+        rnd = check_random_state(self.random_state)
+
         if all_lists:
-            # size of complete grid
-            grid_size = np.prod([len(v) for v in self.param_distributions.values()])
+            param_grid = list(ParameterGrid(self.param_distributions))
+            grid_size = len(param_grid)
+
+        if all_lists and self.n_iter > 0.1 * grid_size:
+            # get complete grid and yield from it
             if grid_size < self.n_iter:
                 raise ValueError("The total space of parameters %d is smaller than n_iter=%d. "
                                  % (grid_size, self.n_iter)
                                  + "For exhaustive searches, use GridSearchCV.")
-        rnd = check_random_state(self.random_state)
-        # Always sort the keys of a dictionary, for reproducibility
-        items = sorted(self.param_distributions.items())
-        while len(samples) < self.n_iter:
-            params = dict()
-            for k, v in items:
-                if hasattr(v, "rvs"):
-                    params[k] = v.rvs()
-                else:
-                    params[k] = v[rnd.randint(len(v))]
-            if all_lists and params in samples:
-                # do sampling without replacement only if all_lists
-                # otherwise distributions with finite support might
-                # cause infinite loops
-                continue
-            samples.append(params)
-            yield params
+            for i in rnd.permutation(grid_size)[:self.n_iter]:
+                yield param_grid[i]
+
+        else:
+            # Always sort the keys of a dictionary, for reproducibility
+            items = sorted(self.param_distributions.items())
+            while len(samples) < self.n_iter:
+                params = dict()
+                for k, v in items:
+                    if hasattr(v, "rvs"):
+                        params[k] = v.rvs()
+                    else:
+                        params[k] = v[rnd.randint(len(v))]
+                if all_lists and params in samples:
+                    # do sampling without replacement only if all_lists
+                    # otherwise distributions with finite support might
+                    # cause infinite loops
+                    continue
+                samples.append(params)
+                yield params
 
     def __len__(self):
         """Number of points that will be sampled."""
@@ -266,7 +274,7 @@ def _check_param_grid(param_grid):
                 raise ValueError("Parameter array should be one-dimensional.")
 
             check = [isinstance(v, k) for k in (list, tuple, np.ndarray)]
-            if not True in check:
+            if True not in check:
                 raise ValueError("Parameter values should be a list.")
 
             if len(v) == 0:

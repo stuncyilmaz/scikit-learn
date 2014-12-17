@@ -741,6 +741,14 @@ def test_parameters_sampler_replacement():
     for values in ParameterGrid(params):
         assert_true(values in samples)
 
+    # test sampling without replacement in a large grid
+    params = {'a': range(10), 'b': range(10), 'c': range(10)}
+    sampler = ParameterSampler(params, n_iter=99, random_state=42)
+    samples = list(sampler)
+    assert_equal(len(samples), 99)
+    hashable_samples = ["a%db%dc%d" % (p['a'], p['b'], p['c']) for p in samples]
+    assert_equal(len(set(hashable_samples)), 99)
+
     # doesn't go into infinite loops
     params_distribution = {'first': bernoulli(.5), 'second': ['a', 'b', 'c']}
     sampler = ParameterSampler(params_distribution, n_iter=7)
